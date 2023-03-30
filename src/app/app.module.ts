@@ -11,6 +11,7 @@ import { CategoryComponent } from './Components/Admin/category/category.componen
 import { PanelComponent } from './Components/Admin/panel/panel.component';
 import { NavbarComponent } from './Components/Admin/navbar/navbar.component';
 import { FooterComponent } from './Components/Admin/footer/footer.component';
+import { AuthorNavBarComponent } from './Components/Admin/author-nav-bar/author-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from './Components/Admin/footer/footer.component';
     PanelComponent,
     NavbarComponent,
     FooterComponent,
+    AuthorNavBarComponent,
   ],
   imports: [
     BrowserModule
