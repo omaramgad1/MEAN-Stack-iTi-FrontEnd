@@ -1,24 +1,23 @@
-import { Component,Inject } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Author } from 'src/app/models/author';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { dialogData } from 'src/app/models/dialog';
 import { AuthorsService } from 'src/app/Services/authors.service';
-import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-dialog-body',
   templateUrl: './dialog-body.component.html',
   styleUrls: ['./dialog-body.component.scss']
 })
-export class DialogBodyComponent {
+export class DialogBodyComponent implements OnInit {
 
   myForm: FormGroup;
   authors!:Author[];
   selectedImage!:string|null;
-  public ImageUrl = "";
+   ImageUrl = "";
 
-  constructor( public dialogRef:MatDialogRef<DialogBodyComponent>,@Inject(MAT_DIALOG_DATA) public data:dialogData,public fb:FormBuilder,private _authors:AuthorsService,private _dialogRef:DialogRef<DialogBodyComponent>){
+  constructor( public dialogRef:MatDialogRef<DialogBodyComponent>,@Inject(MAT_DIALOG_DATA) public data:Author,public fb:FormBuilder,private _authors:AuthorsService,private _dialogRef:MatDialogRef<DialogBodyComponent>){
 
   this.myForm = this.fb.group({
     firstName: new FormControl(null, [Validators.required]),
@@ -26,7 +25,11 @@ export class DialogBodyComponent {
     dateOfBirth: new FormControl(null, [Validators.required]),
     photo: new FormControl(null, []),
   })
+  this.myForm.value.photo=this.ImageUrl
 }
+  ngOnInit(): void {
+    this.myForm.patchValue(this.data)
+  }
 upload(event:Event){
   const file= event.target as HTMLInputElement
 
@@ -34,23 +37,39 @@ upload(event:Event){
   {
     var reader= new FileReader();
     reader.onload = (event:any) => {
-      this.ImageUrl = event.target.result;   
+      this.myForm.value.photo=event.target.result;
+   
    }
     reader.readAsDataURL(file.files[0]);
-    this.myForm.value.photo=this.ImageUrl;
   }
   }
 onSubmit(){
   if(this.myForm.valid){
-    this._authors.addAuthor(this.myForm.value).subscribe({
-next:(val:Author)=>{
-alert("Author Added Successfully");
-this._dialogRef.close();
-},
-error:(error)=>{
-  console.error(error)
-}
-    })
+    if(this.data)
+    {
+      this._authors.updateAnAuthor(this.data.id , this.myForm.value).subscribe({
+        next:(val:Author)=>{
+        alert("Author's Info Updated Successfully");
+        this._dialogRef.close(true);
+        },
+        error:(error)=>{
+          console.error(error)
+        }
+            });
+    }
+    else{
+      this._authors.addAuthor(this.myForm.value).subscribe({
+        next:(val:Author)=>{
+        alert("Author Added Successfully");
+        this._dialogRef.close(true);
+        console.log( this.myForm.value.photo)
+
+        },
+        error:(error)=>{
+          console.error(error)
+        }
+            })
+    }
   }
 }
 

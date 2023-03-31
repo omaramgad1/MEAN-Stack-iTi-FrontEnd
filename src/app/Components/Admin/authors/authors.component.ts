@@ -20,6 +20,7 @@ displayedColumns: string[] = ['First Name', 'Last Name', 'Date Of Birth', 'Photo
 @ViewChild(MatPaginator) paginator!: MatPaginator;
 searchKey!: string;
 constructor(public matDialog:MatDialog,private _authors:AuthorsService){
+
 }
   ngOnInit(): void {
 this.getAuthors();
@@ -27,8 +28,13 @@ this.getAuthors();
 
 openDialog(){
   const dialogRef= this.matDialog.open(DialogBodyComponent,{
-    width:'400px',
-  });
+    width:'400px'});
+    dialogRef.afterClosed().subscribe({
+      next:(val)=>{
+        if(val)
+      this.getAuthors();
+      }
+    })
 }
 applyFilter() {
   this.listData.filter = this.searchKey.trim().toLowerCase();
@@ -59,5 +65,12 @@ this.getAuthors()
     error:console.log
   })
 }
-
+openEditDialog(data:Author){
+ this.matDialog.open(DialogBodyComponent,{
+    width:'400px',
+    data,
+  
+  });
+    
+}
 }

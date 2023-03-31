@@ -3,6 +3,6 @@ export interface Author{
     firstName:string,
     lastName:string,
     dateOfBirth:Date|string,
-    photo:File|string
+    photo:string
     }
     
