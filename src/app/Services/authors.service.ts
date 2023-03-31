@@ -13,4 +13,11 @@ export class AuthorsService {
    addAuthor(data:Author):Observable<any>{
   return this._http.post('http://localhost:3000/authors',data);
    }
+   getAllAuthors():Observable<any>{
+    return this._http.get('http://localhost:3000/authors');
+     }
+
+     deleteAnAuthor(id:number):Observable<any>{
+return this._http.delete(`http://localhost:3000/authors/${id}`)
+     }
 }

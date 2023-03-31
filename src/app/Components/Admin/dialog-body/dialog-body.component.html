@@ -27,7 +27,7 @@
     <div (click)="photo.click()">
         <p>
         <button mat-raised-button type="button" color="primary" class="Cphoto">Choose Photo</button>
-        <input #photo (change)="upload($event)" type='file' style="display:none"/> 
+        <input   #photo (change)="upload($event)" type='file' style="display:none" accept="image/*"/> 
         <mat-icon matSuffix>photo</mat-icon>
     </p>
      </div>
@@ -37,4 +37,6 @@
     <button mat-raised-button color="danger" matDialogClose>Cancel</button>
 
 </mat-dialog-actions>
+<!-- <img className="align-self-center" width= '100%' src="{{ImageUrl}}" /> -->
+
 </form>

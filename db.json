@@ -21,8 +21,15 @@
       "firstName": "Merehan",
       "lastName": "Yehia",
       "dateOfBirth": "2000-09-10",
-      "photo": null,
+      "photo": {},
       "id": 1
+    },
+    {
+      "firstName": "Mfejrgjr",
+      "lastName": "rgjttrjkl",
+      "dateOfBirth": "7764-05-23",
+      "photo": "",
+      "id": 3
     }
   ]
 }

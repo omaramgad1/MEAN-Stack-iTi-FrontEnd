@@ -16,6 +16,7 @@ export class DialogBodyComponent {
   myForm: FormGroup;
   authors!:Author[];
   selectedImage!:string|null;
+  public ImageUrl = "";
 
   constructor( public dialogRef:MatDialogRef<DialogBodyComponent>,@Inject(MAT_DIALOG_DATA) public data:dialogData,public fb:FormBuilder,private _authors:AuthorsService,private _dialogRef:DialogRef<DialogBodyComponent>){
 
@@ -26,6 +27,19 @@ export class DialogBodyComponent {
     photo: new FormControl(null, []),
   })
 }
+upload(event:Event){
+  const file= event.target as HTMLInputElement
+
+  if(file.files)
+  {
+    var reader= new FileReader();
+    reader.onload = (event:any) => {
+      this.ImageUrl = event.target.result;   
+   }
+    reader.readAsDataURL(file.files[0]);
+    this.myForm.value.photo=this.ImageUrl;
+  }
+  }
 onSubmit(){
   if(this.myForm.valid){
     this._authors.addAuthor(this.myForm.value).subscribe({
@@ -40,15 +54,5 @@ error:(error)=>{
   }
 }
 
-upload(event:Event){
-const file= event.target as HTMLInputElement
-if(file.files)
-{
-  var reader= new FileReader();
-  reader.readAsDataURL(file.files[0]);
-  this.selectedImage=file.files[0].name
-
-}
-}
 
 }
