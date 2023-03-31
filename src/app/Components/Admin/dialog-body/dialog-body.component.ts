@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Author } from 'src/app/models/author';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { dialogData } from 'src/app/models/dialog';
+import { AuthorsService } from 'src/app/Services/authors.service';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-dialog-body',
@@ -13,22 +15,40 @@ export class DialogBodyComponent {
 
   myForm: FormGroup;
   authors!:Author[];
-  constructor( public dialogRef:MatDialogRef<DialogBodyComponent>,@Inject(MAT_DIALOG_DATA) public data:dialogData,public fb:FormBuilder){
+  selectedImage!:string|null;
+
+  constructor( public dialogRef:MatDialogRef<DialogBodyComponent>,@Inject(MAT_DIALOG_DATA) public data:dialogData,public fb:FormBuilder,private _authors:AuthorsService,private _dialogRef:DialogRef<DialogBodyComponent>){
 
   this.myForm = this.fb.group({
     firstName: new FormControl(null, [Validators.required]),
     lastName: new FormControl(null, [Validators.required]),
+    dateOfBirth: new FormControl(null, [Validators.required]),
     photo: new FormControl(null, []),
-    dateOfBirth: new FormControl(null, [Validators.required])
   })
 }
 onSubmit(){
-console.log(this.myForm.value)
+  if(this.myForm.valid){
+    this._authors.addAuthor(this.myForm.value).subscribe({
+next:(val:Author)=>{
+alert("Author Added Successfully");
+this._dialogRef.close();
+},
+error:(error)=>{
+  console.error(error)
 }
-addAuthor(){
-  
+    })
+  }
 }
+
 upload(event:Event){
-  console.log(event)
+const file= event.target as HTMLInputElement
+if(file.files)
+{
+  var reader= new FileReader();
+  reader.readAsDataURL(file.files[0]);
+  this.selectedImage=file.files[0].name
+
 }
+}
+
 }

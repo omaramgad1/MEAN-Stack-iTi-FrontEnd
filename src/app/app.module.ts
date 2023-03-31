@@ -20,6 +20,10 @@ import{MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
 import { DialogBodyComponent } from './Components/Admin/dialog-body/dialog-body.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,7 @@ import { DialogBodyComponent } from './Components/Admin/dialog-body/dialog-body.
     FooterComponent,
     AuthorNavBarComponent,
     DialogBodyComponent,
-   
+
 
   ],
   imports: [
@@ -46,9 +50,13 @@ import { DialogBodyComponent } from './Components/Admin/dialog-body/dialog-body.
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     FormsModule,
     MatDialogModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
+     MatSortModule,
+     HttpClientModule
   ],
   providers: [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
