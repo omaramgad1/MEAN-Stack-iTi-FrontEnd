@@ -2,14 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-
 import { CategoriesComponent } from './categories/categories.component';
 import { BooksComponent } from './books/books.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddEditCategoryDialogComponent } from './add-edit-category-dialog/add-edit-category-dialog.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';

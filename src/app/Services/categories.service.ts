@@ -15,20 +15,20 @@ export class CategoriesService {
 
   addNewCategory(data: any): Observable<any> {
 
-    return this._http.post(`http://localhost:3001/categories`, data);
+    return this._http.post(`http://localhost:3000/categories`, data);
   }
 
   geAllCategories(): Observable<any> {
 
-    return this._http.get(`http://localhost:3001/categories`);
+    return this._http.get(`http://localhost:3000/categories`);
   }
 
 
   deleteCategory(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:3001/categories/${id}`);
+    return this._http.delete(`http://localhost:3000/categories/${id}`);
   }
 
   updateCategory(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:3001/categories/${id}`, data);
+    return this._http.put(`http://localhost:3000/categories/${id}`, data);
   }
 }
