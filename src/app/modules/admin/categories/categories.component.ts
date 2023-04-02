@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -15,6 +16,7 @@ import { Category } from 'src/app/models/category';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
+
 export class CategoriesComponent implements OnInit {
 
   categoris!: Category[];

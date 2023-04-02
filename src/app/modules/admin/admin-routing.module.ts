@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+
 import { CategoriesComponent } from './categories/categories.component';
 import { BooksComponent } from './books/books.component';
+import { AuthorsComponent } from './authors/authors.component';
 
 const routes: Routes = [
 
@@ -12,7 +14,7 @@ const routes: Routes = [
 
       { path: 'categories', component: CategoriesComponent },
       { path: 'books', component: BooksComponent },
-      { path: 'authors', component: BooksComponent },
+      {path:'authors', component:AuthorsComponent}
 
 
 
@@ -24,6 +26,7 @@ const routes: Routes = [
 
 
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
