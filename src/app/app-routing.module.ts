@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthorsComponent } from './Components/Admin/authors/authors.component';
 const routes: Routes = [
-  {path:'authors', component:AuthorsComponent},
+  {path:'', component:AppComponent},
+  { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule) },
 ]
 
 
