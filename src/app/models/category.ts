@@ -1,6 +1,6 @@
 export interface Category {
-
-    _id: number,
+    id?: number,
+    /*     _id: number, */
     name: string
 
 }

@@ -6,9 +6,19 @@ import { BooksComponent } from './books/books.component';
 
 const routes: Routes = [
 
-  { path: '', component: AdminComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'books', component: BooksComponent },
+  {
+    path: '', component: AdminComponent, children: [
+
+
+      { path: 'categories', component: CategoriesComponent },
+      { path: 'books', component: BooksComponent },
+      { path: 'authors', component: BooksComponent },
+
+
+
+    ]
+  },
+
 
 
 

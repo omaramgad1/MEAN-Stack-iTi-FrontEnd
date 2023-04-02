@@ -1,10 +1,10 @@
 export interface User {
-
-    _id: number,
+    id?: number,
+    /*     _id: number, */
     firstName: string,
     lastName: string,
     email: string,
     password: string,
-    photo: string | File
+    photo?: string | File
 
 }
