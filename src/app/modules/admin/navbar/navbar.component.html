@@ -1,0 +1,72 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+
+
+    <div class="container-xl">
+        <!-- Logo -->
+
+        <a class="navbar-brand">
+            <!--            <img src="../../assets/906334.png" alt="Logo" width="50"
+                height="50" class="d-inline-block align-text-center"> -->
+            Good Reads
+        </a>
+        <!-- Navbar toggle -->
+
+
+
+        <button class="navbar-toggler collapsed" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="#navbarCollapse" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="toggler-icon top-bar"></span>
+            <span class="toggler-icon middle-bar"></span>
+            <span class="toggler-icon bottom-bar"></span>
+        </button>
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <!-- Nav -->
+            <div class="navbar-nav mx-lg-auto ">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <!--                <li
+                        class="nav-item">
+                        <a class="nav-link active" routerLink="categories"> Home</a>
+                    </li>
+ -->
+                    <li
+                        class="nav-item">
+                        <a class="nav-link "
+                            [routerLink]="'categories'"
+                            [routerLinkActive]="['active']">Categories</a>
+                    </li>
+
+                    <li
+                        class="nav-item">
+                        <a class="nav-link " [routerLink]="'books'"
+                            [routerLinkActive]="['active']">Books</a>
+                    </li>
+
+                    <li
+                        class="nav-item">
+
+                        <a class="nav-link "
+
+                            [routerLinkActive]="['active']">Authors</a>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+            <form class="d-flex">
+                <input class="form-control me-2" type="search"
+                    placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+
+    </div>
+</nav>
