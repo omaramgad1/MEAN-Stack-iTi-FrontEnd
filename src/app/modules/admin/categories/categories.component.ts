@@ -18,16 +18,12 @@ import { Category } from 'src/app/models/category';
 })
 
 export class CategoriesComponent implements OnInit {
-
-  categoris!: Category[];
+  searchKey!: string;
+  /*   categoris!: Category[]; */
   displayedColumns: string[] = [
     'id',
     'categoryName',
-
     "action"
-
-
-
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -40,22 +36,31 @@ export class CategoriesComponent implements OnInit {
     private _coreService: CoreService
   ) {
 
-
-
-
-
   }
   ngOnInit(): void {
     this.getCategories()
   }
 
+  /*  applyFilter(event: Event) {
+     const filterValue = (event.target as HTMLInputElement).value;
+     this.dataSource.filter = filterValue.trim().toLowerCase();
+ 
+     if (this.dataSource.paginator) {
+       this.dataSource.paginator.firstPage();
+     }
+   } */
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    this.dataSource.filter = this.searchKey.trim().toLowerCase();
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  onSearchClear(event: Event) {
+    this.searchKey = "";
+    this.applyFilter(event)
   }
   getCategories() {
     this._categoryService.geAllCategories().subscribe((res) => {
@@ -139,6 +144,8 @@ export class CategoriesComponent implements OnInit {
       },
     });
   }
+
+
 
 }
 

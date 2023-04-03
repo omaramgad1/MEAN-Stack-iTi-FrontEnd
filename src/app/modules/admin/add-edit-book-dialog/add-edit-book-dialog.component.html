@@ -1,0 +1,64 @@
+<div mat-dialog-title [ngStyle]="{ 'backgroundColor': '#3f51b5','color' : '#fff'
+    }"
+    class="text-center mb-3">
+    <h1>{{data ?
+        'Update': 'Add New'}} Book</h1>
+</div>
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm)">
+
+    <div mat-dialog-content class="content ">
+        <div class="container-fluid d-flex flex-column justify-content-center">
+            <mat-form-field appearance="outline">
+                <mat-label>book Name</mat-label>
+                <input matInput formControlName="bookName">
+                <mat-error
+                    *ngIf="bookForm.get('categoryName')?.hasError('required')">
+                    category is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>catergoryId</mat-label>
+                <mat-select formControlName="categoryId">
+                    <mat-option *ngFor="let cat of categories"
+                        [value]="cat">
+                        {{cat}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>authorId</mat-label>
+                <mat-select formControlName="authorId">
+                    <mat-option *ngFor="let id of authors"
+                        [value]="id">
+                        {{id}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="d-flex flex-column align-items-center mb-2">
+
+                <div class="p-2">
+
+                    <button mat-raised-button type="button" color="primary"
+                        class="Cphoto" (click)="photo.click()">Choose Photo</button>
+                    <input name="photo" #photo (change)="upload($event)"
+                        type='file' style="display:none" accept="image/*"/>
+                </div>
+                <div class="p-2 text-success" *ngIf="up">
+                    <mat-hint>Uploded successfuly</mat-hint>
+                </div>
+
+            </div>
+
+            <div mat-dialog-actions class="action">
+                <button mat-raised-button type="button"
+                    [mat-dialog-close]="false">Close</button>
+                <button mat-raised-button color="primary" type="submit"
+                    [disabled]="bookForm.invalid && !up ? true: false">{{data ?
+                    'Update': 'Save'}}</button>
+            </div>
+        </div>
+    </div>
+
+
+</form>

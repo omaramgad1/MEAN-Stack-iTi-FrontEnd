@@ -13,64 +13,72 @@ import { Author } from 'src/app/models/author';
   styleUrls: ['./authors.component.scss']
 })
 export class AuthorsComponent implements OnInit {
-  dialog!:dialogData[]
+  dialog!: dialogData[]
   listData!: MatTableDataSource<Author>;
-displayedColumns: string[] = ['First Name', 'Last Name', 'Date Of Birth', 'Photo','id','action'];
-@ViewChild(MatSort) sort!: MatSort;
-@ViewChild(MatPaginator) paginator!: MatPaginator;
-searchKey!: string;
-constructor(public matDialog:MatDialog,private _authors:AuthorsService){
+  displayedColumns: string[] = ['id', 'First Name', 'Last Name', 'Date Of Birth', 'Photo', 'action'];
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  searchKey!: string;
+  constructor(public matDialog: MatDialog, private _authors: AuthorsService) {
 
-}
+  }
   ngOnInit(): void {
-this.getAuthors();
+    this.getAuthors();
   }
 
-openDialog(){
-  const dialogRef= this.matDialog.open(DialogBodyComponent,{
-    width:'400px'});
+  openDialog() {
+    const dialogRef = this.matDialog.open(DialogBodyComponent, {
+      width: '400px'
+    });
     dialogRef.afterClosed().subscribe({
-      next:(val)=>{
-        if(val)
-      this.getAuthors();
+      next: (val) => {
+        if (val)
+          this.getAuthors();
       }
     })
-}
-applyFilter() {
-  this.listData.filter = this.searchKey.trim().toLowerCase();
-}
-onSearchClear() {
-  this.searchKey = "";
-  this.applyFilter();
-}
+  }
+  applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
+  }
+  onSearchClear() {
+    this.searchKey = "";
+    this.applyFilter();
+  }
 
-getAuthors(){
-  this._authors.getAllAuthors().subscribe({
-    next:(res)=>{
-      this.listData=new MatTableDataSource(res)
-      this.listData.sort=this.sort;
-      this.listData.paginator=this.paginator;
+  getAuthors() {
+    this._authors.getAllAuthors().subscribe({
+      next: (res) => {
+        this.listData = new MatTableDataSource(res)
+        this.listData.sort = this.sort;
+        this.listData.paginator = this.paginator;
 
-    },
-    error:console.log
-  })
-}
-deleteAuthor(id:number){
-  this._authors.deleteAnAuthor(id).subscribe({
-    next:(res)=>{
-alert("Employee has Deleted Successfully");
-this.getAuthors()
+      },
+      error: console.log
+    })
+  }
+  deleteAuthor(id: number) {
+    this._authors.deleteAnAuthor(id).subscribe({
+      next: (res) => {
+        alert("Employee has Deleted Successfully");
+        this.getAuthors()
 
-    },
-    error:console.log
-  })
-}
-openEditDialog(data:Author){
- this.matDialog.open(DialogBodyComponent,{
-    width:'400px',
-    data,
-  
-  });
-    
-}
+      },
+      error: console.log
+    })
+  }
+  openEditDialog(data: Author) {
+    const dialogRef = this.matDialog.open(DialogBodyComponent, {
+      width: '400px',
+      data,
+
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val)
+          this.getAuthors();
+      }
+    })
+
+  }
 }

@@ -1,42 +1,69 @@
 
-<br> <br>
-<a  mat-raised-button (click)="openDialog()">
-<img src="assets/add-user.png"></a>
-  <br> <br> <br>
-  <div class="search-div">
-    <mat-form-field class="search-form-field">
-      <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()"  placeholder="Search" autocomplete="on">
-      <button mat-button matSuffix  aria-label="Clear" *ngIf="searchKey"  (click)="onSearchClear()">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
+
+
+
+<div class="container mt-3 ">
+  <div class="text-light text-center p-2" [ngStyle]="{
+    'backgroundColor':
+    '#3f51b5'}">
+    <h1 class="mat-headline-3 mb-1">Authors</h1>
+
   </div>
+  <mat-toolbar class="p-2">
+
+
+    <mat-toolbar-row class="">
+
+      <div class="container mt-4">
+        <mat-form-field style="width: 50%;">
+          <input matInput [(ngModel)]="searchKey" placeholder="Search"
+            autocomplete="off" (keyup)="applyFilter()" placeholder="Search"
+            autocomplete="on">
+          <button mat-button matSuffix aria-label="Clear" *ngIf="searchKey"
+            (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <span class="example-spacer"></span>
+
+      <!-- (click)="openDialogform()" -->
+      <button class="p-2 m-1" mat-fab color="primary" (click)="openDialog()"><img
+          src="assets/add-user.png"></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div class="container mt-3 text-center">
+
+
   <div class="mat-elevation-z8">
-    <mat-table [dataSource]="listData"  matSort>
+    <mat-table [dataSource]="listData" matSort>
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.id}}
         </mat-cell>
       </ng-container>
       <ng-container matColumnDef="First Name">
-        <mat-header-cell *matHeaderCellDef  mat-sort-header>First Name</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.firstName}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="Last Name">
-        <mat-header-cell *matHeaderCellDef  mat-sort-header>Last Name</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.lastName}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="Date Of Birth">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>Date Of Birth</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Date Of Birth</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.dateOfBirth}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="Photo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>photo</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>photo</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <img width="60%" height="100px" src='{{element.photo}}'>
         </mat-cell>
       </ng-container>
-     
+
       <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let row">
@@ -47,5 +74,7 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"
+      showFirstLastButtons></mat-paginator>
   </div>
+</div>

@@ -16,19 +16,21 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import{MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dialog';
-import {MatSortModule} from '@angular/material/sort';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
 
 import { MatTableModule } from '@angular/material/table';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatIconModule } from '@angular/material/icon';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { DialogBodyComponent } from './dialog-body/dialog-body.component';
+import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book-dialog.component';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -37,8 +39,10 @@ import { DialogBodyComponent } from './dialog-body/dialog-body.component';
     NavbarComponent,
     AddEditCategoryDialogComponent,
     ConfirmDialogComponent,
-        AuthorsComponent,
-    DialogBodyComponent
+    AuthorsComponent,
+    DialogBodyComponent,
+    AddEditBookDialogComponent
+
 
   ],
   imports: [
@@ -62,10 +66,11 @@ import { DialogBodyComponent } from './dialog-body/dialog-body.component';
     MatIconModule,
     FormsModule,
     MatSortModule,
+    FormsModule
 
-  ],
+  ]/* ,
   providers: [
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
-  ]
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
+  ] */
 })
 export class AdminModule { }

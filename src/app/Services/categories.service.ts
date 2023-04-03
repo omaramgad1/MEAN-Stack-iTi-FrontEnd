@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Category } from 'src/app/models/category';
 
 @Injectable({
@@ -8,8 +8,10 @@ import { Category } from 'src/app/models/category';
 })
 export class CategoriesService {
 
+  constructor(private _http: HttpClient) {
 
-  constructor(private _http: HttpClient) { }
+
+  }
 
 
 
