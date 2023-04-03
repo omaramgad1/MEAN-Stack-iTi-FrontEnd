@@ -13,7 +13,7 @@ import { Author } from 'src/app/models/author';
   styleUrls: ['./authors.component.scss']
 })
 export class AuthorsComponent implements OnInit {
-  dialog!: dialogData[]
+  // dialog!: dialogData[]
   listData!: MatTableDataSource<Author>;
   displayedColumns: string[] = ['id', 'First Name', 'Last Name', 'Date Of Birth', 'Photo', 'action'];
   @ViewChild(MatSort) sort!: MatSort;
