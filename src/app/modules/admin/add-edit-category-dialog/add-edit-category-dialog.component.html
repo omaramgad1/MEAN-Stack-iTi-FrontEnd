@@ -1,4 +1,4 @@
-<div mat-dialog-title [ngStyle]="{ 'backgroundColor': '#3f51b5','color' : '#fff'
+<div mat-dialog-title [ngStyle]="{ 'backgroundColor': '#A37A7A','color' : '#fff'
     }"
     class="text-center mb-3">
     <h1>{{data ?
@@ -21,7 +21,7 @@
             <div mat-dialog-actions class="action">
                 <button mat-raised-button type="button"
                     [mat-dialog-close]="false">Close</button>
-                <button mat-raised-button color="primary" type="submit"
+                <button mat-raised-button [ngStyle]="{ 'backgroundColor': '#A37A7A','color':'#fff'}" type="submit"
                     [disabled]="categoryForm.invalid">{{data ?
                     'Update': 'Save'}}</button>
             </div>

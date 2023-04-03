@@ -14,7 +14,7 @@ export class DialogBodyComponent implements OnInit {
 
   myForm: FormGroup;
   authors!: Author[];
-
+  up: boolean = false
   constructor(public dialogRef: MatDialogRef<DialogBodyComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Author, public fb: FormBuilder,
     private _authors: AuthorsService,
@@ -40,6 +40,7 @@ export class DialogBodyComponent implements OnInit {
 
       }
       reader.readAsDataURL(file.files[0]);
+      this.up = true
     }
   }
   onSubmit() {

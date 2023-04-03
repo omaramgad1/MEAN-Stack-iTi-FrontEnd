@@ -5,6 +5,7 @@ import { AdminComponent } from './admin.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { BooksComponent } from './books/books.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 import { AddEditCategoryDialogComponent } from './add-edit-category-dialog/add-edit-category-dialog.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -41,7 +42,8 @@ import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book
     ConfirmDialogComponent,
     AuthorsComponent,
     DialogBodyComponent,
-    AddEditBookDialogComponent
+    AddEditBookDialogComponent,
+    FooterComponent
 
 
   ],

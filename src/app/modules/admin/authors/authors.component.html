@@ -1,11 +1,11 @@
 
 
 
-
+<br><br><br><br>
 <div class="container mt-3 ">
   <div class="text-light text-center p-2" [ngStyle]="{
     'backgroundColor':
-    '#3f51b5'}">
+    '#A37A7A'}">
     <h1 class="mat-headline-3 mb-1">Authors</h1>
 
   </div>
@@ -29,7 +29,9 @@
       <span class="example-spacer"></span>
 
       <!-- (click)="openDialogform()" -->
-      <button class="p-2 m-1" mat-fab color="primary" (click)="openDialog()"><img
+      <button class="p-2 m-1" mat-fab [ngStyle]="{
+        'backgroundColor':
+        '#A37A7A'}" (click)="openDialog()"><img
           src="assets/add-user.png"></button>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -78,3 +80,4 @@
       showFirstLastButtons></mat-paginator>
   </div>
 </div>
+<br><br><br><br>

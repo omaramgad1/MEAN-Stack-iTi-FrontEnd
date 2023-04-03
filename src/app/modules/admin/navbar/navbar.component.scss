@@ -1,8 +1,34 @@
 /* Remove border from toggler */
+$bgcolo:#937f81;
+
+*{
+    box-sizing: border-box;
+}
+
 .navbar-toggler {
     border: 0 !important;
 }
+nav{
+    background-color: $bgcolo; 
+    color: white;
+    height: 20%;
+    button{
+        color: white;
+        border: 1px solid white;
+    }
+    button:hover{
+        background-color: #8c1e2944;
+    }
+    ul li a{
+        font-size: larger;
 
+    }
+    ul li a:hover{
+        background-color: #8c1e2944;
+        
+    }
+
+}
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
@@ -15,7 +41,7 @@
 .toggler-icon{
     width: 30px;
     height: 3px;
-    background-color: #e74c3c;
+    background-color: white;
     display: block;
     transition: all 0.2s;
 }
@@ -59,5 +85,5 @@
 
 /* Color of Toggler when collapsed */
 .navbar-toggler.collapsed .toggler-icon {
-    background-color: #777777;
+    background-color: white;
 }
