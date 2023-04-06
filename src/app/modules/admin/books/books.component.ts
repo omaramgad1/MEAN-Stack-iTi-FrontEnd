@@ -1,12 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BooksService } from 'src/app/Services/books.service';
 import { CoreService } from 'src/app/Services/core.service';
 import { AddEditBookDialogComponent } from '../add-edit-book-dialog/add-edit-book-dialog.component';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
+import { Book } from 'src/app/models/book';
 
 @Component({
   selector: 'app-books',
@@ -14,14 +15,17 @@ import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/co
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent {
+  books!: Book[]
   searchKey!: string;
 
   displayedColumns: string[] = [
-    'id',
-    'bookName',
-    'categoryId',
-    'authorId',
+    'counter',
     'photo',
+
+    'bookName',
+    'authorId',
+
+    'categoryId',
     "action"
 
   ];
@@ -72,15 +76,9 @@ export class BooksComponent {
 
   getBooks() {
     this._BooksService.geAllBooks().subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res)
+      this.dataSource = new MatTableDataSource(res.data)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-
-      /*       this.categoris = [...res];
-            console.log(this.categoris)
-            console.log(typeof (this.categoris)) */
-
-
     }, err => {
       console.log(err)
     }
@@ -135,4 +133,45 @@ export class BooksComponent {
 
 
   }
+
+
+
+  getNextData(currentSize: number, offset: number, limit: number) {
+
+
+    this._BooksService.getPageBooks(offset, limit)
+      .subscribe((response: any) => {
+
+        this.books.length = currentSize;
+
+
+        this.books.push(...response.data);
+
+        this.books.length = response.total;
+
+
+
+        this.dataSource = new MatTableDataSource<any>(this.books);
+        this.dataSource._updateChangeSubscription();
+
+        this.dataSource.paginator = this.paginator;
+
+      })
+  }
+
+
+  onPageChange(event: PageEvent) {
+
+    let pageIndex = event.pageIndex;
+    let pageSize = event.pageSize;
+
+    //let previousIndex = event.previousPageIndex;
+
+    let previousSize = pageSize * pageIndex;
+
+    this.getNextData(previousSize, pageIndex, pageSize);
+
+
+  }
+
 }

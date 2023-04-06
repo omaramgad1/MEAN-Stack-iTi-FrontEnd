@@ -30,6 +30,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { AuthorsComponent } from './authors/authors.component';
 import { DialogBodyComponent } from './dialog-body/dialog-body.component';
 import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,6 @@ import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    MatTabsModule,
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -66,7 +66,7 @@ import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book
     MatIconModule,
     FormsModule,
     MatSortModule,
-    FormsModule
+    MatProgressSpinnerModule
 
   ]/* ,
   providers: [

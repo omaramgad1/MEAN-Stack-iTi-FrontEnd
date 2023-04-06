@@ -1,7 +1,7 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddEditCategoryDialogComponent } from '../add-edit-category-dialog/add-edit-category-dialog.component';
@@ -19,9 +19,12 @@ import { Category } from 'src/app/models/category';
 
 export class CategoriesComponent implements OnInit {
   searchKey!: string;
-  /*   categoris!: Category[]; */
+  categoris!: Category[];
+  loading: boolean = true;
+
+
   displayedColumns: string[] = [
-    'id',
+    'counter',
     'categoryName',
     "action"
   ];
@@ -38,17 +41,9 @@ export class CategoriesComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.getCategories()
+    this.getCategories(1, 5)
   }
 
-  /*  applyFilter(event: Event) {
-     const filterValue = (event.target as HTMLInputElement).value;
-     this.dataSource.filter = filterValue.trim().toLowerCase();
- 
-     if (this.dataSource.paginator) {
-       this.dataSource.paginator.firstPage();
-     }
-   } */
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -58,19 +53,20 @@ export class CategoriesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
   onSearchClear(event: Event) {
     this.searchKey = "";
     this.applyFilter(event)
   }
-  getCategories() {
-    this._categoryService.geAllCategories().subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res)
+
+  getCategories(pageNumber: number, pageSize: number) {
+    this._categoryService.getPageCategories(pageNumber, pageSize).subscribe((res) => {
+      this.loading = false;
+      this.categoris = res.data
+      this.dataSource = new MatTableDataSource(this.categoris)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
 
-      /*       this.categoris = [...res];
-            console.log(this.categoris)
-            console.log(typeof (this.categoris)) */
 
 
     }, err => {
@@ -81,6 +77,7 @@ export class CategoriesComponent implements OnInit {
 
 
   }
+
   openDialogform(): void {
     const dialogRef = this._dialog.open(AddEditCategoryDialogComponent, {
 
@@ -93,13 +90,12 @@ export class CategoriesComponent implements OnInit {
     dialogRef.afterClosed().subscribe((val) => {
 
       if (val)
-        this.getCategories();
+        this.getCategories(1, 10);
 
 
     })
 
   }
-
 
   deleteCategory(id: number) {
     const message = `Are you sure you want to do this?`;
@@ -118,7 +114,7 @@ export class CategoriesComponent implements OnInit {
           next: (res) => {
 
             this._coreService.openSnackBar('Category deleted!', 'done');
-            this.getCategories();
+            this.getCategories(1, 10);
           },
           error: console.log,
         });
@@ -127,6 +123,7 @@ export class CategoriesComponent implements OnInit {
 
 
   }
+
   openEditForm(data: any) {
     const dialogRef = this._dialog.open(AddEditCategoryDialogComponent, {
 
@@ -139,12 +136,52 @@ export class CategoriesComponent implements OnInit {
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          this.getCategories();
+          this.getCategories(1, 10);
         }
       },
     });
   }
 
+  getNextData(currentSize: number, offset: number, limit: number) {
+
+
+    this._categoryService.getPageCategories(offset, limit)
+      .subscribe((response: any) => {
+        this.loading = false;
+        this.categoris.length = currentSize;
+
+
+        this.categoris.push(...response.data);
+
+        this.categoris.length = response.total;
+
+
+
+        this.dataSource = new MatTableDataSource<any>(this.categoris);
+        this.dataSource._updateChangeSubscription();
+
+        this.dataSource.paginator = this.paginator;
+
+      })
+  }
+
+
+  onPageChange(event: PageEvent) {
+    this.loading = true;
+    console.log(event);
+
+
+    let pageIndex = event.pageIndex;
+    let pageSize = event.pageSize;
+
+    //let previousIndex = event.previousPageIndex;
+
+    let previousSize = pageSize * pageIndex;
+
+    this.getNextData(previousSize, pageIndex, pageSize);
+
+
+  }
 
 
 }

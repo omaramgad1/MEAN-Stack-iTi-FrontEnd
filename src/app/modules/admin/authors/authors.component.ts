@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBodyComponent } from '../dialog-body/dialog-body.component';
 import { dialogData } from 'src/app/models/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthorsService } from 'src/app/Services/authors.service';
@@ -13,9 +13,10 @@ import { Author } from 'src/app/models/author';
   styleUrls: ['./authors.component.scss']
 })
 export class AuthorsComponent implements OnInit {
+  authors!: Author[];
   dialog!: dialogData[]
   listData!: MatTableDataSource<Author>;
-  displayedColumns: string[] = ['id', 'First Name', 'Last Name', 'Date Of Birth', 'Photo', 'action'];
+  displayedColumns: string[] = ['counter', 'First Name', 'Last Name', 'Date Of Birth', 'Photo', 'action'];
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   searchKey!: string;
@@ -48,7 +49,9 @@ export class AuthorsComponent implements OnInit {
   getAuthors() {
     this._authors.getAllAuthors().subscribe({
       next: (res) => {
-        this.listData = new MatTableDataSource(res)
+        this.listData = new MatTableDataSource(res.data)
+        console.log(res.data);
+
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
 
@@ -81,4 +84,45 @@ export class AuthorsComponent implements OnInit {
     })
 
   }
+
+
+
+  getNextData(currentSize: number, offset: number, limit: number) {
+
+
+    this._authors.getPageAuthors(offset, limit)
+      .subscribe((response: any) => {
+
+        this.authors.length = currentSize;
+
+
+        this.authors.push(...response.data);
+
+        this.authors.length = response.total;
+
+
+
+        this.listData = new MatTableDataSource<any>(this.authors);
+        this.listData._updateChangeSubscription();
+
+        this.listData.paginator = this.paginator;
+
+      })
+  }
+
+
+  onPageChange(event: PageEvent) {
+
+    let pageIndex = event.pageIndex;
+    let pageSize = event.pageSize;
+
+    //let previousIndex = event.previousPageIndex;
+
+    let previousSize = pageSize * pageIndex;
+
+    this.getNextData(previousSize, pageIndex, pageSize);
+
+
+  }
+
 }

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AdminModule } from './modules/admin/admin.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AdminModule
   ],
-  providers: [
+  providers: [CookieService
   ],
   bootstrap: [AppComponent]
 })

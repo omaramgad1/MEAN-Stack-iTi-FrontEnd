@@ -21,9 +21,9 @@ export class AddEditBookDialogComponent {
 
   bookForm = new FormGroup({
 
-    bookName: new FormControl(null, [Validators.required]),
+    name: new FormControl(null, [Validators.required]),
     categoryId: new FormControl(null, [Validators.required]),
-    authorId: new FormControl(null, [Validators.required]),
+    AuthorId: new FormControl(null, [Validators.required]),
     photo: new FormControl(null, []),
 
 
@@ -44,10 +44,13 @@ export class AddEditBookDialogComponent {
 
     this._CategoriesService.geAllCategories().subscribe((res) => {
 
-      res.forEach((obj: any) => this.categories.push(obj.categoryName))
+      res.data.forEach((obj: any) => this.categories.push(obj.name))
     })
     this._AuthorsService.getAllAuthors().subscribe((res) => {
-      res.forEach((obj: any) => this.authors.push(obj.firstName))
+
+
+
+      res.data.forEach((obj: any) => this.authors.push(obj.firstName))
 
 
     })

@@ -20,6 +20,11 @@ export class BooksService {
 
     return this._http.get(`http://localhost:3000/books`);
   }
+  getPageBooks(pageNumber: number = 1, pageSize: number = 5): Observable<any> {
+    pageNumber = pageNumber - 1
+    return this._http.get(`http://localhost:3000/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}&pageSize=${pageSize}`);
+  }
+
 
 
   deleteBook(id: number): Observable<any> {
