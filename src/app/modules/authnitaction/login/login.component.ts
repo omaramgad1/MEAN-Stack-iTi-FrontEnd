@@ -14,32 +14,22 @@ export class LoginComponent {
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.email, Validators.required]),
     password: new FormControl(null, [Validators.required]),
-
-
-
   })
   constructor(private _userService: UsersService, private router: Router) { }
 
   submintloginForm(loginForm: FormGroup) {
     this._userService.login(loginForm.value).subscribe((res) => {
-      console.log("hello1");
 
       if (res.message === 'success') {
         this._userService.getProfile().subscribe((res) => {
-          console.log(res['role']);
-
-
+          //this._userService.setCurrent(res)
+          this._userService.setToCookie(res)
           if (res['role'] == 'admin') {
             this.router.navigate(['/admin'])
-            console.log("hii")
           }
           else if (res['role'] == 'user')
             this.router.navigate(['/user'])
         })
-
-
-
-
       }
       else {
         alert("user not found")

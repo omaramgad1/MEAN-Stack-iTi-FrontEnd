@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Emitters } from './emitters';
-import jwtDecode from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -10,15 +9,18 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class UsersService {
 
-  role = new BehaviorSubject({})
   currentUser = new BehaviorSubject(null)
-  constructor(private _http: HttpClient, private _cookieService: CookieService) { }
 
+  constructor(private _http: HttpClient, private _cookieService: CookieService) {
+    if (this._cookieService.check('currentUser') && JSON.parse(this._cookieService.get('currentUser')) !== null && this.currentUser.getValue() == null) {
+      this.saveCurrentUser()
+    }
 
-  saveCurrentUser() {
-    const token = this._cookieService.get('jwt')
-    this.currentUser.next(jwtDecode(token))
+    /*     if (this.currentUser.getValue == null) {
+          this.saveCurrentUser()
+        } */
   }
+
   register(user: any): Observable<any> {
     return this._http.post('http://localhost:3000/users/signup', user)
   }
@@ -31,19 +33,40 @@ export class UsersService {
 
   }
 
+  saveCurrentUser() {
+
+    this.currentUser.next(JSON.parse(this._cookieService.get('currentUser')))
+
+  }
+
+  /*   saveCurrentUser() {
+      return this._http.get('http://localhost:3000/users/profile', { withCredentials: true }).subscribe((data: any) => {
+        this.currentUser.next(data)
+  
+  
+      })
+  
+  
+    }
+   */
+
+
+
   getProfile(): Observable<any> {
-
     return this._http.get('http://localhost:3000/users/profile', { withCredentials: true })
-
-
   }
-  getuser(): any {
 
-    return this.currentUser.getValue()
+  setToCookie(obj: any) {
+    this.currentUser.next(obj)
+    this._cookieService.set('currentUser', JSON.stringify(obj));
   }
+
+  /*   setCurrent(obj: any) {
+      this.currentUser.next(obj)
+    }
+   */
 
   logout() {
 
   }
-
 }
