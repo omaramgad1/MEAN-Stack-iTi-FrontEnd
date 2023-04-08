@@ -5,6 +5,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BooksService } from 'src/app/Services/books.service';
+import { UsersService } from 'src/app/Services/users.service';
 import { CoreService } from 'src/app/Services/core.service';
 import { Book } from 'src/app/models/book';
 @Component({
@@ -32,6 +33,7 @@ export class UserViewComponent {
   constructor(
     private _dialog: MatDialog,
     private _BooksService: BooksService,
+    private _userService: UsersService,
     private _coreService: CoreService) {}
 
   ngOnInit(): void {
@@ -53,13 +55,23 @@ export class UserViewComponent {
   }
 
   getBooks() {
-    this._BooksService.geAllBooks().subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res.data)
+    this._userService.getUserBooks().subscribe((res) => {
+      console.log(res.data);
+      
+      this.dataSource = new MatTableDataSource(res.data.books);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     }, err => {
       console.log(err)
     })
+    
+    // this._BooksService.geAllBooks().subscribe((res) => {
+    //   this.dataSource = new MatTableDataSource(res.data)
+    //   this.dataSource.sort = this.sort;
+    //   this.dataSource.paginator = this.paginator;
+    // }, err => {
+    //   console.log(err)
+    // })
   }
 
   getNextData(currentSize: number, offset: number, limit: number) {

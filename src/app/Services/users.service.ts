@@ -19,8 +19,13 @@ export class UsersService {
     const token = this._cookieService.get('jwt')
     this.currentUser.next(jwtDecode(token))
   }
+
   register(user: any): Observable<any> {
     return this._http.post('http://localhost:3000/users/signup', user)
+  }
+
+  getUserBooks(): Observable<any>{
+    return this._http.get('http://localhost:3000/users/books/', { withCredentials: true })
   }
 
   login(data: any): Observable<any> {
