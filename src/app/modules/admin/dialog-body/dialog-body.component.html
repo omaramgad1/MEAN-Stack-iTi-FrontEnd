@@ -16,8 +16,12 @@
           required
         />
         <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
-    </p>
+        <mat-error
+        *ngIf="myForm.get('firstName')?.hasError('required')">
+        First Name is <strong>required</strong>
+    </mat-error>
+    </mat-form-field></p>
+
 
     <p>
       <mat-form-field>
@@ -28,41 +32,38 @@
           required
         />
         <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Enter Author's date of birth"
-          formControlName="dob"
-          type="date"
-        />
+        <mat-error
+        *ngIf="myForm.get('lastName')?.hasError('required')">
+        Last Name is <strong>required</strong>
+    </mat-error>
+    </mat-form-field></p>
+    <p><mat-form-field>
+        <input matInput placeholder="Enter Author's date of birth" formControlName="dob" type="date">
         <mat-icon matSuffix>cake</mat-icon>
-      </mat-form-field>
-    </p>
+        <mat-error
+        *ngIf="myForm.get('dob')?.hasError('required')">
+        Date Of Birth is <strong>required</strong>
+    </mat-error>
+    </mat-form-field></p>
 
-    <div (click)="photo.click()">
-      <p>
-        <button mat-raised-button type="button" color="primary" class="Cphoto">
-          Choose Photo
-        </button>
-        <input
-          name="photo"
-          #photo
-          (change)="upload($event)"
-          type="file"
-          style="display: none"
-          accept="image/*"
-        />
+    <div>
+        <p>
+        <button mat-raised-button type="button"  (click)="photo.click()" [ngStyle]="{
+            'backgroundColor':
+            '#A37A7A','color':'#fff'}" class="Cphoto">Choose Photo</button>
+        <input   name="photo" #photo (change)="upload($event)" type='file' style="display:none" accept="image/*"/> 
         <mat-icon matSuffix>photo</mat-icon>
-      </p>
+    </p>
+     </div>
+     <div class="p-2 text-success" *ngIf="up">
+        <mat-hint>Uploded successfuly</mat-hint>
     </div>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end" class="action">
-    <button mat-raised-button color="primary" type="submit">
-      {{ data ? "Update" : "Save" }}
-    </button>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="action">
+    <button mat-raised-button [ngStyle]="{
+        'backgroundColor':
+        '#A37A7A','color':'#fff'}"  type="submit">{{data ? "Update" : "Save"}}</button>
+
     <button mat-raised-button color="danger" matDialogClose>Cancel</button>
   </mat-dialog-actions>
   <!-- <img className="align-self-center" width= '100%' src="{{ImageUrl}}" /> -->

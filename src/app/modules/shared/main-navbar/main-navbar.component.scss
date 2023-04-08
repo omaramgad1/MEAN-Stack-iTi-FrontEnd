@@ -11,7 +11,8 @@ $bgcolo:#937f81;
 nav{
     background-color: $bgcolo; 
     color: white;
-    height: 20%;
+    height: 15%;
+    width: 100%;
     button{
         color: white;
         border: 1px solid white;
@@ -86,4 +87,29 @@ nav{
 /* Color of Toggler when collapsed */
 .navbar-toggler.collapsed .toggler-icon {
     background-color: white;
+}
+
+@media (min-width: 280px) and (max-width:500px){
+    nav{
+        background-color: $bgcolo; 
+        color: white;
+        height: 15%;
+        width: 110%;
+        button{
+            color: white;
+            border: 1px solid white;
+        }
+        button:hover{
+            background-color: #8c1e2944;
+        }
+        ul li a{
+            font-size: larger;
+    
+        }
+        ul li a:hover{
+            background-color: #8c1e2944;
+            
+        }
+    
+    }
 }

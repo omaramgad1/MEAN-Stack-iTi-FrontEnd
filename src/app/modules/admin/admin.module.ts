@@ -16,7 +16,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
+import {  MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 
 import { MatTableModule } from '@angular/material/table';
@@ -30,6 +30,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { AuthorsComponent } from './authors/authors.component';
 import { DialogBodyComponent } from './dialog-body/dialog-body.component';
 import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book-dialog.component';
+import { FooterComponent } from './footer/footer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
@@ -42,8 +43,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ConfirmDialogComponent,
     AuthorsComponent,
     DialogBodyComponent,
-    AddEditBookDialogComponent
-
+    AddEditBookDialogComponent,
+    FooterComponent
 
   ],
   imports: [
@@ -68,9 +69,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSortModule,
     MatProgressSpinnerModule
 
-  ]/* ,
-  providers: [
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
-  ] */
+  ]
 })
 export class AdminModule { }

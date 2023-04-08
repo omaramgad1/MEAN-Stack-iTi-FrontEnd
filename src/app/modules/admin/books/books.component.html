@@ -1,9 +1,10 @@
+
 <div class="container-fluid mt-3">
   <div
     class="text-light text-center p-2"
-    [ngStyle]="{
-      backgroundColor: '#3f51b5'
-    }"
+ [ngStyle]="{
+        'backgroundColor':
+        '#A37A7A'}"
   >
     <h1 class="mat-headline-3 mb-1">Books</h1>
   </div>
@@ -29,6 +30,9 @@
         mat-fab
         color="primary"
         (click)="openDialogform()"
+        [ngStyle]="{
+                'backgroundColor':
+                '#A37A7A'}"
       >
         <mat-icon>add_circle</mat-icon>
       </button>
@@ -114,3 +118,4 @@
     <mat-spinner class="center"></mat-spinner>
   </div>
 </div>
+<br><br><br><br>

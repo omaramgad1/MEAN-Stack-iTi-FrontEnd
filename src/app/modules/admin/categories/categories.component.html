@@ -1,9 +1,13 @@
+
+<div class="container mt-3 text-center">
+
+
 <div class="container-fluid mt-3">
   <div
     class="text-light text-center p-2"
-    [ngStyle]="{
-      backgroundColor: '#3f51b5'
-    }"
+  [ngStyle]="{
+        'backgroundColor':
+        '#A37A7A'}"
   >
     <h1 class="mat-headline-3 mb-1">Categories</h1>
   </div>
@@ -32,9 +36,11 @@
       </mat-form-field>
       <div class="p-2" style="margin-left: 30px">
         <button
+        [ngStyle]="{
+                'backgroundColor':
+                '#A37A7A'}"
           class="p-2 m-10"
           mat-fab
-          color="primary"
           (click)="openDialogform()"
         >
           <mat-icon>add_circle</mat-icon>

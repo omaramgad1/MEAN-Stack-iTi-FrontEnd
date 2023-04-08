@@ -16,11 +16,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CarouselComponent } from './carousel/carousel.component';
+import { HomeComponent } from './home/home.component';
+import { MainFooterComponent } from './main-footer/main-footer.component';
+import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 @NgModule({
   declarations: [
     SharedComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    MainNavbarComponent,
+    MainFooterComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,

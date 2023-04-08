@@ -1,3 +1,3 @@
-export interface dialogData{
-    formData:string
-}
+// export interface dialogData{
+//     formData:string
+// }

@@ -9,8 +9,6 @@ import { CategoriesService } from 'src/app/Services/categories.service';
 import { CoreService } from 'src/app/Services/core.service';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
 import { Category } from 'src/app/models/category';
-/* import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
- */
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',

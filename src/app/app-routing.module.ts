@@ -6,9 +6,11 @@ import { RoleGuard } from './Guards/role.guard';
 
 const routes: Routes = [
   {
-    path: '', component: AppComponent
+     path: '',redirectTo: 'endless_books', pathMatch: 'full',
   },
 
+
+  { path: 'endless_books', loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule) },
   {
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
@@ -16,12 +18,13 @@ const routes: Routes = [
     data: { allowedRoles: ['admin'] }
   },
 
+
   {
     path: 'user',
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
     data: { allowedRoles: ['user'] }
   },
-  { path: 'shared', loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule) },
+
 
 ];
 

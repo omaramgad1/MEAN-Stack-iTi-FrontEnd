@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Author } from 'src/app/models/author';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { dialogData } from 'src/app/models/dialog';
+// import { dialogData } from 'src/app/models/dialog';
 import { AuthorsService } from 'src/app/Services/authors.service';
 
 @Component({
@@ -14,9 +14,7 @@ export class DialogBodyComponent implements OnInit {
 
   myForm: FormGroup;
   authors!: Author[];
-  selectedImage!: string | null;
-  ImageUrl = "";
-
+  up: boolean = false
   constructor(public dialogRef: MatDialogRef<DialogBodyComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Author, public fb: FormBuilder,
     private _authors: AuthorsService,
@@ -28,7 +26,6 @@ export class DialogBodyComponent implements OnInit {
       dob: new FormControl(null, [Validators.required]),
       photo: new FormControl(null, []),
     })
-    this.myForm.value.photo = this.ImageUrl
   }
   ngOnInit(): void {
     this.myForm.patchValue(this.data)
@@ -43,6 +40,7 @@ export class DialogBodyComponent implements OnInit {
 
       }
       reader.readAsDataURL(file.files[0]);
+      this.up = true
     }
   }
   onSubmit() {

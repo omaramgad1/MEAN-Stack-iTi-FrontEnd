@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBodyComponent } from '../dialog-body/dialog-body.component';
+
 import { dialogData } from 'src/app/models/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -13,6 +14,7 @@ import { Author } from 'src/app/models/author';
   styleUrls: ['./authors.component.scss']
 })
 export class AuthorsComponent implements OnInit {
+
   authors!: Author[];
   dialog!: dialogData[]
   listData!: MatTableDataSource<Author>;
