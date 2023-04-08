@@ -6,7 +6,7 @@ $bgcolo:#937f81;
 }
 
 footer{
-    padding-top: 800px;
+    padding-top: 900px;
 .foot{
     margin-bottom: 0px;
     position: static;
@@ -33,9 +33,9 @@ footer{
    } 
 }
 
-@media (min-width: 280px) and (max-width:500px){
+@media (min-width: 270px) and (max-width:500px){
     footer{
-     padding-top: 2150px;
+     padding-top: 2400px;
      width: 100%;
     } 
     #quote {
