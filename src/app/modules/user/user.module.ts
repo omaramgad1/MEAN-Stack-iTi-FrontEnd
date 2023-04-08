@@ -11,12 +11,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
-
+import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     UserComponent,
     NavbarComponent,
-    UserViewComponent
+    UserViewComponent,
+    PhotoDialogComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { MatTableModule } from '@angular/material/table';
     MatToolbarModule,
     MatFormFieldModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class UserModule { }
