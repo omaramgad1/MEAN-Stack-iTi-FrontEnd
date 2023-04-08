@@ -18,8 +18,7 @@ const routes: Routes = [
 
   {
     path: 'user',
-    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
-    canActivate: [AuthGuard, RoleGuard],
+    loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
     data: { allowedRoles: ['user'] }
   },
   { path: 'shared', loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule) },
