@@ -18,6 +18,10 @@ export class UsersService {
     return this._http.post('http://localhost:3000/users/signup', user)
   }
 
+  getUserBooks(): Observable<any>{
+    return this._http.get('http://localhost:3000/users/books/', { withCredentials: true })
+  }
+
   login(data: any): Observable<any> {
 
     return this._http.post('http://localhost:3000/users/login', data, {
