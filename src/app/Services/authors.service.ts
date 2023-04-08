@@ -12,7 +12,9 @@ export class AuthorsService {
 
   }
   addAuthor(data: Author): Observable<any> {
-    return this._http.post('http://localhost:3000/authors', data);
+    return this._http.post('http://localhost:3000/authors', data, {
+      withCredentials: true
+    });
   }
   getAllAuthors(): Observable<any> {
     return this._http.get('http://localhost:3000/authors');
@@ -22,10 +24,14 @@ export class AuthorsService {
     return this._http.get(`http://localhost:3000/authors?pageNumber=${pageNumber < 0 ? 0 : pageNumber}&pageSize=${pageSize}`);
   }
 
-  deleteAnAuthor(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:3000/authors/${id}`)
+  deleteAnAuthor(id: string): Observable<any> {
+    return this._http.delete(`http://localhost:3000/authors/${id}`, {
+      withCredentials: true
+    })
   }
-  updateAnAuthor(id: number, data: Author): Observable<any> {
-    return this._http.put(`http://localhost:3000/authors/${id}`, data)
+  updateAnAuthor(id: string, data: Author): Observable<any> {
+    return this._http.patch(`http://localhost:3000/authors/${id}`, data, {
+      withCredentials: true
+    })
   }
 }

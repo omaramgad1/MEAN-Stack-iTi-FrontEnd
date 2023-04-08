@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AuthnitactionRoutingModule } from './authnitaction-routing.module';
-import { AuthnitactionComponent } from './authnitaction.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { SharedRoutingModule } from './shared-routing.module';
+import { SharedComponent } from './shared.component';
+
+import { LoginComponent } from '../shared/login/login.component';
+import { RegisterComponent } from '../shared/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,18 +16,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { CookieService } from 'ngx-cookie-service';
-
-
 @NgModule({
   declarations: [
-    AuthnitactionComponent,
+    SharedComponent,
     LoginComponent,
     RegisterComponent
   ],
   imports: [
     CommonModule,
-    AuthnitactionRoutingModule,
+    SharedRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
@@ -38,8 +36,6 @@ import { CookieService } from 'ngx-cookie-service';
     MatButtonModule,
     MatDividerModule,
     MatProgressBarModule
-  ],
-  providers: [CookieService
   ]
 })
-export class AuthnitactionModule { }
+export class SharedModule { }

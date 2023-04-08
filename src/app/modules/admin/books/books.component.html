@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container-fluid mt-3">
   <div
     class="text-light text-center p-2"
     [ngStyle]="{
@@ -36,8 +36,8 @@
   </mat-toolbar>
 </div>
 
-<div class="container mt-3 text-center">
-  <div class="mat-elevation-z8">
+<div class="container-fluid mat-elevation-z8">
+  <ng-template #table>
     <table mat-table [dataSource]="dataSource" matSort class="text-center">
       <ng-container matColumnDef="counter">
         <th mat-header-cell *matHeaderCellDef class="text-center">No.</th>
@@ -86,7 +86,7 @@
           <button mat-icon-button color="primary" (click)="openEditForm(row)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="deleteBook(row.id)">
+          <button mat-icon-button color="warn" (click)="deleteBook(row._id)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
@@ -103,12 +103,14 @@
         </td>
       </tr> -->
     </table>
+  </ng-template>
 
-    <mat-paginator
-      [pageSizeOptions]="[5, 10, 25, 100]"
-      aria-label="Select page of users"
-      (page)="onPageChange($event)"
-      showFirstLastButtons
-    ></mat-paginator>
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event)"
+  ></mat-paginator>
+
+  <div class="spinner-container" *ngIf="loading; else table">
+    <mat-spinner class="center"></mat-spinner>
   </div>
 </div>

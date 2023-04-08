@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, async, map } from 'rxjs';
 import { UsersService } from '../Services/users.service';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -13,20 +13,19 @@ export class AuthGuard implements CanActivate {
 
   constructor(private _UsersService: UsersService, private _router: Router, private _CookieService: CookieService) {
   }
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    //this._CookieService.check('currentUser') && JSON.parse(this._CookieService.get('currentUser')) !== null
-    if (this._UsersService.currentUser.getValue() != null) {
+  async canActivate(route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot) {
+    try {
+      const response = await this._UsersService.getProfile().toPromise()
+      this._UsersService.setCurrentUser(response)
+      // Do something with the response
       return true;
-    }
-
-    else {
+    } catch (error) {
+      alert("error")
       this._router.navigate(['/auth/login']);
       return false;
     }
-
   }
 
 } 

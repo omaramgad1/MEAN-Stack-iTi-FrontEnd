@@ -22,8 +22,9 @@ export class LoginComponent {
 
       if (res.message === 'success') {
         this._userService.getProfile().subscribe((res) => {
-          //this._userService.setCurrent(res)
-          this._userService.setToCookie(res)
+
+          this._userService.setCurrentUser(res)
+
           if (res['role'] == 'admin') {
             this.router.navigate(['/admin'])
           }

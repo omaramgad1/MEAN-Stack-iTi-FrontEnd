@@ -13,7 +13,9 @@ export class BooksService {
 
   addNewBook(data: any): Observable<any> {
 
-    return this._http.post(`http://localhost:3000/books`, data);
+    return this._http.post(`http://localhost:3000/books`, data, {
+      withCredentials: true
+    });
   }
 
   geAllBooks(): Observable<any> {
@@ -27,11 +29,15 @@ export class BooksService {
 
 
 
-  deleteBook(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:3000/books/${id}`);
+  deleteBook(id: string): Observable<any> {
+    return this._http.delete(`http://localhost:3000/books/${id}`, {
+      withCredentials: true
+    });
   }
 
-  updateBook(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:3000/books/${id}`, data);
+  updateBook(id: string, data: any): Observable<any> {
+    return this._http.patch(`http://localhost:3000/books/${id}`, data, {
+      withCredentials: true
+    });
   }
 }

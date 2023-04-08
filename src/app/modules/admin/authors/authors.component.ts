@@ -59,7 +59,7 @@ export class AuthorsComponent implements OnInit {
       error: console.log
     })
   }
-  deleteAuthor(id: number) {
+  deleteAuthor(id: string) {
     this._authors.deleteAnAuthor(id).subscribe({
       next: (res) => {
         alert("Employee has Deleted Successfully");

@@ -12,21 +12,24 @@ export class RoleGuard implements CanActivate {
 
     constructor(private _UsersService: UsersService, private _router: Router) {
     }
-    canActivate(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-        const currentValue: any = this._UsersService.currentUser.getValue()
+    async canActivate(route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot) {
         const allowedRoles = route.data['allowedRoles'];
-        if (allowedRoles.includes(currentValue.role)) {
-            return true;
-        }
 
-        else {
-            // this._router.navigate(['/auth/login']);
+        try {
+            const response = await this._UsersService.getProfile().toPromise()
+            if (allowedRoles.includes(response.role)) {
+                return true;
+            }
+            else {
+                this._router.navigate(['/auth/login']);
+                return false;
+            }
+        } catch (error) {
+            this._router.navigate(['/auth/login']);
             return false;
         }
-
     }
 
 } 

@@ -8,7 +8,8 @@ import { CoreService } from 'src/app/Services/core.service';
 import { AddEditBookDialogComponent } from '../add-edit-book-dialog/add-edit-book-dialog.component';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
 import { Book } from 'src/app/models/book';
-
+import { CategoriesService } from 'src/app/Services/categories.service';
+CategoriesService
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -17,10 +18,10 @@ import { Book } from 'src/app/models/book';
 export class BooksComponent {
   books!: Book[]
   searchKey!: string;
+  loading: boolean = true;
 
   displayedColumns: string[] = [
     'counter',
-    'photo',
 
     'bookName',
     'authorId',
@@ -35,7 +36,8 @@ export class BooksComponent {
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private _dialog: MatDialog,
     private _BooksService: BooksService,
-    private _coreService: CoreService
+    private _coreService: CoreService,
+    private _categoriesService: CategoriesService
   ) {
 
   }
@@ -43,6 +45,8 @@ export class BooksComponent {
   ngOnInit(): void {
     this.getBooks()
   }
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -76,6 +80,8 @@ export class BooksComponent {
 
   getBooks() {
     this._BooksService.geAllBooks().subscribe((res) => {
+      this.loading = false;
+
       this.dataSource = new MatTableDataSource(res.data)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -106,7 +112,7 @@ export class BooksComponent {
   }
 
 
-  deleteBook(id: number) {
+  deleteBook(id: string) {
 
     const message = `Are you sure you want to do this?`;
 

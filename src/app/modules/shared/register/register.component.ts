@@ -33,7 +33,7 @@ export class RegisterComponent {
   }
   onSubmit(registerForm: FormGroup) {
 
-    this._userService.register(registerForm).subscribe(
+    this._userService.register(registerForm.value).subscribe(
       (res) => {
         if (res.message == 'success')
           this.router.navigate(['/auth/login'])
@@ -42,7 +42,8 @@ export class RegisterComponent {
 
 
       },
-      (err) => alert(err.message)
+      (err) => console.log(err)
+
     )
 
   }

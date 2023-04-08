@@ -15,16 +15,14 @@ const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
     data: { allowedRoles: ['admin'] }
   },
-  {
-    path: 'auth',
-    loadChildren: () => import('./modules/authnitaction/authnitaction.module').then(m => m.AuthnitactionModule)
-  },
+
   {
     path: 'user',
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
     canActivate: [AuthGuard, RoleGuard],
     data: { allowedRoles: ['user'] }
   },
+  { path: 'shared', loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule) },
 
 ];
 

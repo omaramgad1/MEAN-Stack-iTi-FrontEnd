@@ -17,7 +17,9 @@ export class CategoriesService {
 
   addNewCategory(data: any): Observable<any> {
 
-    return this._http.post(`http://localhost:3000/categories`, data);
+    return this._http.post(`http://localhost:3000/categories`, data, {
+      withCredentials: true
+    });
   }
 
   geAllCategories(): Observable<any> {
@@ -31,10 +33,14 @@ export class CategoriesService {
 
 
   deleteCategory(id: any): Observable<any> {
-    return this._http.delete(`http://localhost:3000/categories/${id}`);
+    return this._http.delete(`http://localhost:3000/categories/${id}`, {
+      withCredentials: true
+    });
   }
 
   updateCategory(id: number, data: any): Observable<any> {
-    return this._http.put(`http://localhost:3000/categories/${id}`, data);
+    return this._http.patch(`http://localhost:3000/categories/${id}`, data, {
+      withCredentials: true
+    });
   }
 }
