@@ -1,0 +1,58 @@
+$bgcolo:#937f81;
+* {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer{
+    padding-top: 800px;
+.foot{
+    margin-bottom: 0px;
+    position: static;
+    background: linear-gradient(rgba(147,127,129,.8),rgba(147,127,129,.3)),url(https://www.frontlist.in/storage/post/1653642722_photo-1630343710506-89f8b9f21d31.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+
+#quote {
+    font-size: 20px;
+}
+
+.location {
+    height: 80%;
+}
+
+@media (min-width: 501px) and (max-width:800px){
+   footer{
+    padding-top: 2350px;
+   } 
+}
+
+@media (min-width: 280px) and (max-width:500px){
+    footer{
+     padding-top: 2150px;
+     width: 100%;
+    } 
+    #quote {
+        font-size: 10px;
+    }
+    .location{
+        width: 100%;
+        height: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #navLinks{
+        font-size: 10px;
+    }
+
+    #bookLink{
+        font-size: 10px;
+    }
+ }

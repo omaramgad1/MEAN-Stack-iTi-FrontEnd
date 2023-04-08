@@ -5,7 +5,6 @@ import { AdminComponent } from './admin.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { BooksComponent } from './books/books.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
 import { AddEditCategoryDialogComponent } from './add-edit-category-dialog/add-edit-category-dialog.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +16,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
+import {  MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 
 import { MatTableModule } from '@angular/material/table';
@@ -25,13 +24,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+// import { AppComponent } from 'src/app/app.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { DialogBodyComponent } from './dialog-body/dialog-body.component';
 import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book-dialog.component';
-
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -44,7 +43,6 @@ import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book
     DialogBodyComponent,
     AddEditBookDialogComponent,
     FooterComponent
-
 
   ],
   imports: [
@@ -70,9 +68,6 @@ import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book
     MatSortModule,
     FormsModule
 
-  ]/* ,
-  providers: [
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
-  ] */
+  ]
 })
 export class AdminModule { }
