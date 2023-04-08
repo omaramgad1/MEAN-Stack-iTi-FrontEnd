@@ -1,3 +1,4 @@
+
 <div mat-dialog-title [ngStyle]="{ 'backgroundColor': '#A37A7A','color' : '#fff'
     }"
     class="text-center mb-3">
@@ -11,9 +12,9 @@
         <div class="container-fluid d-flex flex-column justify-content-center">
             <mat-form-field appearance="outline" class="mb-3">
                 <mat-label>Category name</mat-label>
-                <input matInput formControlName="categoryName">
+                <input matInput formControlName="name">
                 <mat-error
-                    *ngIf="categoryForm.get('categoryName')?.hasError('required')">
+                    *ngIf="categoryForm.get('name')?.hasError('required')">
                     category is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
@@ -26,7 +27,7 @@
                     'Update': 'Save'}}</button>
             </div>
         </div>
+
     </div>
-
-
+  </div>
 </form>

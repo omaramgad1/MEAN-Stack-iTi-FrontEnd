@@ -24,13 +24,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-// import { AppComponent } from 'src/app/app.component';
+
 import { MatIconModule } from '@angular/material/icon';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { DialogBodyComponent } from './dialog-body/dialog-body.component';
 import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book-dialog.component';
 import { FooterComponent } from './footer/footer.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -54,7 +56,6 @@ import { FooterComponent } from './footer/footer.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    MatTabsModule,
     MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -66,7 +67,7 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     FormsModule,
     MatSortModule,
-    FormsModule
+    MatProgressSpinnerModule
 
   ]
 })

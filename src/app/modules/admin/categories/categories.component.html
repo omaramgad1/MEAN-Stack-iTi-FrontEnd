@@ -1,95 +1,112 @@
-<br><br><br><br>
-<div class="container mt-3 ">
-    <div class="text-light text-center p-2" [ngStyle]="{
-        'backgroundColor':
-        '#A37A7A'}">
-        <h1 class="mat-headline-3 mb-1">Categories</h1>
-
-    </div>
-    <mat-toolbar class="p-2">
-
-
-        <mat-toolbar-row class="">
-
-            <div class="container mt-4">
-                <mat-form-field style="width: 50%;">
-                    <input matInput [(ngModel)]="searchKey" placeholder="Search"
-                        autocomplete="off" (keyup)="applyFilter($event)"
-                        placeholder="Search"
-                        autocomplete="on"
-                        #input>
-                    <button mat-button matSuffix aria-label="Clear"
-                        *ngIf="searchKey"
-                        (click)="onSearchClear($event)">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </mat-form-field>
-            </div>
-
-
-
-            <span class="example-spacer"></span>
-
-            <!-- (click)="openDialogform()" -->
-            <button class="p-2 m-1" mat-fab [ngStyle]="{
-                'backgroundColor':
-                '#A37A7A'}"
-                (click)="openDialogform()"><mat-icon>add_circle</mat-icon></button>
-        </mat-toolbar-row>
-    </mat-toolbar>
-</div>
 
 <div class="container mt-3 text-center">
 
 
-    <div class="mat-elevation-z8 text-center">
-        <table mat-table [dataSource]="dataSource" matSort class="text-center">
-            <!-- ID Column -->
-            <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef
-                    class="text-center">
-                    ID </th>
-                <td mat-cell *matCellDef="let row" class="text-center">
-                    {{row.id}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="categoryName">
-                <th mat-header-cell *matHeaderCellDef
-                    class="text-center">
-                    first name </th>
-                <td class="text-center" mat-cell *matCellDef="let row">
-                    {{row.categoryName}}
-                </td>
-            </ng-container>
-
-            <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef
-                    class="text-center"> Action
-                </th>
-                <td class="text-center" mat-cell *matCellDef="let row">
-                    <button mat-icon-button color="primary"
-                        (click)="openEditForm(row)">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button mat-icon-button color="warn"
-                        (click)="deleteCategory(row.id)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
-
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns:
-                displayedColumns;"></tr>
-            <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="4">No data matching the
-                    filter "{{input.value}}"</td>
-            </tr>
-        </table>
-
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
-            aria-label="Select page of users"></mat-paginator>
-    </div>
+<div class="container-fluid mt-3">
+  <div
+    class="text-light text-center p-2"
+  [ngStyle]="{
+        'backgroundColor':
+        '#A37A7A'}"
+  >
+    <h1 class="mat-headline-3 mb-1">Categories</h1>
+  </div>
+  <mat-toolbar class="p-2">
+    <mat-toolbar-row class="d-flex justify-content-between">
+      <mat-form-field class="p-2 mt-4">
+        <input
+          matInput
+          [(ngModel)]="searchKey"
+          placeholder="Search"
+          autocomplete="off"
+          (keyup)="applyFilter($event)"
+          placeholder="Search"
+          autocomplete="on"
+          #input
+        />
+        <button
+          mat-button
+          matSuffix
+          aria-label="Clear"
+          *ngIf="searchKey"
+          (click)="onSearchClear($event)"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="p-2" style="margin-left: 30px">
+        <button
+        [ngStyle]="{
+                'backgroundColor':
+                '#A37A7A'}"
+          class="p-2 m-10"
+          mat-fab
+          (click)="openDialogform()"
+        >
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
 </div>
-<br><br><br><br>
+
+<div class="container-fluid mat-elevation-z8 text-center mt-3">
+  <ng-template #table>
+    <table mat-table [dataSource]="dataSource" matSort class="text-center">
+      <ng-container matColumnDef="counter">
+        <th mat-header-cell *matHeaderCellDef class="text-center">No.</th>
+        <td
+          mat-cell
+          *matCellDef="let element; let i = index"
+          class="text-center"
+        >
+          {{ i + 1 }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="categoryName">
+        <th mat-header-cell *matHeaderCellDef class="text-center">
+          categoryName
+        </th>
+        <td class="text-center" mat-cell *matCellDef="let row">
+          {{ row.name }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="text-center">Action</th>
+        <td class="text-center" mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="openEditForm(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteCategory(row._id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+  </ng-template>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+
+  <div class="spinner-container" *ngIf="loading; else table">
+    <mat-spinner class="center"></mat-spinner>
+  </div>
+</div>

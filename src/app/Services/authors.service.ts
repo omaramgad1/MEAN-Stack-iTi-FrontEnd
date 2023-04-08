@@ -6,21 +6,32 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthorsService {
   constructor(private _http: HttpClient) {
 
   }
   addAuthor(data: Author): Observable<any> {
-    return this._http.post('http://localhost:3000/authors', data);
+    return this._http.post('http://localhost:3000/authors', data, {
+      withCredentials: true
+    });
   }
   getAllAuthors(): Observable<any> {
     return this._http.get('http://localhost:3000/authors');
   }
-
-  deleteAnAuthor(id: number): Observable<any> {
-    return this._http.delete(`http://localhost:3000/authors/${id}`)
+  getPageAuthors(pageNumber: number = 1, pageSize: number = 5): Observable<any> {
+    pageNumber = pageNumber - 1
+    return this._http.get(`http://localhost:3000/authors?pageNumber=${pageNumber < 0 ? 0 : pageNumber}&pageSize=${pageSize}`);
   }
-  updateAnAuthor(id: number,data:Author): Observable<any> {
-    return this._http.put(`http://localhost:3000/authors/${id}`,data)
+
+  deleteAnAuthor(id: string): Observable<any> {
+    return this._http.delete(`http://localhost:3000/authors/${id}`, {
+      withCredentials: true
+    })
+  }
+  updateAnAuthor(id: string, data: Author): Observable<any> {
+    return this._http.patch(`http://localhost:3000/authors/${id}`, data, {
+      withCredentials: true
+    })
   }
 }

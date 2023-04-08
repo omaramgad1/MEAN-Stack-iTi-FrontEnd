@@ -1,23 +1,32 @@
+
 <br><br><br><br>
 <div class="container mt-3 ">
   <div class="text-light text-center p-2" [ngStyle]="{
     'backgroundColor':
     '#A37A7A'}">
-    <h1 class="mat-headline-3 mb-1">Authors</h1>
 
+    <h1 class="mat-headline-3 mb-1">Authors</h1>
   </div>
   <mat-toolbar class="p-2">
-
-
     <mat-toolbar-row class="">
-
       <div class="container mt-4">
-        <mat-form-field style="width: 50%;">
-          <input matInput [(ngModel)]="searchKey" placeholder="Search"
-            autocomplete="off" (keyup)="applyFilter()" placeholder="Search"
-            autocomplete="on">
-          <button mat-button matSuffix aria-label="Clear" *ngIf="searchKey"
-            (click)="onSearchClear()">
+        <mat-form-field style="width: 50%">
+          <input
+            matInput
+            [(ngModel)]="searchKey"
+            placeholder="Search"
+            autocomplete="off"
+            (keyup)="applyFilter()"
+            placeholder="Search"
+            autocomplete="on"
+          />
+          <button
+            mat-button
+            matSuffix
+            aria-label="Clear"
+            *ngIf="searchKey"
+            (click)="onSearchClear()"
+          >
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
@@ -26,55 +35,70 @@
       <span class="example-spacer"></span>
 
       <!-- (click)="openDialogform()" -->
+
       <button class="p-2 m-1" mat-fab [ngStyle]="{
         'backgroundColor':
         '#A37A7A'}" (click)="openDialog()"><img
           src="assets/add-user.png"></button>
+
     </mat-toolbar-row>
   </mat-toolbar>
 </div>
 
-<div class="container mt-3 text-center">
-
-
+<div class="container mt-3">
   <div class="mat-elevation-z8">
     <mat-table [dataSource]="listData" matSort>
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.id}}
+      <ng-container matColumnDef="counter">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>No.</mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          {{ i + 1 }}
         </mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="First Name">
         <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.firstName}}</mat-cell>
+        <mat-cell *matCellDef="let element">{{ element.firstName }}</mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="Last Name">
         <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.lastName}}</mat-cell>
+        <mat-cell *matCellDef="let element">{{ element.lastName }}</mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="Date Of Birth">
         <mat-header-cell *matHeaderCellDef>Date Of Birth</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.dateOfBirth}}</mat-cell>
+        <mat-cell *matCellDef="let element">{{ element.dob | date }}</mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="Photo">
-        <mat-header-cell *matHeaderCellDef>photo</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Photo</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <img width="60%" height="100px" src='{{element.photo}}'>
+          <img width="60%" height="200px" src="{{ element.photo }}" />
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="openEditDialog(row)"><mat-icon>create</mat-icon></button>
-          <button mat-icon-button color="warn" (click)="deleteAuthor(row.id)"><mat-icon>delete_outline</mat-icon></button>
+          <button mat-icon-button (click)="openEditDialog(row)">
+            <mat-icon>create</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAuthor(row._id)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
         </mat-cell>
       </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"
-      showFirstLastButtons></mat-paginator>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+      (page)="onPageChange($event)"
+      showFirstLastButtons
+    ></mat-paginator>
   </div>
 </div>
 <br><br><br><br>

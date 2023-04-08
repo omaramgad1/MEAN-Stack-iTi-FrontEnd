@@ -1,17 +1,20 @@
-<button mat-icon-button style="float:right; margin:5px;" matDialogClose>
-    <mat-icon>close</mat-icon>
+<button mat-icon-button style="float: right; margin: 5px" matDialogClose>
+  <mat-icon>close</mat-icon>
 </button>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-<mat-dialog-content>
+  <mat-dialog-content>
     <header>
-        <h1>
-            Add Author
-        </h1>
+      <h1>Add Author</h1>
     </header>
-   
+
     <p>
-        <mat-form-field>
-        <input matInput placeholder="Enter Author First Name"  formControlName="firstName" required>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Enter Author First Name"
+          formControlName="firstName"
+          required
+        />
         <mat-icon matSuffix>person</mat-icon>
         <mat-error
         *ngIf="myForm.get('firstName')?.hasError('required')">
@@ -19,8 +22,15 @@
     </mat-error>
     </mat-form-field></p>
 
-    <p><mat-form-field>
-        <input matInput placeholder="Enter Author Last Name"  formControlName="lastName"required >
+
+    <p>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Enter Author Last Name"
+          formControlName="lastName"
+          required
+        />
         <mat-icon matSuffix>person</mat-icon>
         <mat-error
         *ngIf="myForm.get('lastName')?.hasError('required')">
@@ -28,10 +38,10 @@
     </mat-error>
     </mat-form-field></p>
     <p><mat-form-field>
-        <input matInput placeholder="Enter Author's date of birth" formControlName="dateOfBirth" type="date">
+        <input matInput placeholder="Enter Author's date of birth" formControlName="dob" type="date">
         <mat-icon matSuffix>cake</mat-icon>
         <mat-error
-        *ngIf="myForm.get('dateOfBirth')?.hasError('required')">
+        *ngIf="myForm.get('dob')?.hasError('required')">
         Date Of Birth is <strong>required</strong>
     </mat-error>
     </mat-form-field></p>
@@ -53,9 +63,8 @@
     <button mat-raised-button [ngStyle]="{
         'backgroundColor':
         '#A37A7A','color':'#fff'}"  type="submit">{{data ? "Update" : "Save"}}</button>
+
     <button mat-raised-button color="danger" matDialogClose>Cancel</button>
-
-</mat-dialog-actions>
-<!-- <img className="align-self-center" width= '100%' src="{{ImageUrl}}" /> -->
-
+  </mat-dialog-actions>
+  <!-- <img className="align-self-center" width= '100%' src="{{ImageUrl}}" /> -->
 </form>

@@ -23,7 +23,7 @@ export class DialogBodyComponent implements OnInit {
     this.myForm = this.fb.group({
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
-      dateOfBirth: new FormControl(null, [Validators.required]),
+      dob: new FormControl(null, [Validators.required]),
       photo: new FormControl(null, []),
     })
   }
@@ -46,7 +46,7 @@ export class DialogBodyComponent implements OnInit {
   onSubmit() {
     if (this.myForm.valid) {
       if (this.data) {
-        this._authors.updateAnAuthor(this.data.id, this.myForm.value).subscribe({
+        this._authors.updateAnAuthor(this.data._id, this.myForm.value).subscribe({
           next: (val: Author) => {
             alert("Author's Info Updated Successfully");
             this._dialogRef.close(true);
@@ -65,7 +65,7 @@ export class DialogBodyComponent implements OnInit {
 
           },
           error: (error) => {
-            console.error(error)
+            console.log(error)
           }
         })
       }

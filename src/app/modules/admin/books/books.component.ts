@@ -1,27 +1,32 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BooksService } from 'src/app/Services/books.service';
 import { CoreService } from 'src/app/Services/core.service';
 import { AddEditBookDialogComponent } from '../add-edit-book-dialog/add-edit-book-dialog.component';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
-
+import { Book } from 'src/app/models/book';
+import { CategoriesService } from 'src/app/Services/categories.service';
+CategoriesService
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent {
+  books!: Book[]
   searchKey!: string;
+  loading: boolean = true;
 
   displayedColumns: string[] = [
-    'id',
+    'counter',
+
     'bookName',
-    'categoryId',
     'authorId',
-    'photo',
+
+    'categoryId',
     "action"
 
   ];
@@ -31,7 +36,8 @@ export class BooksComponent {
   @ViewChild(MatSort) sort!: MatSort;
   constructor(private _dialog: MatDialog,
     private _BooksService: BooksService,
-    private _coreService: CoreService
+    private _coreService: CoreService,
+    private _categoriesService: CategoriesService
   ) {
 
   }
@@ -39,6 +45,8 @@ export class BooksComponent {
   ngOnInit(): void {
     this.getBooks()
   }
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -72,15 +80,11 @@ export class BooksComponent {
 
   getBooks() {
     this._BooksService.geAllBooks().subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res)
+      this.loading = false;
+
+      this.dataSource = new MatTableDataSource(res.data)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-
-      /*       this.categoris = [...res];
-            console.log(this.categoris)
-            console.log(typeof (this.categoris)) */
-
-
     }, err => {
       console.log(err)
     }
@@ -108,7 +112,7 @@ export class BooksComponent {
   }
 
 
-  deleteBook(id: number) {
+  deleteBook(id: string) {
 
     const message = `Are you sure you want to do this?`;
 
@@ -135,4 +139,45 @@ export class BooksComponent {
 
 
   }
+
+
+
+  getNextData(currentSize: number, offset: number, limit: number) {
+
+
+    this._BooksService.getPageBooks(offset, limit)
+      .subscribe((response: any) => {
+
+        this.books.length = currentSize;
+
+
+        this.books.push(...response.data);
+
+        this.books.length = response.total;
+
+
+
+        this.dataSource = new MatTableDataSource<any>(this.books);
+        this.dataSource._updateChangeSubscription();
+
+        this.dataSource.paginator = this.paginator;
+
+      })
+  }
+
+
+  onPageChange(event: PageEvent) {
+
+    let pageIndex = event.pageIndex;
+    let pageSize = event.pageSize;
+
+    //let previousIndex = event.previousPageIndex;
+
+    let previousSize = pageSize * pageIndex;
+
+    this.getNextData(previousSize, pageIndex, pageSize);
+
+
+  }
+
 }

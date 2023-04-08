@@ -1,7 +1,24 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 
-.ac td{
+.ac td {
   text-align: center;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  /* set the container's height to the full viewport height */
+}
+
+.mat-spinner {
+  position: absolute;
+}
+
+.mat-spinner {
+  position: absolute;
+  color: red;
 }
