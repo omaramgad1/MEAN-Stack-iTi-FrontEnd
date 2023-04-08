@@ -18,11 +18,11 @@ export class BooksService {
 
   geAllBooks(): Observable<any> {
 
-    return this._http.get(`http://localhost:3000/books`);
+    return this._http.get(`https://backend-mean.onrender.com/books`);
   }
   getPageBooks(pageNumber: number = 1, pageSize: number = 5): Observable<any> {
     pageNumber = pageNumber - 1
-    return this._http.get(`http://localhost:3000/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}&pageSize=${pageSize}`);
+    return this._http.get(`https://backend-mean.onrender.com/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}&pageSize=${pageSize}`);
   }
 
 
