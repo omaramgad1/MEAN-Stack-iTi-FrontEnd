@@ -69,6 +69,11 @@
         <mat-header-cell *matHeaderCellDef>Date Of Birth</mat-header-cell>
         <mat-cell *matCellDef="let element">{{ element.dob | date }}</mat-cell>
       </ng-container>
+      
+      <ng-container matColumnDef="Description">
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.bio}}</mat-cell>
+      </ng-container>
 
       <ng-container matColumnDef="Photo">
         <mat-header-cell *matHeaderCellDef>Photo</mat-header-cell>
