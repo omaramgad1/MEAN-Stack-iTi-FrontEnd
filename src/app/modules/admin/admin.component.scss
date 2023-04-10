@@ -1,0 +1,11 @@
+.bcontainer {
+
+    min-height: 100%;
+
+}
+
+.main {
+    overflow: auto;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 100px - 58px)
+}

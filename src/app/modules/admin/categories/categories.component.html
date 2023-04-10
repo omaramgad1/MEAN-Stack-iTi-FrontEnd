@@ -1,13 +1,9 @@
-
-<div class="container mt-3 text-center">
-
-
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3 text-center">
   <div
     class="text-light text-center p-2"
-  [ngStyle]="{
-        'backgroundColor':
-        '#A37A7A'}"
+    [ngStyle]="{
+      backgroundColor: '#A37A7A'
+    }"
   >
     <h1 class="mat-headline-3 mb-1">Categories</h1>
   </div>
@@ -36,9 +32,9 @@
       </mat-form-field>
       <div class="p-2" style="margin-left: 30px">
         <button
-        [ngStyle]="{
-                'backgroundColor':
-                '#A37A7A'}"
+          [ngStyle]="{
+            backgroundColor: '#A37A7A'
+          }"
           class="p-2 m-10"
           mat-fab
           (click)="openDialogform()"
@@ -48,65 +44,80 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-</div>
 
-<div class="container-fluid mat-elevation-z8 text-center mt-3">
-  <ng-template #table>
-    <table mat-table [dataSource]="dataSource" matSort class="text-center">
-      <ng-container matColumnDef="counter">
-        <th mat-header-cell *matHeaderCellDef class="text-center">No.</th>
-        <td
-          mat-cell
-          *matCellDef="let element; let i = index"
-          class="text-center"
-        >
-          {{ i + 1 }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="categoryName">
-        <th mat-header-cell *matHeaderCellDef class="text-center">
-          categoryName
-        </th>
-        <td class="text-center" mat-cell *matCellDef="let row">
-          {{ row.name }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef class="text-center">Action</th>
-        <td class="text-center" mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary" (click)="openEditForm(row)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button
-            mat-icon-button
-            color="warn"
-            (click)="deleteCategory(row._id)"
+  <div class="mat-elevation-z8 text-center mt-3">
+    <ng-template #table>
+      <table mat-table [dataSource]="dataSource" matSort class="text-center">
+        <ng-container matColumnDef="counter">
+          <th mat-header-cell *matHeaderCellDef class="text-center">No.</th>
+          <td
+            mat-cell
+            *matCellDef="let element; let i = index"
+            class="text-center"
           >
-            <mat-icon>delete</mat-icon>
-          </button>
-        </td>
-      </ng-container>
+            {{ i + 1 }}
+          </td>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <ng-container matColumnDef="categoryName">
+          <th mat-header-cell *matHeaderCellDef class="text-center">
+            categoryName
+          </th>
+          <td class="text-center" mat-cell *matCellDef="let row">
+            {{ row.name }}
+          </td>
+        </ng-container>
 
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">
-          No data matching the filter "{{ input.value }}"
-        </td>
-      </tr>
-    </table>
-  </ng-template>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef class="text-center">Action</th>
+          <td class="text-center" mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="openEditForm(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="deleteCategory(row._id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
 
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    (page)="onPageChange($event)"
-  >
-  </mat-paginator>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-  <div class="spinner-container" *ngIf="loading; else table">
-    <mat-spinner class="center"></mat-spinner>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">
+            No data matching the filter "{{ input.value }}"
+          </td>
+        </tr>
+      </table>
+    </ng-template>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+
+    <div class="spinner-container" *ngIf="loading; else table">
+      <mat-spinner class="center" color="warn"></mat-spinner>
+    </div>
   </div>
+</div>
+<div class="paginator">
+  <!-- [disabled]="currentPage === 1" (click)="prevPage()" -->
+  <button>Previous</button>
+  <span>{{ 1 }}/{{ 3 }}</span>
+  <div *ngIf="3 > 1">
+    <span>Pages:</span>
+    <div *ngFor="let page of [1, 2, 3]" [class.active]="page === 1">
+      {{ page }}
+    </div>
+    <!-- (click)="goToPage(page)" -->
+  </div>
+  <button>Next</button>
+  <!-- (click)="nextPage()" -->
+  <!-- [disabled]="currentPage === totalPages" -->
 </div>

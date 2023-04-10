@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBodyComponent } from '../dialog-body/dialog-body.component';
 
-import { dialogData } from 'src/app/models/dialog';
+// import { dialogData } from 'src/app/models/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,7 +16,7 @@ import { Author } from 'src/app/models/author';
 export class AuthorsComponent implements OnInit {
 
   authors!: Author[];
-  dialog!: dialogData[]
+  // dialog!: dialogData[]
   listData!: MatTableDataSource<Author>;
   displayedColumns: string[] = ['counter', 'First Name', 'Last Name', 'Date Of Birth', 'Photo', 'action'];
   @ViewChild(MatSort) sort!: MatSort;
