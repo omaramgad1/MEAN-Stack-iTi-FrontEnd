@@ -4,8 +4,6 @@ import { Author } from 'src/app/models/author';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 // import { dialogData } from 'src/app/models/dialog';
 import { AuthorsService } from 'src/app/Services/authors.service';
-import { CdkTextareaAutosize } from '@angular/cdk/text-field';
-import { take } from 'rxjs';
 
 @Component({
   selector: 'app-dialog-body',
@@ -13,7 +11,6 @@ import { take } from 'rxjs';
   styleUrls: ['./dialog-body.component.scss']
 })
 export class DialogBodyComponent implements OnInit {
-  @ViewChild('autosize') autosize!: CdkTextareaAutosize;
 
   myForm: FormGroup;
   authors!: Author[];

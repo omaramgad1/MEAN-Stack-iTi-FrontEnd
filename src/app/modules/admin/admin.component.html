@@ -1,5 +1,40 @@
 <app-navbar></app-navbar>
-<h1>{{ title }}</h1>
 <router-outlet></router-outlet>
+<body>
+    <header>
 
+        <div class="header">
+            <h2>"Small cheer and great <span>Welcome</span> makes a merry feast"</h2>
+            <p>William Shakespeare</p>
+        </div>
+    </header>
+
+    <main>
+        <h3>About Us</h3>
+        <div class="hr"></div>
+        <section class="about">
+            <div class="row" id="us">
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center justify-content-center align-items-center">
+                    <img src="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlYWRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+                        alt="aboutUs">
+
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 text-center justify-content-center align-items-center">
+                    <p>“I pronounce after all there is no pleasure like perusing!”
+                        - <i>Jane Austen, Pride and Prejudice.</i><br>
+                        Dear readers,
+                        We offer a tremendous gathering of books in the various classifications of Fiction, Non-fiction,
+                        Biographies, History, Religions,etc
+                    </p>
+                </div>
+            </div>
+        </section>
+<br><br><br><br>
+        <app-carousel [quotes]="quotes" [autoSlide]="true"></app-carousel>
+
+    </main>
+
+
+</body>
 <app-footer></app-footer>

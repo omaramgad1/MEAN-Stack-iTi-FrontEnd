@@ -48,10 +48,7 @@
     <p>
       <mat-form-field>
         <textarea matInput
-            cdkTextareaAutosize
-            #autosize="cdkTextareaAutosize"
-            cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="5"
+
             placeholder="Enter Author's Description"
             formControlName="bio"
             ></textarea>
@@ -60,6 +57,10 @@
         *ngIf="myForm.get('bio')?.hasError('required')">
         Description is <strong>required</strong>
     </mat-error>
+    <mat-error
+    *ngIf="myForm.get('bio')?.hasError('minlength')">
+    Description <strong>minimum length is 20</strong>
+</mat-error>
     </mat-form-field></p>
 
     <div>
