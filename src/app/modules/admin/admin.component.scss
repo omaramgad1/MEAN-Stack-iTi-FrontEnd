@@ -1,11 +1,208 @@
-.bcontainer {
+// * {
+//     box-sizing: border-box;
+// }
 
-    min-height: 100%;
+// header {
 
-}
+//     background: linear-gradient(rgba(147, 127, 129, .5), rgba(147, 127, 129, .8)), url(https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+//     height: 100vh;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     overflow-y: hidden;
 
-.main {
-    overflow: auto;
-    padding-bottom: 50px;
-    min-height: calc(100vh - 100px - 58px)
-}
+//     .header {
+//         color: white;
+//         opacity: 1;
+//         text-align: center;
+//         padding-top: 280px;
+//         line-height: 2px;
+
+//         h2 {
+//             font-size: 40px;
+//         }
+
+//         p {
+//             padding-top: 40px;
+//             font-size: 30px;
+//         }
+
+//         span {
+//             color: pink;
+//         }
+//     }
+
+//min-height: 100%;
+
+// }
+
+// body {
+
+//     padding-bottom: 100rem;
+//     background-color: white;
+
+//     height: 100vh;
+//     width: 100%;
+//     margin-left: auto;
+//     margin-right: auto;
+
+//     img {
+//         margin-left: auto;
+//         margin-right: auto;
+//         // padding-left: 720px;    
+//     }
+
+//     h3 {
+//         padding-top: 5rem;
+//         text-align: center;
+//         font-size: 35px;
+
+//     }
+
+//     .hr {
+//         border-bottom: 5px solid pink;
+//         width: 200px;
+//         margin-left: auto;
+//         margin-right: auto;
+//     }
+
+//     .about {
+//         width: 100%;
+//         line-height: 40px;
+//         margin-left: auto;
+//         margin-right: auto;
+
+//         img {
+//             width: 570px;
+//             // padding-left: 20px;
+//             height: 235px;
+//             margin-left: auto;
+//             margin-right: auto;
+//         }
+
+//         padding-top: 5rem;
+//         display: flex;
+
+//         p {
+//             font-size: larger;
+//             padding-top: 40px;
+//             height: 140px;
+//             width: 570px;
+//             color: gray;
+//             margin-left: auto;
+//             margin-right: auto;
+//         }
+
+//     }
+
+//     #us {
+//         margin-left: auto;
+//         margin-right: auto;
+//     }
+
+
+// }
+
+// @media (min-width: 270px) and (max-width:500px) {
+
+
+
+
+//     header {
+//         width: 110% !important;
+//         margin-left: auto;
+//         margin-right: auto;
+
+//         .header {
+//             color: white;
+//             opacity: 1;
+//             text-align: center;
+//             padding-top: 150px;
+//             line-height: 2px;
+//             margin-left: auto;
+//             margin-right: auto;
+
+//             h2 {
+//                 font-size: 20px;
+//                 width: 80%;
+//                 margin-left: auto;
+//                 margin-right: auto;
+//             }
+
+//             p {
+//                 padding-top: 20px;
+//                 font-size: 20px;
+//             }
+//         }
+
+
+//     }
+
+//     .about {
+//         img {
+//             width: 270px !important;
+//             margin-left: auto;
+//             margin-right: auto;
+
+//         }
+
+//         p {
+//             width: 280px !important;
+//             margin-left: auto;
+//             margin-right: auto;
+
+//         }
+
+//     }
+
+
+// }
+
+
+// @media (min-width: 501px) and (max-width:800px) {
+
+
+//     header {
+
+
+//         .header {
+//             color: white;
+//             opacity: 1;
+//             text-align: center;
+//             padding-top: 150px;
+//             line-height: 2px;
+//             margin-left: auto;
+//             margin-right: auto;
+
+//             h2 {
+//                 font-size: 20px;
+//                 width: 80%;
+//                 margin-left: auto;
+//                 margin-right: auto;
+//             }
+
+//             p {
+//                 padding-top: 20px;
+//                 font-size: 20px;
+//             }
+//         }
+
+
+//     }
+
+//     .about {
+//         img {
+//             width: 440px !important;
+//             margin-left: auto;
+//             margin-right: auto;
+
+//         }
+
+//         p {
+//             width: 440px !important;
+
+//         }
+
+//     }
+
+// }
