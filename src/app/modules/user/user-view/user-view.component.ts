@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoDialogComponent } from '../photo-dialog/photo-dialog.component';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
@@ -6,17 +6,15 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BooksService } from 'src/app/Services/books.service';
 import { UsersService } from 'src/app/Services/users.service';
-import { CoreService } from 'src/app/Services/core.service';
 import { Book } from 'src/app/models/book';
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.scss']
 })
-export class UserViewComponent {
+export class UserViewComponent implements OnInit{
   books!: Book[]
   searchKey!: string;
-
   displayedColumns: string[] = [
     'photo',
     'name',
@@ -26,6 +24,8 @@ export class UserViewComponent {
     'shelve',
   ];
   dataSource!: MatTableDataSource<any>;
+  @Output() ratingChange = new EventEmitter<number>();
+  stars: any[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -33,11 +33,56 @@ export class UserViewComponent {
   constructor(
     private _dialog: MatDialog,
     private _BooksService: BooksService,
-    private _userService: UsersService,
-    private _coreService: CoreService) {}
+    private _userService: UsersService,private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
-    this.getBooks()
+    this.getBooks();
+    this.stars = Array(5).fill(null).map(() => ({ filled: false, hover: false }));
+  }
+
+  createStars(rating: number) {
+    const stars = Array(5).fill(null).map(() => ({ filled: false, hover: false }));
+    const roundedRating = Math.round(rating);
+    for (let i = 0; i < roundedRating; i++) {
+      stars[i].filled = true;
+    }
+    return stars;
+  }
+
+  onStarHover(row: any, star: any) {
+    const index = row.stars.indexOf(star);
+    for (let i = 0; i <= index; i++) {
+      row.stars[i].hover = true;
+    }
+  }
+
+  onStarLeave(row: any, star: any) {
+    const index = row.stars.indexOf(star);
+    for (let i = 0; i <= index; i++) {
+      row.stars[i].hover = false;
+    }
+  }
+
+  onStarClick(row: any, star: any) {
+    const index = row.stars.indexOf(star);
+    const newRating = index + 1;
+    row.rating = newRating;
+    row.stars = this.createStars(newRating);
+    this.dataSource._updateChangeSubscription();
+    this.ratingChange.emit(newRating);
+  }
+
+  getBooks() {
+    this._userService.getUserBooks().subscribe((res) => {
+      this.dataSource = new MatTableDataSource(res.data.books);
+      this.dataSource.data.forEach((row: any) => {
+        row.stars = this.createStars(row.rating);
+      });
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }, err => {
+      console.log(err)
+    })
   }
 
   applyFilter(event: Event) {
@@ -54,25 +99,6 @@ export class UserViewComponent {
     this.applyFilter(event)
   }
 
-  getBooks() {
-    this._userService.getUserBooks().subscribe((res) => {
-      console.log(res.data);
-      
-      this.dataSource = new MatTableDataSource(res.data.books);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    }, err => {
-      console.log(err)
-    })
-    
-    // this._BooksService.geAllBooks().subscribe((res) => {
-    //   this.dataSource = new MatTableDataSource(res.data)
-    //   this.dataSource.sort = this.sort;
-    //   this.dataSource.paginator = this.paginator;
-    // }, err => {
-    //   console.log(err)
-    // })
-  }
 
   getNextData(currentSize: number, offset: number, limit: number) {
     this._BooksService.getPageBooks(offset, limit)
