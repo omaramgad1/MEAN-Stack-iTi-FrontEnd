@@ -20,21 +20,22 @@ export class LoginComponent {
 
   submintloginForm(loginForm: FormGroup) {
     this._userService.login(loginForm.value).subscribe((res) => {
+      console.log(res.message)
 
-      if (res.message == 'success') {
+      if (res.message === 'success') {
         Emitters.authEmitter.emit(true)
         this._userService.getProfile().subscribe((res) => {
 
           this._userService.setCurrentUser(res)
 
-          if (res['role'] == 'admin') {
+          if (res['role'] === 'admin') {
             this.router.navigate(['/admin'])
           }
-          else if (res['role'] == 'user')
+          else if (res['role'] === 'user')
             this.router.navigate(['/user'])
         })
       }
-      else if (res.message == 'error') {
+      else if (res.message === 'error') {
 
         alert("user not found")
       }
@@ -47,3 +48,5 @@ export class LoginComponent {
     )
   }
 }
+
+
