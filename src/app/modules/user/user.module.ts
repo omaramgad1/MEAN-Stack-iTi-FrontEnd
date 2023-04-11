@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     UserComponent,
@@ -29,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatIconModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule, 
+    FormsModule
   ]
 })
 export class UserModule { }
