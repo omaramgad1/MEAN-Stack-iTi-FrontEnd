@@ -1,12 +1,14 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoDialogComponent } from '../photo-dialog/photo-dialog.component';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BooksService } from 'src/app/Services/books.service';
 import { UsersService } from 'src/app/Services/users.service';
 import { Book } from 'src/app/models/book';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
@@ -15,6 +17,7 @@ import { Book } from 'src/app/models/book';
 export class UserViewComponent implements OnInit{
   books!: Book[]
   searchKey!: string;
+  selectedOption: string = 'All Books';
   displayedColumns: string[] = [
     'photo',
     'name',
@@ -33,11 +36,35 @@ export class UserViewComponent implements OnInit{
   constructor(
     private _dialog: MatDialog,
     private _BooksService: BooksService,
-    private _userService: UsersService,private renderer: Renderer2, private el: ElementRef) { }
+    private _userService: UsersService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
-  ngOnInit(): void {
-    this.getBooks();
-    this.stars = Array(5).fill(null).map(() => ({ filled: false, hover: false }));
+    ngOnInit(): void {
+      this.getBooks();
+      this.stars = Array(5).fill(null).map(() => ({ filled: false, hover: false }));
+    
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      // Get the current route URL and set the selectedOption variable accordingly
+      const url = this.activatedRoute.snapshot.url[0].path;
+      switch (url) {
+        case 'read':
+          this.selectedOption = 'Read';
+          break;
+        case 'reading':
+          this.selectedOption = 'Currently Reading';
+          break;
+        case 'want':
+          this.selectedOption = 'Want to Read';
+          break;
+        default:
+          this.selectedOption = 'All Books';
+          break;
+      }
+    });
   }
 
   createStars(rating: number) {
@@ -118,4 +145,25 @@ export class UserViewComponent implements OnInit{
       data: { photoUrl }
     });
   }
+
+  showAll() {
+    // this.router.navigate(['user/books']);
+    this.selectedOption = 'All Books';
+  }
+
+  showRead() {
+    // this.router.navigate(['user/books/read']);
+    this.selectedOption = 'Read';
+  }
+
+  showCurrent() {
+    // this.router.navigate(['user/books/reading']);
+    this.selectedOption = 'Currently Reading';
+  }
+
+  showWant() {
+    // this.router.navigate(['user/books/want']);
+    this.selectedOption = 'Want to Read';
+  }
+
 }
