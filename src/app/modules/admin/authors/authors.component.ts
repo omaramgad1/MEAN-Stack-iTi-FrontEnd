@@ -18,9 +18,10 @@ export class AuthorsComponent implements OnInit {
   authors!: Author[];
   // dialog!: dialogData[]
   listData!: MatTableDataSource<Author>;
-  displayedColumns: string[] = ['counter', 'First Name', 'Last Name', 'Date Of Birth', 'Photo', 'action'];
+  displayedColumns: string[] = ['counter', 'First Name', 'Last Name', 'Date Of Birth','Description', 'Photo', 'action'];
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   searchKey!: string;
   constructor(public matDialog: MatDialog, private _authors: AuthorsService) {
 
@@ -64,7 +65,7 @@ export class AuthorsComponent implements OnInit {
   deleteAuthor(id: string) {
     this._authors.deleteAnAuthor(id).subscribe({
       next: (res) => {
-        alert("Employee has Deleted Successfully");
+        alert("Author has Deleted Successfully");
         this.getAuthors()
 
       },
@@ -73,8 +74,8 @@ export class AuthorsComponent implements OnInit {
   }
   openEditDialog(data: Author) {
     const dialogRef = this.matDialog.open(DialogBodyComponent, {
-      width: '400px',
-      data,
+      width: '450px',
+      data:data,
 
     });
 

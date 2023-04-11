@@ -45,6 +45,23 @@
         Date Of Birth is <strong>required</strong>
     </mat-error>
     </mat-form-field></p>
+    <p>
+      <mat-form-field>
+        <textarea matInput
+
+            placeholder="Enter Author's Description"
+            formControlName="bio"
+            ></textarea>
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error
+        *ngIf="myForm.get('bio')?.hasError('required')">
+        Description is <strong>required</strong>
+    </mat-error>
+    <mat-error
+    *ngIf="myForm.get('bio')?.hasError('minlength')">
+    Description <strong>minimum length is 20</strong>
+</mat-error>
+    </mat-form-field></p>
 
     <div>
         <p>

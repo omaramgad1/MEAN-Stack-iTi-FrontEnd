@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Author } from 'src/app/models/author';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -24,11 +24,13 @@ export class DialogBodyComponent implements OnInit {
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
       dob: new FormControl(null, [Validators.required]),
-      photo: new FormControl(null, []),
+      bio:new FormControl(null,[Validators.minLength(20) ,Validators.maxLength(150),Validators.required]),
+      photo: new FormControl(null, [Validators.required]),
     })
   }
   ngOnInit(): void {
     this.myForm.patchValue(this.data)
+    console.log(this.data)
   }
   upload(event: Event) {
     const file = event.target as HTMLInputElement
@@ -61,7 +63,7 @@ export class DialogBodyComponent implements OnInit {
           next: (val: Author) => {
             alert("Author Added Successfully");
             this._dialogRef.close(true);
-            console.log(this.myForm.value.photo)
+            // console.log(this.myForm.value.photo)
 
           },
           error: (error) => {
@@ -70,7 +72,8 @@ export class DialogBodyComponent implements OnInit {
         })
       }
     }
+
   }
-
-
 }
+
+

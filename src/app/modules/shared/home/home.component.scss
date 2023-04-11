@@ -98,117 +98,128 @@ body {
         margin-left: auto;
         margin-right: auto;
     }
-.cates{
-    padding-top: 90px;
-    .cate {
-        margin-left: auto;
-        margin-right: auto;
-        color: white;
-        height: 70vh;
-        background: linear-gradient(rgba(147,127,129,.8),rgba(147,127,129,.3)),url(https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
 
-        h3 {
+    .cates {
+        padding-top: 90px;
+
+        .cate {
             margin-left: auto;
             margin-right: auto;
-            padding-top: 50px;
-        }
+            color: white;
+            height: 70vh;
+            background: linear-gradient(rgba(147, 127, 129, .8), rgba(147, 127, 129, .3)), url(https://img.freepik.com/free-photo/book-composition-with-open-book_23-2147690555.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
 
-        .list {
-           
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-
-            h2 {
-                font-size: 50px;
-                padding-top: 70px;
+            h3 {
                 margin-left: auto;
                 margin-right: auto;
-                text-align: center;
+                padding-top: 50px;
             }
 
+            .list {
 
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+
+                h2 {
+                    font-size: 50px;
+                    padding-top: 70px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: center;
+                }
+
+
+            }
         }
-    }
     }
 
 }
 
-.pBooks{
+.pBooks {
     height: 100vh;
     background-color: white;
     margin-left: auto;
     margin-right: auto;
     padding-top: 20px;
 
-    .books{
-    h3{
-        margin-left: auto;
-        margin-right: auto;
-    }
-   
-}
-.row{
-    padding-top: 50px;
-margin-right: auto;
-margin-left: auto;
+    .books {
+        h3 {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-   }
-.card{
-   width: 300px;
-   margin-right: auto;
-margin-left: auto;
-      img{
-        height: 200px;
-      }
-      .btn{
-        background-color: #937f81;
-        color: white;
-      }
-      p{
-        line-height: 30px;
-      }
+    }
+
+    .row {
+        padding-top: 50px;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+
+    .card {
+        width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+
+        img {
+            height: 200px;
+        }
+
+        .btn {
+            background-color: #937f81;
+            color: white;
+        }
+
+        p {
+            line-height: 30px;
+        }
+    }
 }
-}
-@media (min-width: 280px) and (max-width:500px) {
+
+@media (min-width: 270px) and (max-width:500px) {
 
     .cates {
         padding-top: 280px !important;
 
-        .cate{
-        margin-left: auto;
-        margin-right: auto;
-        h3 {
-            font-size: 25px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .list {
-           
-            width: 50%;
+        .cate {
             margin-left: auto;
             margin-right: auto;
 
-            h2 {
-                font-size: 30px;
-                padding-top: 70px;
+            h3 {
+                font-size: 25px;
                 margin-left: auto;
                 margin-right: auto;
-                text-align: center;
             }
 
+            .list {
 
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+
+                h2 {
+                    font-size: 30px;
+                    padding-top: 70px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: center;
+                }
+
+
+            }
         }
     }
-}
 
     header {
-width: 110% !important;
-margin-left: auto;
-margin-right: auto;
+        width: 110% !important;
+        margin-left: auto;
+        margin-right: auto;
+
         .header {
             color: white;
             opacity: 1;
@@ -250,42 +261,48 @@ margin-right: auto;
         }
 
     }
-    .pBooks{
+
+    .pBooks {
         height: 100vh;
         background-color: white;
         margin-left: auto;
         margin-right: auto;
         padding-top: 20px;
-    
-        .books{
-        h3{
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 20px;
+
+        .books {
+            h3 {
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 20px;
+            }
+
         }
-       
-    }
-    .row{
-        padding-top: 50px;
-    margin-right: auto;
-    margin-left: auto;
-    gap: 10px;
-       }
-    .card{
-       width: 260px;
-       margin-right: auto;
-    margin-left: auto;
-          img{
-            height: 200px;
-          }
-          .btn{
-            background-color: #937f81;
-            color: white;
-          }
-          p{
-            line-height: 20px;
-          }
-    }
+
+        .row {
+            padding-top: 50px;
+            margin-right: auto;
+            margin-left: auto;
+            gap: 10px;
+        }
+
+        .card {
+            width: 260px;
+            margin-right: auto;
+            margin-left: auto;
+
+            img {
+                height: 200px;
+            }
+
+            .btn {
+                background-color: #937f81;
+                color: white;
+            }
+
+            p {
+                line-height: 20px;
+            }
+        }
     }
 }
 
@@ -294,17 +311,19 @@ margin-right: auto;
 
     .cates {
         padding-top: 100px !important;
-        .cate{
-        margin-left: auto;
-        margin-right: auto;
 
-        h3 {
-            font-size: 25px;
+        .cate {
             margin-left: auto;
             margin-right: auto;
+
+            h3 {
+                font-size: 25px;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     }
-    }
+
     header {
 
 
@@ -348,19 +367,19 @@ margin-right: auto;
 
     }
 
-    .pBooks{
+    .pBooks {
         height: 100vh;
         background-color: white;
         margin-left: auto;
         margin-right: auto;
         padding-top: 20px;
 
-    .row{
-        padding-top: 50px;
-    margin-right: auto;
-    margin-left: auto;
-    gap: 10px;
-    
-       }
+        .row {
+            padding-top: 50px;
+            margin-right: auto;
+            margin-left: auto;
+            gap: 10px;
+
+        }
     }
 }
