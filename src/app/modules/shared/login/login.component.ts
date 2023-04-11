@@ -2,6 +2,7 @@ import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Emitters } from 'src/app/Services/emitters';
 import { UsersService } from 'src/app/Services/users.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class LoginComponent {
   submintloginForm(loginForm: FormGroup) {
     this._userService.login(loginForm.value).subscribe((res) => {
 
-      if (res.message === 'success') {
+      if (res.message == 'success') {
+        Emitters.authEmitter.emit(true)
         this._userService.getProfile().subscribe((res) => {
 
           this._userService.setCurrentUser(res)
@@ -32,11 +34,16 @@ export class LoginComponent {
             this.router.navigate(['/user'])
         })
       }
-      else {
+      else if (res.message == 'error') {
+
         alert("user not found")
       }
 
 
-    }, (err) => console.log(err));
+    }, (err) => {
+
+      console.log(err)
+    }
+    )
   }
 }

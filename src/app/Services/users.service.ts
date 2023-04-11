@@ -11,14 +11,14 @@ export class UsersService {
 
   currentUser = new BehaviorSubject(null)
 
-  constructor(private _http: HttpClient, private _cookieService: CookieService) {
+  constructor(private _http: HttpClient) {
   }
 
   register(user: any): Observable<any> {
     return this._http.post('http://localhost:3000/users/signup', user)
   }
 
-  getUserBooks(): Observable<any>{
+  getUserBooks(): Observable<any> {
     return this._http.get('http://localhost:3000/users/books/', { withCredentials: true })
   }
 
@@ -40,6 +40,7 @@ export class UsersService {
 
 
   logout() {
+    return this._http.get('http://localhost:3000/users/logout', { withCredentials: true })
 
   }
 }

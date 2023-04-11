@@ -20,6 +20,10 @@ export class CategoriesComponent implements OnInit {
   categoris!: Category[];
   loading: boolean = true;
 
+  currentPageIndex: number = 1;
+
+  totalPages!: number;
+
 
   displayedColumns: string[] = [
     'counter',
@@ -61,6 +65,7 @@ export class CategoriesComponent implements OnInit {
     this._categoryService.getPageCategories(pageNumber, pageSize).subscribe((res) => {
       this.loading = false;
       this.categoris = res.data
+      this.totalPages = res.pages;
       this.dataSource = new MatTableDataSource(this.categoris)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -140,48 +145,42 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
-  getNextData(currentSize: number, offset: number, limit: number) {
 
 
-    this._categoryService.getPageCategories(offset, limit)
-      .subscribe((response: any) => {
-        this.loading = false;
-        this.categoris.length = currentSize;
+  onPreviousPage() {
+    if (this.currentPageIndex > 1) {
+      this.currentPageIndex--;
+      this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
+        this.currentPageIndex = result.currentPage;
+        this.totalPages = result.pages;
 
-
-        this.categoris.push(...response.data);
-
-        this.categoris.length = response.total;
-
-
-
-        this.dataSource = new MatTableDataSource<any>(this.categoris);
-        this.dataSource._updateChangeSubscription();
-
+        // this.totalCount = result.totalCount;
+        this.dataSource = new MatTableDataSource(result.data);
         this.dataSource.paginator = this.paginator;
-
-      })
+      });
+    }
   }
 
+  onNextPage() {
+    console.log(this.currentPageIndex)
+    console.log(this.totalPages)
 
-  onPageChange(event: PageEvent) {
-    this.loading = true;
-    console.log(event);
+    if (this.currentPageIndex < this.totalPages) {
+      this.currentPageIndex++;
+      console.log(this.currentPageIndex)
+      this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
 
+        //this.totalCount = result.totalCount;
+        // this.currentPageIndex = result.currentPage;
+        this.totalPages = result.pages;
 
-    let pageIndex = event.pageIndex;
-    let pageSize = event.pageSize;
+        console.log(result.data);
 
-    //let previousIndex = event.previousPageIndex;
-
-    let previousSize = pageSize * pageIndex;
-
-    this.getNextData(previousSize, pageIndex, pageSize);
-
-
+        this.dataSource = new MatTableDataSource(result.data);
+        this.dataSource.paginator = this.paginator;
+      });
+    }
   }
-
-
 }
 
 

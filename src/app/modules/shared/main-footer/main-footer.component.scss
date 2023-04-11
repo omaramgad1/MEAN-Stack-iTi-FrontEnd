@@ -8,11 +8,11 @@ $bgcolo: #937f81;
 
 footer {
 
-    padding-top: 1000px;
+    //padding-top: 1000px;
 
     .foot {
         margin-bottom: 0px;
-        position: static;
+        //position: static;
         background: linear-gradient(rgba(147, 127, 129, .8), rgba(147, 127, 129, .3)), url(https://www.frontlist.in/storage/post/1653642722_photo-1630343710506-89f8b9f21d31.jpg);
         background-size: cover;
         background-position: center;
@@ -30,15 +30,15 @@ footer {
     height: 80%;
 }
 
-@media (min-width: 501px) and (max-width:800px) {
+/* @media (min-width: 501px) and (max-width:800px) {
     footer {
         padding-top: 2350px;
     }
-}
+} */
 
 @media (min-width: 270px) and (max-width:500px) {
     footer {
-        padding-top: 2400px;
+        padding-top: 1500px;
         width: 100%;
     }
 

@@ -33,6 +33,7 @@ import { AddEditBookDialogComponent } from './add-edit-book-dialog/add-edit-book
 import { FooterComponent } from './footer/footer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CarouselComponent } from '../admin/carousel/carousel.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CarouselComponent } from '../admin/carousel/carousel.component';
     DialogBodyComponent,
     AddEditBookDialogComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    HomeComponent
 
   ],
   imports: [

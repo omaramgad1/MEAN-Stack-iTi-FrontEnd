@@ -9,7 +9,26 @@
   </div>
   <mat-toolbar class="p-2">
     <mat-toolbar-row class="d-flex justify-content-between">
-      <mat-form-field class="p-2 mt-4">
+      <div class="paginator p-2 mb-3">
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == 1"
+          (click)="onPreviousPage()"
+        >
+          Previous
+        </button>
+        <span>{{ currentPageIndex }}/{{ totalPages }}</span>
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == totalPages"
+          (click)="onNextPage()"
+        >
+          Next
+        </button>
+      </div>
+      <!-- <mat-form-field class="p-2 mt-4">
         <input
           matInput
           [(ngModel)]="searchKey"
@@ -29,7 +48,7 @@
         >
           <mat-icon>close</mat-icon>
         </button>
-      </mat-form-field>
+      </mat-form-field> -->
       <div class="p-2" style="margin-left: 30px">
         <button
           [ngStyle]="{
@@ -45,7 +64,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="mat-elevation-z8 text-center mt-3">
+  <div class="mat-elevation-z8 example-container text-center mt-3" tabindex="0">
     <ng-template #table>
       <table mat-table [dataSource]="dataSource" matSort class="text-center">
         <ng-container matColumnDef="counter">
@@ -87,37 +106,16 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-        <tr class="mat-row" *matNoDataRow>
+        <!--      <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="4">
             No data matching the filter "{{ input.value }}"
           </td>
-        </tr>
+        </tr> -->
       </table>
     </ng-template>
-
-    <mat-paginator
-      [pageSizeOptions]="[5, 10, 25, 100]"
-      (page)="onPageChange($event)"
-    >
-    </mat-paginator>
 
     <div class="spinner-container" *ngIf="loading; else table">
       <mat-spinner class="center" color="warn"></mat-spinner>
     </div>
   </div>
-</div>
-<div class="paginator">
-  <!-- [disabled]="currentPage === 1" (click)="prevPage()" -->
-  <button>Previous</button>
-  <span>{{ 1 }}/{{ 3 }}</span>
-  <div *ngIf="3 > 1">
-    <span>Pages:</span>
-    <div *ngFor="let page of [1, 2, 3]" [class.active]="page === 1">
-      {{ page }}
-    </div>
-    <!-- (click)="goToPage(page)" -->
-  </div>
-  <button>Next</button>
-  <!-- (click)="nextPage()" -->
-  <!-- [disabled]="currentPage === totalPages" -->
 </div>

@@ -16,14 +16,19 @@ export class AuthGuard implements CanActivate {
 
   async canActivate(route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
+
     try {
+
       const response = await this._UsersService.getProfile().toPromise()
-      this._UsersService.setCurrentUser(response)
+      // this._UsersService.setCurrentUser(response)
+      this._UsersService.currentUser.next(response)
+      // console.log();
+
       // Do something with the response
       return true;
     } catch (error) {
       alert("error")
-      this._router.navigate(['/auth/login']);
+      this._router.navigate(['/shared/login']);
       return false;
     }
   }

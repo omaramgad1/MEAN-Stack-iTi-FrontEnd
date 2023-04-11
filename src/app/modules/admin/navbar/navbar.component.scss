@@ -1,34 +1,40 @@
 /* Remove border from toggler */
-$bgcolo:#937f81;
+$bgcolo: #937f81;
 
-*{
+* {
     box-sizing: border-box;
 }
 
 .navbar-toggler {
     border: 0 !important;
 }
-nav{
-    background-color: $bgcolo; 
+
+nav {
+    background-color: $bgcolo;
     color: white;
     height: 20%;
-    button{
+
+    button {
         color: white;
         border: 1px solid white;
     }
-    button:hover{
+
+    button:hover {
         background-color: #8c1e2944;
     }
-    ul li a{
+
+    ul li a {
         font-size: larger;
 
     }
-    ul li a:hover{
+
+    ul li a:hover {
         background-color: #8c1e2944;
-        
+
     }
 
 }
+
 .navbar-toggler:focus,
 .navbar-toggler:active,
 .navbar-toggler-icon:focus {
@@ -38,7 +44,7 @@ nav{
 }
 
 /* Lines of the Toggler */
-.toggler-icon{
+.toggler-icon {
     width: 30px;
     height: 3px;
     background-color: white;
@@ -47,7 +53,7 @@ nav{
 }
 
 /* Adds Space between the lines */
-.middle-bar{
+.middle-bar {
     margin: 5px auto;
 }
 
@@ -66,6 +72,7 @@ nav{
     transform: rotate(-45deg);
     transform-origin: 10% 90%;
 }
+
 /* State when navbar is opened (END) */
 
 /* State when navbar is collapsed (START) */
@@ -81,9 +88,32 @@ nav{
 .navbar-toggler.collapsed .bottom-bar {
     transform: rotate(0);
 }
+
 /* State when navbar is collapsed (END) */
 
 /* Color of Toggler when collapsed */
 .navbar-toggler.collapsed .toggler-icon {
     background-color: white;
+}
+
+@media (min-width: 200px) and (max-width:400px) {
+    .nav-logo {
+        width: 30px;
+
+    }
+
+    .nav-logo img {
+        width: 32px;
+
+    }
+
+    .navbar-brand {
+        font-size: medium;
+    }
+
+    .navbar-toggler {
+        font-size: medium;
+
+
+    }
 }

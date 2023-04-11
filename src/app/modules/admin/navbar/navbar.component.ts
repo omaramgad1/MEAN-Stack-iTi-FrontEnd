@@ -9,7 +9,19 @@ import { UsersService } from 'src/app/Services/users.service';
 export class NavbarComponent {
   title!: string;
   constructor(private _userService: UsersService) {
-    const l: any = this._userService.currentUser.getValue()
-    this.title = l.firstName
+    this._userService.getProfile().subscribe(user => {
+      this.title = user.firstName + " " + user.lastName;
+
+    })
+
+  }
+
+  logout(): void {
+    this._userService.logout().subscribe((res) => {
+      console.log("bye");
+
+    }, (err) => console.log("error")
+    )
+
   }
 }

@@ -6,7 +6,7 @@ import { RoleGuard } from './Guards/role.guard';
 
 const routes: Routes = [
   {
-     path: '',redirectTo: 'endless_books', pathMatch: 'full',
+    path: '', redirectTo: 'endless_books', pathMatch: 'full',
   },
 
 
@@ -22,6 +22,8 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
+    canActivate: [AuthGuard, RoleGuard],
+
     data: { allowedRoles: ['user'] }
   },
 

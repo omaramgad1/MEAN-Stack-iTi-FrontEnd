@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from 'src/app/Services/users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  title!: string;
+  constructor(private _userService: UsersService) {
+    this._userService.getProfile().subscribe(user => {
+      this.title = user.firstName + " " + user.lastName;
 
+    })
+
+  }
 }
