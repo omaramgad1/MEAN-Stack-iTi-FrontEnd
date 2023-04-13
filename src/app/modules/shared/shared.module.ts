@@ -19,6 +19,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HomeComponent } from './home/home.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserModule } from '@angular/platform-browser';
+
 @NgModule({
   declarations: [
     SharedComponent,
@@ -30,6 +35,7 @@ import { MainNavbarComponent } from './main-navbar/main-navbar.component';
   ],
   imports: [
     CommonModule,
+    // BrowserModule,
     SharedRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -41,7 +47,8 @@ import { MainNavbarComponent } from './main-navbar/main-navbar.component';
     MatFormFieldModule,
     MatButtonModule,
     MatDividerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ToastrModule, // ToastrModule added
   ]
 })
 export class SharedModule { }

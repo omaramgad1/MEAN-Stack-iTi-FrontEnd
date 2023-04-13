@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { RoleGuard } from './Guards/role.guard';
+import { HomeGuardGuard } from './Guards/home-guard.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,12 @@ const routes: Routes = [
   },
 
 
-  { path: 'endless_books', loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule) },
+  {
+    path: 'endless_books',
+    loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule),
+    canActivate: [HomeGuardGuard],
+
+  },
   {
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),

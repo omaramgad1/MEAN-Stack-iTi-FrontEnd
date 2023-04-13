@@ -8,7 +8,7 @@ import { UsersService } from '../Services/users.service';
 })
 export class RoleGuard implements CanActivate {
 
-    isLogged: boolean = false;
+
 
     constructor(private _UsersService: UsersService, private _router: Router) {
     }
@@ -23,13 +23,13 @@ export class RoleGuard implements CanActivate {
                 return true;
             }
             else {
-                this._router.navigate(['/shared/login']);
+                this._router.navigate(['/endless_books/login']);
                 return false;
             }
         } catch (error) {
-            this._router.navigate(['/auth/login']);
+            this._router.navigate(['/endless_books/login']);
             return false;
         }
     }
 
-} 
+}  

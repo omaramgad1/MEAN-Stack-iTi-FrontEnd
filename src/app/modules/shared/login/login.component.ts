@@ -1,8 +1,9 @@
-import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Emitters } from 'src/app/Services/emitters';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
+
 import { UsersService } from 'src/app/Services/users.service';
 
 @Component({
@@ -16,34 +17,45 @@ export class LoginComponent {
     email: new FormControl(null, [Validators.email, Validators.required]),
     password: new FormControl(null, [Validators.required]),
   })
-  constructor(private _userService: UsersService, private router: Router) { }
+  constructor(private _userService: UsersService,
+    private router: Router,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService) { }
 
   submintloginForm(loginForm: FormGroup) {
+    this.spinner.show();
     this._userService.login(loginForm.value).subscribe((res) => {
-      console.log(res.message)
 
       if (res.message === 'success') {
-        Emitters.authEmitter.emit(true)
+
         this._userService.getProfile().subscribe((res) => {
 
           this._userService.setCurrentUser(res)
+          setTimeout(() => {
 
-          if (res['role'] === 'admin') {
-            this.router.navigate(['/admin'])
-          }
-          else if (res['role'] === 'user')
-            this.router.navigate(['/user'])
+            if (res['role'] === 'admin') {
+              this.toastr.success(res.firstName, 'Welcome Back ');
+
+              this.router.navigate(['/admin'])
+              this.spinner.hide();
+            }
+            else if (res['role'] === 'user') {
+              this.toastr.success(res.firstName, 'Welcome Back ');
+
+              this.router.navigate(['/user'])
+              this.spinner.hide();
+            }
+
+          }, 2000);
+
         })
-      }
-      else if (res.message === 'error') {
-
-        alert("user not found")
       }
 
 
     }, (err) => {
+      this.toastr.error('Error', err.error.message);
+      this.spinner.hide();
 
-      console.log(err)
     }
     )
   }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { UsersService } from 'src/app/Services/users.service';
 @Component({
   selector: 'app-admin',
@@ -6,12 +7,12 @@ import { UsersService } from 'src/app/Services/users.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
+
   title!: string;
-  constructor(private _userService: UsersService) {
-
-
-
-
+  constructor(private _userService: UsersService,
+    private toastr: ToastrService,) {
+    /*    const user: any = this._userService.currentUser.getValue()
+       this.toastr.success(user.firstName, 'Welcome Back '); */
   }
 
 

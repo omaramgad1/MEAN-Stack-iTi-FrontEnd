@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { UsersService } from 'src/app/Services/users.service';
 
 @Component({
@@ -8,7 +10,9 @@ import { UsersService } from 'src/app/Services/users.service';
 })
 export class NavbarComponent {
   title!: string;
-  constructor(private _userService: UsersService) {
+  constructor(private _userService: UsersService,
+    private spinner: NgxSpinnerService,
+    private router: Router,) {
     this._userService.getProfile().subscribe(user => {
       this.title = user.firstName + " " + user.lastName;
 
@@ -17,10 +21,25 @@ export class NavbarComponent {
   }
 
   logout(): void {
+    this.spinner.show();
+
     this._userService.logout().subscribe((res) => {
       console.log("bye");
 
-    }, (err) => console.log("error")
+      this._userService.currentUser.next(null)
+      setTimeout(() => {
+        this.router.navigate(['/endless_books/home'])
+        this.spinner.hide();
+      }, 1000);
+
+
+    }, (err) => {
+      console.log("error")
+      console.log(err.message)
+
+      this.spinner.hide();
+
+    }
     )
 
   }
