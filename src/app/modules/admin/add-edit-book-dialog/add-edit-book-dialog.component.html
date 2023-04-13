@@ -5,7 +5,7 @@
 >
   <h1>{{ data ? "Update" : "Add New" }} Book</h1>
 </div>
-<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm)">
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
   <div mat-dialog-content class="content">
     <div class="container-fluid d-flex flex-column justify-content-center">
       <mat-form-field appearance="outline">
@@ -25,7 +25,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>authorId</mat-label>
-        <mat-select formControlName="authorId">
+        <mat-select formControlName="AuthorId">
           <mat-option *ngFor="let id of authors" [value]="id">
             {{ id }}
           </mat-option>
@@ -75,7 +75,7 @@
           <input
             name="photo"
             #photo
-            (change)="upload($event)"
+            (change)="onFileSelect($event)"
             type="file"
             style="display: none"
             accept="image/*"

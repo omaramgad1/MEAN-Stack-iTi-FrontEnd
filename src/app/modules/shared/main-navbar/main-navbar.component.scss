@@ -20,6 +20,13 @@ nav {
         border: 1px solid white;
     }
 
+.nav-logo{
+    a{
+        font-family: 'DynaPuff', cursive;
+    }
+}
+
+
     button:hover {
         background-color: #8c1e2944;
     }
@@ -35,6 +42,8 @@ nav {
     }
 
 }
+
+
 
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -97,13 +106,20 @@ nav {
     background-color: white;
 }
 
-@media (min-width: 280px) and (max-width:500px) {
+@media (min-width: 270px) and (max-width:500px) {
     nav {
         background-color: $bgcolo;
         color: white;
         height: 15%;
-        width: 110%;
-
+        width: 100%;
+        .nav-logo{
+            a{
+                font-size: 70%;
+                img{
+                    width: 20%;
+                }
+            }
+        }
         button {
             color: white;
             border: 1px solid white;
@@ -126,7 +142,7 @@ nav {
     }
 }
 
-@media (min-width: 200px) and (max-width:400px) {
+@media (min-width: 501px) and (max-width:800px) {
     .nav-logo {
         width: 30px;
 

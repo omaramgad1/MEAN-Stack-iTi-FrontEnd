@@ -7,15 +7,8 @@
       </a>
     </div>
 
-    <button
-      class="navbar-toggler collapsed"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarCollapse"
-      aria-controls="#navbarCollapse"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="#navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="toggler-icon top-bar"></span>
       <span class="toggler-icon middle-bar"></span>
       <span class="toggler-icon bottom-bar"></span>
@@ -27,61 +20,36 @@
       <div class="navbar-nav mx-lg-auto">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a
-              class="nav-link"
-              [routerLink]="'home'"
-              [routerLinkActive]="['active']"
-              >Home</a
-            >
+            <a class="nav-link" [routerLink]="'home'" [routerLinkActive]="['active']">Home</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              [routerLink]="'categories'"
-              [routerLinkActive]="['active']"
-              >Categories</a
-            >
+            <a class="nav-link" [routerLink]="'categories'" [routerLinkActive]="['active']">Categories</a>
           </li>
 
           <li class="nav-item">
-            <a
-              class="nav-link"
-              [routerLink]="'books'"
-              [routerLinkActive]="['active']"
-              >Books</a
-            >
+            <a class="nav-link" [routerLink]="'books'" [routerLinkActive]="['active']">Books</a>
           </li>
 
           <li class="nav-item">
-            <a
-              class="nav-link"
-              [routerLink]="'authors'"
-              [routerLinkActive]="['active']"
-              >Authors</a
-            >
+            <a class="nav-link" [routerLink]="'authors'" [routerLinkActive]="['active']">Authors</a>
           </li>
         </ul>
       </div>
 
       <div class="d-flex justify-content-end">
         <div class="p-2 mt-2">
-          <p>Welcome {{ title }}</p>
-        </div>
-        <div class="p-2">
-          <button
-            [ngStyle]="{
-              padding: '20px'
-            }"
-            mat-raised-button
-            color="warn"
-            [routerLink]="'/endless_books/home'"
-            [routerLinkActive]="['active']"
-            (click)="logout()"
-          >
-            Log out
-          </button>
+          <h3>Welcome {{ title }}</h3>
+      
         </div>
       </div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/endless_books/home'" [routerLinkActive]="['active']"
+              (click)="logout()">Log out</a>
+          </li>
+        </ul>
+    
+      
     </div>
   </div>
 </nav>

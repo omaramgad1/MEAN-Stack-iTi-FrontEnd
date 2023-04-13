@@ -1,5 +1,114 @@
-.file-input {
+// .file-input {
+//     display: none;
+// }
+*{
+    box-sizing: border-box;
+}
+.register{
+    background: linear-gradient(rgba(147, 127, 129, .5), rgba(147, 127, 129, .8)),url(https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=773&q=80);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 50%;
+}
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: black;
+    float: right;
+    margin-top: -30px;
+  }
+  
+//   input[type="password"] {
+//     font-family: inherit;
+//   }
+  
+//   input[type="text"] {
+//     font-family: inherit;
+//   }
+  
+  input[type="password"]:focus {
+    outline: none;
+  }
+  
+  input[type="password"] + #pass::after {
+    content: url(../../../../assets/sleep.png);
+    margin-left: 5px;
+  }
+  
+  input[type="text"] + #pass::after {
+    content:url(../../../../assets/eye-care.png);
+    margin-left: 5px;
+  }
+  
 
-    display: none;
+  input[type="password"] + #conpass::after {
+    content: url(../../../../assets/sleep.png);
+    margin-left: 5px;
+  }
+  
+  input[type="text"] + #conpass::after {
+    content:url(../../../../assets/eye-care.png);
+    margin-left: 5px;
+  }
+  input[type="text"] + button:hover::after {
+    text-decoration: underline;
+    color: pink;
+  }
+.regForm{
+    border: 1px solid #937f81;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(rgba(147, 127, 129, .8), rgba(147, 127, 129, .8));
+    height: 97vh;
+    padding: 25px;
+}
+label{
+    color: #fff;
 
+}
+input[type=submit]{
+
+width: 200px;
+text-align: center;
+font-size: 20px;
+background-color: rgb(231, 174, 183);
+color:#fff;
+
+padding: 10px;
+border-radius: 25px;
+border: 0px;
+cursor: pointer;
+}
+input[type=submit]:hover{
+background-color: #cdb3b6;
+
+}
+#submit{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+
+
+
+@media (min-width: 501px) and (max-width:800px) {
+  .register{
+    height: 100%;
+  }
+
+  .regForm{
+    height: 100%;
+  }
+} 
+
+@media (min-width: 270px) and (max-width:500px) {
+  .regForm{
+    width: 100%;
+  }
 }
