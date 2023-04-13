@@ -24,6 +24,7 @@ export class AuthorsComponent implements OnInit {
   searchKey!: string;
   currentPageIndex: number = 1;
   totalPages!: number;
+  loading: boolean = true;
 
   constructor(public matDialog: MatDialog, private _authors: AuthorsService) {
 
@@ -55,6 +56,8 @@ export class AuthorsComponent implements OnInit {
     this._authors.getAllAuthors().subscribe({
 
       next: (res) => {
+        this.loading = false;
+
         this.listData = new MatTableDataSource(res.data)
         // console.log(res.data);
 
