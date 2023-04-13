@@ -10,11 +10,19 @@ import { UsersService } from 'src/app/Services/users.service';
 export class NavbarComponent {
   name: string = '';
   photo: string = '';
-  constructor(_UserService: UsersService) {
-    const l: any = _UserService.currentUser.getValue()
+  constructor(private _userService: UsersService) {
+    const l: any = _userService.currentUser.getValue()
     l.firstName = l.firstName.charAt(0).toUpperCase() + l.firstName.slice(1);
     l.lastName = l.lastName.charAt(0).toUpperCase() + l.lastName.slice(1);
     this.name = l.firstName + ' ' + l.lastName;
     this.photo = l.photo;
+  }
+
+  logout(): void {
+    this._userService.logout().subscribe((res) => {
+      console.log("bye");
+
+    }, (err) => console.log("error")
+    )
   }
 }

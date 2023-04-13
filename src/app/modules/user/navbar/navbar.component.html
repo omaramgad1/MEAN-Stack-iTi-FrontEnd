@@ -7,7 +7,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-2">
           <li class="nav-item ms-3">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" routerLink="/endless_books/home">Home</a>
           </li>
           <li class="nav-item ms-3">
             <a class="nav-link" href="#">Categories</a>
@@ -58,7 +58,7 @@
         </li>
         <li class="nav-item me-3 me-lg-1" style="margin-left: 40px">
           <a class="nav-link logout" href="#">
-            <span><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></span>
+            <span><i class="fa fa-sign-out fa-3x" aria-hidden="true" (click)="logout()"></i></span>
           </a>
         </li>
       </ul>
