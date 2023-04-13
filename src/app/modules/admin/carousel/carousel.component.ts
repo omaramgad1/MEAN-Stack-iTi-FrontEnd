@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 interface carouselImage{
-  // imgSrc:string,
-  // imgAlt:string
+
   quotes:string,
   name:string
 }
@@ -30,9 +29,6 @@ autoSlideImage(){
   },this.slideInterval);
 }
 
-//   selectedImage(index:number){
-// this.selectedIndex=index;
-//   }
 
   prev(){
     if(this.selectedIndex == 0){

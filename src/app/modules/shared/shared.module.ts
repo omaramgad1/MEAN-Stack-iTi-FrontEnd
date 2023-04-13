@@ -35,7 +35,6 @@ import { BrowserModule } from '@angular/platform-browser';
   ],
   imports: [
     CommonModule,
-    // BrowserModule,
     SharedRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -48,7 +47,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MatButtonModule,
     MatDividerModule,
     MatProgressBarModule,
-    ToastrModule, // ToastrModule added
+    ToastrModule, 
   ]
 })
 export class SharedModule { }

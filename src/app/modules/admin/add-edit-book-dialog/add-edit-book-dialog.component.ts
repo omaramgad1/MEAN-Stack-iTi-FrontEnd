@@ -106,8 +106,6 @@ export class AddEditBookDialogComponent {
   onUpdate(): boolean {
     let flg = false
     Object.keys(this.bookForm.controls).forEach(key => {
-      console.log(this.data[key]);
-      console.log(this.bookForm.get(key)?.value);
 
       if (this.data[key] != this.bookForm.get(key)?.value) {
         flg = true

@@ -13,10 +13,8 @@ import { UsersService } from 'src/app/Services/users.service';
 export class RegisterComponent {
   hideConfirm: boolean = true;
   hide: boolean = true;
-  // fileName = '';
   up: boolean = false;
   passwordVisible = false;
-  // conPasswordVisible = false;
   file: any;
   registerForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
@@ -43,10 +41,6 @@ export class RegisterComponent {
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
-
-  // toggleConPasswordVisibility() {
-  //   this.conPasswordVisible = !this.conPasswordVisible;
-  // }
   onSubmit(registerForm: FormGroup) {
     const formData = new FormData();
     formData.append('firstName', registerForm.get('firstName')?.value);

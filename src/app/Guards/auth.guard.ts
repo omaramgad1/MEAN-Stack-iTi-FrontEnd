@@ -19,7 +19,6 @@ export class AuthGuard implements CanActivate {
 
     try {
       const response = await this._UsersService.getProfile().toPromise()
-      // this._UsersService.setCurrentUser(response)
       this._UsersService.currentUser.next(response)
       return true;
     } catch (error) {

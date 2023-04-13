@@ -11,8 +11,6 @@ export class AdminComponent {
   title!: string;
   constructor(private _userService: UsersService,
     private toastr: ToastrService,) {
-    /*    const user: any = this._userService.currentUser.getValue()
-       this.toastr.success(user.firstName, 'Welcome Back '); */
   }
 
 

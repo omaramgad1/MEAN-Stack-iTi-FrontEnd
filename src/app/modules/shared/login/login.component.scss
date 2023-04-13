@@ -10,7 +10,6 @@
 }
 
 #container{
-    // background:linear-gradient(rgba(215, 126, 133, 0.5), rgba(203, 187, 189, 0.8));
     box-shadow: 4px 4px 4px 4px #937f81;}
 img{
     height: 100%;
@@ -21,7 +20,6 @@ a{
   color: #937f81;
 }
 h4{
-  // color: #000;
   color: #937f81;
   font-size: 50px;
   text-align: center;
@@ -29,7 +27,6 @@ h4{
 
 }
 label{
-  // color: 000;
   color: #937f81;
   font-weight: bold;
   font-size: large;
@@ -65,7 +62,6 @@ input[type="password"]:focus {
   @media (min-width: 501px) and (max-width:950px) {
 
     h4{
-      // color: #000;
       color: #937f81;
       font-size: 20px;
       text-align: center;
@@ -85,7 +81,6 @@ input[type="password"]:focus {
         padding-bottom: 20%;
       }
       h4{
-        // color: #000;
         color: #937f81;
         font-size: 20px;
         text-align: center;

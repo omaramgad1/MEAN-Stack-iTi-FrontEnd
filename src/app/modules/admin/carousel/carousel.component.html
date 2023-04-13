@@ -1,9 +1,6 @@
 
 <section id="test">
 <div class="carousel-container" *ngIf="quotes && quotes.length > 0 ">
-    <!-- <img *ngFor="let image of images; let i=index"
-     [src]="image.imgSrc" [alt]="image.imgAlt"
-     [ngClass]="{'image-active':selectedIndex==i}"> -->
 <h1 *ngFor="let quote of quotes; let i=index"
 [ngClass]="{'image-active':selectedIndex==i}">
 <img src="../../../../assets/left-quotes-sign.png">
@@ -17,13 +14,7 @@
 <br>
 <img src="../../../../assets/right-quotes-symbol.png">
 </h1>
-     <!-- <div *ngIf="indicators" class ="carousel-dot-container">
-<span *ngFor="let dot of images; let i=index" class="dot" [ngClass]="{'active':selectedIndex == i}"
-(click)="selectedImage(i)"
->
 
-</span>
-     </div> -->
      <div *ngIf="controls" class="btn-carousel btn-prev">
 <i class="fas fa-arrow-circle-left icon-carousel icon-prev" (click)="prev()"></i>
      </div>

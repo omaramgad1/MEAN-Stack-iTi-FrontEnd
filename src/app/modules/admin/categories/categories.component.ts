@@ -46,20 +46,6 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-  /*   applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-  
-      this.dataSource.filter = this.searchKey.trim().toLowerCase();
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
-    } */
-
-  /*   onSearchClear(event: Event) {
-      this.searchKey = "";
-      this.applyFilter(event)
-    } */
-
   getCategories(pageNumber: number, pageSize: number) {
     this._categoryService.getPageCategories(pageNumber, pageSize).subscribe((res) => {
       this.loading = false;

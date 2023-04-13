@@ -44,58 +44,8 @@ export class HomeGuardGuard implements CanActivate {
     } catch (error) {
       this.spinner.hide();
 
-      // this._router.navigate(['/endless_books/login']);
       return true;
     }
   }
 }
-  /* constructor(private _UsersService: UsersService, private _router: Router,
-private spinner: NgxSpinnerService) {
-
-}
-canActivate(
-route: ActivatedRouteSnapshot,
-state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-const user: any = this._UsersService.currentUser.getValue()
-
-console.log(user);
-
-this.spinner.show()
-
-if (this._UsersService.currentUser.getValue() != null) {
-console.log("role if");
-
-// setTimeout(() => {
-if (user.role === 'admin') {
-
-this._router.navigate(['/admin']);
-this.spinner.hide()
-
-}
-else if (user.role === 'user') {
-this._router.navigate(['/user']);
-this.spinner.hide()if (user.role === 'admin') {
-
-this._router.navigate(['/admin']);
-this.spinner.hide()
-
-}
-else if (user.role === 'user') {
-this._router.navigate(['/user']);
-this.spinner.hide()
-
-
-
-}
-// }, 1000)
-return false;
-
-}
-else {
-this.spinner.hide()
-
-return true;
-}
-
-} */
+ 

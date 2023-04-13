@@ -10,27 +10,6 @@
   <mat-toolbar class="p-2">
     <mat-toolbar-row class="d-flex justify-content-between">
       <div class="example-spacer"></div>
-      <!-- <mat-form-field class="p-2 mt-4">
-        <input
-          matInput
-          [(ngModel)]="searchKey"
-          placeholder="Search"
-          autocomplete="off"
-          (keyup)="applyFilter($event)"
-          placeholder="Search"
-          autocomplete="on"
-          #input
-        />
-        <button
-          mat-button
-          matSuffix
-          aria-label="Clear"
-          *ngIf="searchKey"
-          (click)="onSearchClear($event)"
-        >
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field> -->
       <div class="p-2" style="margin-left: 30px">
         <button
           [ngStyle]="{
@@ -109,11 +88,6 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-        <!--      <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">
-            No data matching the filter "{{ input.value }}"
-          </td>
-        </tr> -->
       </table>
     </ng-template>
 

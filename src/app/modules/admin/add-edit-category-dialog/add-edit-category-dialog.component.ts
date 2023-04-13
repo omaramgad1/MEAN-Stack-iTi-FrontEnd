@@ -29,7 +29,6 @@ export class AddEditCategoryDialogComponent {
     if (categoryForm.valid) {
       if (this.data) {
 
-        // if (this.onUpdate()) {
 
         this._CategoriesService.updateCategory(this.data._id, categoryForm.value).subscribe((res) => {
 
@@ -37,12 +36,6 @@ export class AddEditCategoryDialogComponent {
           this._dialogRef.close(true)
         }, err => this._coreService.openSnackBar(err.message)
         )
-        // }
-        // else {
-        // this._coreService.openSnackBar('Nothing is updated!');
-        // this._dialogRef.close(true)
-
-        // }
 
       }
       else {
@@ -57,30 +50,7 @@ export class AddEditCategoryDialogComponent {
       }
     }
   }
-  /*   onUpdate(): boolean {
-      let flg = false
-      Object.keys(this.categoryForm.controls).forEach(key => {
-        if (this.data[key] != this.categoryForm.get(key)?.value) {
-          flg = true
-        }
   
-      });
-      return flg
-    } */
-
-  /*   onInsert(): string[] {
-      let categoriesNames: string[] = []
-  
-  
-      this._CategoriesService.geAllCategories().forEach(data => {
-  
-        [...data].forEach(cat => categoriesNames.push(cat.categoryName))
-  
-      })
-  
-      return categoriesNames;
-  
-    } */
 }
 
 

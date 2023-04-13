@@ -44,13 +44,6 @@ export class AuthorsComponent implements OnInit {
       }
     })
   }
-  /*   applyFilter() {
-      this.listData.filter = this.searchKey.trim().toLowerCase();
-    }
-    onSearchClear() {
-      this.searchKey = "";
-      this.applyFilter();
-    } */
 
   getAuthors() {
     this._authors.getPageAuthors(this.currentPageIndex).subscribe({
@@ -61,7 +54,6 @@ export class AuthorsComponent implements OnInit {
         this.loading = false;
 
         this.listData = new MatTableDataSource(res.data)
-        // console.log(res.data);
 
 
         this.listData.sort = this.sort;

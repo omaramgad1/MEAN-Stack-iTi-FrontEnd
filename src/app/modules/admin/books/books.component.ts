@@ -49,19 +49,6 @@ export class BooksComponent {
   }
 
 
-  /*   applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
-    }
-  
-    onSearchClear(event: Event) {
-      this.searchKey = "";
-      this.applyFilter(event)
-    } */
 
 
 
