@@ -86,6 +86,8 @@ export class BooksComponent {
   getBooks() {
     this._BooksService.getPageBooks().subscribe((res) => {
       this.loading = false;
+      this.totalPages = res.pages;
+      this.currentPageIndex = res.currentPage;
 
       this.dataSource = new MatTableDataSource(res.data)
       this.dataSource.sort = this.sort;
