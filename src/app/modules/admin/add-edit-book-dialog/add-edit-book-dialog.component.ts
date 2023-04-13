@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CoreService } from 'src/app/Services/core.service';
 import { AddEditCategoryDialogComponent } from '../add-edit-category-dialog/add-edit-category-dialog.component';
@@ -18,25 +18,27 @@ export class AddEditBookDialogComponent {
   up: boolean = false
   categories: string[] = [];
   authors: any[] = [];
+  file:any;
+bookForm:FormGroup;
 
-  bookForm = new FormGroup({
-
-    name: new FormControl(null, [Validators.required]),
-    categoryId: new FormControl(null, [Validators.required]),
-    AuthorId: new FormControl(null, [Validators.required]),
-    photo: new FormControl(null, []),
-
-
-  })
+ 
 
   constructor(private _BooksService: BooksService,
     private _CategoriesService: CategoriesService,
     private _AuthorsService: AuthorsService,
     private _dialogRef: MatDialogRef<AddEditCategoryDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private _coreService: CoreService
-  ) {
+    public fb: FormBuilder,
+    private _coreService: CoreService) {
+   this.bookForm =  this.fb.group({
 
+    bookName: new FormControl(null, [Validators.required]),
+      categoryId: new FormControl(null, [Validators.required]),
+      AuthorId: new FormControl(null, [Validators.required]),
+      photo: new FormControl(null, []),
+  
+  
+    })
   }
 
   ngOnInit(): void {
@@ -56,26 +58,22 @@ export class AddEditBookDialogComponent {
     })
   }
 
-  upload(event: Event) {
-    const file = event.target as HTMLInputElement
-
-    if (file.files) {
-      var reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.bookForm.value.photo = event.target.result;
-
-      }
-      reader.readAsDataURL(file.files[0]);
-      this.up = true
-    }
-  }
+  onFileSelect(event: any) {
+    this.file = event.target.files
+    };
 
 
-  onFormSubmit(bookForm: FormGroup) {
-    if (bookForm.valid) {
+  onFormSubmit() {
+
+    const formData = new FormData();
+    formData.append('bookName',this.bookForm.get('bookName')?.value);
+    formData.append('categoryId',this.bookForm.get('categoryId')?.value);
+    formData.append('AuthorId',this.bookForm.get('AuthorId')?.value);
+    formData.append('photo',this.file[0]);
+    // if (bookForm.valid) {
       if (this.data) {
         if (this.onUpdate()) {
-          this._BooksService.updateBook(this.data.id, bookForm.value).subscribe((res) => {
+          this._BooksService.updateBook(this.data.id, formData).subscribe((res) => {
 
             this._coreService.openSnackBar('Book Data updated!');
             this._dialogRef.close(true)
@@ -90,7 +88,7 @@ export class AddEditBookDialogComponent {
 
       }
       else {
-        this._BooksService.addNewBook(bookForm.value).subscribe((res) => {
+        this._BooksService.addNewBook(formData).subscribe((res) => {
 
           this._coreService.openSnackBar('Book added successfully');
           this._dialogRef.close(true)
@@ -98,7 +96,7 @@ export class AddEditBookDialogComponent {
         )
       }
 
-    }
+    // }
 
   }
 

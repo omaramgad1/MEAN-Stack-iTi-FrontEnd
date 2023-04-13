@@ -11,7 +11,7 @@ export class AuthorsService {
   constructor(private _http: HttpClient) {
 
   }
-  addAuthor(data: Author): Observable<any> {
+  addAuthor(data: any): Observable<any> {
     return this._http.post('http://localhost:3000/authors', data, {
       withCredentials: true
     });
@@ -24,13 +24,13 @@ export class AuthorsService {
     return this._http.get(`http://localhost:3000/authors?pageNumber=${pageNumber < 0 ? 0 : pageNumber}&pageSize=${pageSize}`);
   }
 
-  deleteAnAuthor(id: string): Observable<any> {
-    return this._http.delete(`http://localhost:3000/authors/${id}`, {
+  deleteAnAuthor(_id: string): Observable<any> {
+    return this._http.delete(`http://localhost:3000/authors/${_id}`, {
       withCredentials: true
     })
   }
-  updateAnAuthor(id: string, data: Author): Observable<any> {
-    return this._http.patch(`http://localhost:3000/authors/${id}`, data, {
+  updateAnAuthor(_id: string, data: any): Observable<any> {
+    return this._http.patch(`http://localhost:3000/authors/${_id}`, data, {
       withCredentials: true
     })
   }

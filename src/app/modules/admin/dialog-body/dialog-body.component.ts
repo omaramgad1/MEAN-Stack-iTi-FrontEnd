@@ -11,7 +11,7 @@ import { AuthorsService } from 'src/app/Services/authors.service';
   styleUrls: ['./dialog-body.component.scss']
 })
 export class DialogBodyComponent implements OnInit {
-
+  file:any;
   myForm: FormGroup;
   authors!: Author[];
   up: boolean = false
@@ -30,25 +30,19 @@ export class DialogBodyComponent implements OnInit {
   }
   ngOnInit(): void {
     this.myForm.patchValue(this.data)
-    console.log(this.data)
   }
-  upload(event: Event) {
-    const file = event.target as HTMLInputElement
-
-    if (file.files) {
-      var reader = new FileReader();
-      reader.onload = (event: any) => {
-        this.myForm.value.photo = event.target.result;
-
-      }
-      reader.readAsDataURL(file.files[0]);
-      this.up = true
-    }
-  }
+  onFileSelect(event: any) {
+    this.file = event.target.files
+    };
   onSubmit() {
-    if (this.myForm.valid) {
+    const formData = new FormData();
+    formData.append('firstName',this.myForm.get('firstName')?.value);
+    formData.append('lastName',this.myForm.get('lastName')?.value);
+    formData.append('dob',this.myForm.get('dob')?.value);
+    formData.append('photo',this.file[0]);
+    formData.append('bio',this.myForm.get('bio')?.value);
       if (this.data) {
-        this._authors.updateAnAuthor(this.data._id, this.myForm.value).subscribe({
+        this._authors.updateAnAuthor(this.data._id,formData).subscribe({
           next: (val: Author) => {
             alert("Author's Info Updated Successfully");
             this._dialogRef.close(true);
@@ -59,19 +53,16 @@ export class DialogBodyComponent implements OnInit {
         });
       }
       else {
-        this._authors.addAuthor(this.myForm.value).subscribe({
+        this._authors.addAuthor(formData).subscribe({
           next: (val: Author) => {
             alert("Author Added Successfully");
             this._dialogRef.close(true);
-            // console.log(this.myForm.value.photo)
-
           },
           error: (error) => {
             console.log(error)
           }
         })
       }
-    }
 
   }
 }
