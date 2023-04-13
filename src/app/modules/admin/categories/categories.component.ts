@@ -19,9 +19,7 @@ export class CategoriesComponent implements OnInit {
   searchKey!: string;
   categoris!: Category[];
   loading: boolean = true;
-
   currentPageIndex: number = 1;
-
   totalPages!: number;
 
 
@@ -42,24 +40,25 @@ export class CategoriesComponent implements OnInit {
   ) {
 
   }
+
   ngOnInit(): void {
     this.getCategories(1, 5)
   }
 
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+  /*   applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+  
+      this.dataSource.filter = this.searchKey.trim().toLowerCase();
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
+    } */
 
-    this.dataSource.filter = this.searchKey.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  onSearchClear(event: Event) {
-    this.searchKey = "";
-    this.applyFilter(event)
-  }
+  /*   onSearchClear(event: Event) {
+      this.searchKey = "";
+      this.applyFilter(event)
+    } */
 
   getCategories(pageNumber: number, pageSize: number) {
     this._categoryService.getPageCategories(pageNumber, pageSize).subscribe((res) => {
@@ -145,16 +144,12 @@ export class CategoriesComponent implements OnInit {
     });
   }
 
-
-
   onPreviousPage() {
     if (this.currentPageIndex > 1) {
       this.currentPageIndex--;
       this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
         this.currentPageIndex = result.currentPage;
         this.totalPages = result.pages;
-
-        // this.totalCount = result.totalCount;
         this.dataSource = new MatTableDataSource(result.data);
         this.dataSource.paginator = this.paginator;
       });
@@ -162,20 +157,11 @@ export class CategoriesComponent implements OnInit {
   }
 
   onNextPage() {
-    console.log(this.currentPageIndex)
-    console.log(this.totalPages)
-
     if (this.currentPageIndex < this.totalPages) {
       this.currentPageIndex++;
       console.log(this.currentPageIndex)
       this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
-
-        //this.totalCount = result.totalCount;
-        // this.currentPageIndex = result.currentPage;
         this.totalPages = result.pages;
-
-        console.log(result.data);
-
         this.dataSource = new MatTableDataSource(result.data);
         this.dataSource.paginator = this.paginator;
       });

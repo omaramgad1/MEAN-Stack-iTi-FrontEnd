@@ -19,6 +19,9 @@ export class BooksComponent {
   books!: Book[]
   searchKey!: string;
   loading: boolean = true;
+  currentPageIndex: number = 1;
+  totalPages!: number;
+
 
   displayedColumns: string[] = [
     'counter',
@@ -37,7 +40,6 @@ export class BooksComponent {
   constructor(private _dialog: MatDialog,
     private _BooksService: BooksService,
     private _coreService: CoreService,
-    private _categoriesService: CategoriesService
   ) {
 
   }
@@ -47,19 +49,22 @@ export class BooksComponent {
   }
 
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  /*   applyFilter(event: Event) {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
     }
-  }
+  
+    onSearchClear(event: Event) {
+      this.searchKey = "";
+      this.applyFilter(event)
+    } */
 
-  onSearchClear(event: Event) {
-    this.searchKey = "";
-    this.applyFilter(event)
-  }
+
+
   openDialogform() {
     const dialogRef = this._dialog.open(AddEditBookDialogComponent, {
 
@@ -79,7 +84,7 @@ export class BooksComponent {
   }
 
   getBooks() {
-    this._BooksService.geAllBooks().subscribe((res) => {
+    this._BooksService.getPageBooks().subscribe((res) => {
       this.loading = false;
 
       this.dataSource = new MatTableDataSource(res.data)
@@ -92,6 +97,8 @@ export class BooksComponent {
     )
 
   }
+
+
   openEditForm(data: any) {
 
     const dialogRef = this._dialog.open(AddEditBookDialogComponent, {
@@ -110,6 +117,8 @@ export class BooksComponent {
       },
     });
   }
+
+
 
 
   deleteBook(id: string) {
@@ -141,43 +150,29 @@ export class BooksComponent {
   }
 
 
-
-  getNextData(currentSize: number, offset: number, limit: number) {
-
-
-    this._BooksService.getPageBooks(offset, limit)
-      .subscribe((response: any) => {
-
-        this.books.length = currentSize;
-
-
-        this.books.push(...response.data);
-
-        this.books.length = response.total;
-
-
-
-        this.dataSource = new MatTableDataSource<any>(this.books);
-        this.dataSource._updateChangeSubscription();
-
+  onPreviousPage() {
+    if (this.currentPageIndex > 1) {
+      this.currentPageIndex--;
+      this._BooksService.getPageBooks(this.currentPageIndex).subscribe((result) => {
+        this.currentPageIndex = result.currentPage;
+        this.totalPages = result.pages;
+        this.dataSource = new MatTableDataSource(result.data);
         this.dataSource.paginator = this.paginator;
-
-      })
+      });
+    }
   }
 
-
-  onPageChange(event: PageEvent) {
-
-    let pageIndex = event.pageIndex;
-    let pageSize = event.pageSize;
-
-    //let previousIndex = event.previousPageIndex;
-
-    let previousSize = pageSize * pageIndex;
-
-    this.getNextData(previousSize, pageIndex, pageSize);
-
-
+  onNextPage() {
+    if (this.currentPageIndex < this.totalPages) {
+      this.currentPageIndex++;
+      console.log(this.currentPageIndex)
+      this._BooksService.getPageBooks(this.currentPageIndex).subscribe((result) => {
+        this.totalPages = result.pages;
+        this.dataSource = new MatTableDataSource(result.data);
+        this.dataSource.paginator = this.paginator;
+      });
+    }
   }
+
 
 }

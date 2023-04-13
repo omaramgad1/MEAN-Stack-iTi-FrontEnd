@@ -24,10 +24,9 @@ export class CategoriesService {
 
   geAllCategories(): Observable<any> {
 
-    return this._http.get(`http://localhost:3000/categories`);
+    return this._http.get(`http://localhost:3000/categories/all`);
   }
   getPageCategories(pageNumber: number, pageSize: number): Observable<any> {
-    console.log(pageNumber);
 
     return this._http.get(`http://localhost:3000/categories?page=${pageNumber}`);
   }

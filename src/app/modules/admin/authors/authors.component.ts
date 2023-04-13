@@ -15,14 +15,16 @@ import { Author } from 'src/app/models/author';
 })
 export class AuthorsComponent implements OnInit {
 
+  displayedColumns: string[] = ['counter', 'First Name', 'Last Name', 'Date Of Birth', 'bio', 'Photo', 'action'];
   authors!: Author[];
-  // dialog!: dialogData[]
   listData!: MatTableDataSource<Author>;
-  displayedColumns: string[] = ['counter', 'First Name', 'Last Name', 'Date Of Birth','bio', 'Photo', 'action'];
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   searchKey!: string;
+  currentPageIndex: number = 1;
+  totalPages!: number;
+
   constructor(public matDialog: MatDialog, private _authors: AuthorsService) {
 
   }
@@ -41,17 +43,17 @@ export class AuthorsComponent implements OnInit {
       }
     })
   }
-  applyFilter() {
-    this.listData.filter = this.searchKey.trim().toLowerCase();
-  }
-  onSearchClear() {
-    this.searchKey = "";
-    this.applyFilter();
-  }
+  /*   applyFilter() {
+      this.listData.filter = this.searchKey.trim().toLowerCase();
+    }
+    onSearchClear() {
+      this.searchKey = "";
+      this.applyFilter();
+    } */
 
   getAuthors() {
     this._authors.getAllAuthors().subscribe({
-      
+
       next: (res) => {
         this.listData = new MatTableDataSource(res.data)
         // console.log(res.data);
@@ -64,8 +66,8 @@ export class AuthorsComponent implements OnInit {
     })
   }
   deleteAuthor(_id: string) {
-  
-    
+
+
     this._authors.deleteAnAuthor(_id).subscribe({
       next: (res) => {
         alert("Author has Deleted Successfully");
@@ -76,9 +78,11 @@ export class AuthorsComponent implements OnInit {
     })
   }
   openEditDialog(data: Author) {
+    console.log(data);
+
     const dialogRef = this.matDialog.open(DialogBodyComponent, {
       width: '450px',
-      data:data,
+      data: data,
 
     });
 
@@ -92,43 +96,29 @@ export class AuthorsComponent implements OnInit {
   }
 
 
-
-  getNextData(currentSize: number, offset: number, limit: number) {
-
-
-    this._authors.getPageAuthors(offset, limit)
-      .subscribe((response: any) => {
-
-        this.authors.length = currentSize;
-
-
-        this.authors.push(...response.data);
-
-        this.authors.length = response.total;
-
-
-
-        this.listData = new MatTableDataSource<any>(this.authors);
-        this.listData._updateChangeSubscription();
-
+  onPreviousPage() {
+    if (this.currentPageIndex > 1) {
+      this.currentPageIndex--;
+      this._authors.getPageAuthors(this.currentPageIndex).subscribe((result) => {
+        this.currentPageIndex = result.currentPage;
+        this.totalPages = result.pages;
+        this.listData = new MatTableDataSource(result.data);
         this.listData.paginator = this.paginator;
-
-      })
+      });
+    }
   }
 
-
-  onPageChange(event: PageEvent) {
-
-    let pageIndex = event.pageIndex;
-    let pageSize = event.pageSize;
-
-    //let previousIndex = event.previousPageIndex;
-
-    let previousSize = pageSize * pageIndex;
-
-    this.getNextData(previousSize, pageIndex, pageSize);
-
-
+  onNextPage() {
+    if (this.currentPageIndex < this.totalPages) {
+      this.currentPageIndex++;
+      console.log(this.currentPageIndex)
+      this._authors.getPageAuthors(this.currentPageIndex).subscribe((result) => {
+        this.totalPages = result.pages;
+        this.listData = new MatTableDataSource(result.data);
+        this.listData.paginator = this.paginator;
+      });
+    }
   }
+
 
 }

@@ -15,3 +15,31 @@
     position: absolute;
     color: #A37A7A;
 }
+
+
+
+.paginator {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.paginator button,
+.paginator div {
+    display: inline-block;
+    margin: 0 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.paginator button[disabled],
+.paginator div.active {
+    background-color: #ccc;
+    cursor: default;
+}
+
+.paginator span {
+    margin: 0 10px;
+}

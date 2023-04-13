@@ -5,13 +5,22 @@ import { SharedComponent } from './shared.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { HomeGuardGuard } from 'src/app/Guards/home-guard.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  {
+    path: '', component: SharedComponent, children: [
+      {
+        path: 'home', component: HomeComponent, canActivate: [HomeGuardGuard],
+      },
+      { path: 'login', component: LoginComponent, canActivate: [HomeGuardGuard] },
+      { path: 'register', component: RegisterComponent, canActivate: [HomeGuardGuard] },
+    ]
+  },
+
+
 
 
 ];

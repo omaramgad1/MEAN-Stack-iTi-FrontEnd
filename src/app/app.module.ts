@@ -19,7 +19,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   imports: [
     BrowserModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3500,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
     AppRoutingModule,
     NgxSpinnerModule.forRoot({ type: 'ball-newton-cradle' }),
     AdminModule,

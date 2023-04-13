@@ -14,7 +14,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './user-view.component.html',
   styleUrls: ['./user-view.component.scss']
 })
-export class UserViewComponent implements OnInit{
+export class UserViewComponent implements OnInit {
   books!: Book[]
   searchKey!: string;
   selectedOption: string = 'All Books';
@@ -39,12 +39,12 @@ export class UserViewComponent implements OnInit{
     private _userService: UsersService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-    ) { }
+  ) { }
 
-    ngOnInit(): void {
-      this.getBooks();
-      this.stars = Array(5).fill(null).map(() => ({ filled: false, hover: false }));
-    
+  ngOnInit(): void {
+    this.getBooks();
+    this.stars = Array(5).fill(null).map(() => ({ filled: false, hover: false }));
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -127,8 +127,8 @@ export class UserViewComponent implements OnInit{
   }
 
 
-  getNextData(currentSize: number, offset: number, limit: number) {
-    this._BooksService.getPageBooks(offset, limit)
+  getNextData(currentSize: number, offset: number) {
+    this._BooksService.getPageBooks(offset)
       .subscribe((response: any) => {
         this.books.length = currentSize;
         this.books.push(...response.data);

@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CoreService } from 'src/app/Services/core.service';
 import { AddEditCategoryDialogComponent } from '../add-edit-category-dialog/add-edit-category-dialog.component';
@@ -16,12 +16,12 @@ import { Author } from 'src/app/models/author';
 })
 export class AddEditBookDialogComponent {
   up: boolean = false
-  categories: string[] = [];
+  categories: any[] = [];
   authors: any[] = [];
-  file:any;
-bookForm:FormGroup;
+  file: any;
+  bookForm: FormGroup;
 
- 
+
 
   constructor(private _BooksService: BooksService,
     private _CategoriesService: CategoriesService,
@@ -30,14 +30,14 @@ bookForm:FormGroup;
     @Inject(MAT_DIALOG_DATA) public data: any,
     public fb: FormBuilder,
     private _coreService: CoreService) {
-   this.bookForm =  this.fb.group({
+    this.bookForm = this.fb.group({
 
-    bookName: new FormControl(null, [Validators.required]),
+      name: new FormControl(null, [Validators.required]),
       categoryId: new FormControl(null, [Validators.required]),
       AuthorId: new FormControl(null, [Validators.required]),
       photo: new FormControl(null, []),
-  
-  
+
+
     })
   }
 
@@ -46,13 +46,13 @@ bookForm:FormGroup;
 
     this._CategoriesService.geAllCategories().subscribe((res) => {
 
-      res.data.forEach((obj: any) => this.categories.push(obj.name))
+      res.data.forEach((obj: any) => this.categories.push(obj))
     })
     this._AuthorsService.getAllAuthors().subscribe((res) => {
 
 
 
-      res.data.forEach((obj: any) => this.authors.push(obj.firstName))
+      res.data.forEach((obj: any) => this.authors.push(obj))
 
 
     })
@@ -60,43 +60,46 @@ bookForm:FormGroup;
 
   onFileSelect(event: any) {
     this.file = event.target.files
-    };
+    this.up = true
+  };
 
 
-  onFormSubmit() {
+  onFormSubmit(bookForm: FormGroup) {
 
     const formData = new FormData();
-    formData.append('bookName',this.bookForm.get('bookName')?.value);
-    formData.append('categoryId',this.bookForm.get('categoryId')?.value);
-    formData.append('AuthorId',this.bookForm.get('AuthorId')?.value);
-    formData.append('photo',this.file[0]);
-    // if (bookForm.valid) {
-      if (this.data) {
-        if (this.onUpdate()) {
-          this._BooksService.updateBook(this.data.id, formData).subscribe((res) => {
 
-            this._coreService.openSnackBar('Book Data updated!');
-            this._dialogRef.close(true)
-          }, err => console.log(err)
-          )
-        }
-        else {
-          this._coreService.openSnackBar('Nothing is updated!');
-          this._dialogRef.close(true)
+    formData.append('name', bookForm.get('name')?.value);
+    formData.append('categoryId', bookForm.get('categoryId')?.value);
+    formData.append('AuthorId', bookForm.get('AuthorId')?.value);
+    formData.append('photo', this.file[0]);
+    if (this.data) {
+      if (this.onUpdate()) {
+        this._BooksService.updateBook(this.data.id, formData).subscribe((res) => {
 
-        }
-
-      }
-      else {
-        this._BooksService.addNewBook(formData).subscribe((res) => {
-
-          this._coreService.openSnackBar('Book added successfully');
+          this._coreService.openSnackBar('Book Data updated!');
           this._dialogRef.close(true)
         }, err => console.log(err)
         )
       }
+      else {
+        this._coreService.openSnackBar('Nothing is updated!');
+        this._dialogRef.close(true)
 
-    // }
+      }
+
+    }
+    else {
+      this._BooksService.addNewBook(formData).subscribe((res) => {
+
+        this._coreService.openSnackBar('Book added successfully');
+        this._dialogRef.close(true)
+      }, err => console.log(err)
+      )
+
+
+
+    }
+
 
   }
 

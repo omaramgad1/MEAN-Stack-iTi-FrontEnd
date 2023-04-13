@@ -11,7 +11,7 @@ import { AuthorsService } from 'src/app/Services/authors.service';
   styleUrls: ['./dialog-body.component.scss']
 })
 export class DialogBodyComponent implements OnInit {
-  file:any;
+  file: any;
   myForm: FormGroup;
   authors!: Author[];
   up: boolean = false
@@ -24,45 +24,59 @@ export class DialogBodyComponent implements OnInit {
       firstName: new FormControl(null, [Validators.required]),
       lastName: new FormControl(null, [Validators.required]),
       dob: new FormControl(null, [Validators.required]),
-      bio:new FormControl(null,[Validators.minLength(20) ,Validators.maxLength(150),Validators.required]),
-      photo: new FormControl(null, [Validators.required]),
+      bio: new FormControl(null, [Validators.minLength(20), Validators.maxLength(150), Validators.required]),
+      photo: new FormControl(null),
     })
+
   }
   ngOnInit(): void {
     this.myForm.patchValue(this.data)
   }
   onFileSelect(event: any) {
     this.file = event.target.files
-    };
-  onSubmit() {
+
+  };
+  onSubmit(myForm: FormGroup) {
     const formData = new FormData();
-    formData.append('firstName',this.myForm.get('firstName')?.value);
-    formData.append('lastName',this.myForm.get('lastName')?.value);
-    formData.append('dob',this.myForm.get('dob')?.value);
-    formData.append('photo',this.file[0]);
-    formData.append('bio',this.myForm.get('bio')?.value);
-      if (this.data) {
-        this._authors.updateAnAuthor(this.data._id,formData).subscribe({
-          next: (val: Author) => {
-            alert("Author's Info Updated Successfully");
-            this._dialogRef.close(true);
-          },
-          error: (error) => {
-            console.error(error)
-          }
-        });
-      }
-      else {
-        this._authors.addAuthor(formData).subscribe({
-          next: (val: Author) => {
-            alert("Author Added Successfully");
-            this._dialogRef.close(true);
-          },
-          error: (error) => {
-            console.log(error)
-          }
-        })
-      }
+    formData.append('firstName', myForm.get('firstName')?.value);
+    formData.append('lastName', myForm.get('lastName')?.value);
+    formData.append('dob', myForm.get('dob')?.value);
+    formData.append('bio', myForm.get('bio')?.value);
+
+    console.log(this.file);
+
+
+    if (this.data) {
+      if (this.file)
+        formData.append('photo', this.file[0]);
+      console.log(this.data);
+      console.log(myForm.value);
+
+      this._authors.updateAnAuthor(this.data._id, formData).subscribe({
+        next: (val: any) => {
+
+
+          alert("Author's Info Updated Successfully");
+          this._dialogRef.close(true);
+        },
+        error: (error) => {
+          console.error(error)
+        }
+      });
+    }
+    else {
+      formData.append('photo', this.file[0]);
+
+      this._authors.addAuthor(formData).subscribe({
+        next: (val: Author) => {
+          alert("Author Added Successfully");
+          this._dialogRef.close(true);
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      })
+    }
 
   }
 }

@@ -9,25 +9,7 @@
   </div>
   <mat-toolbar class="p-2">
     <mat-toolbar-row class="d-flex justify-content-between">
-      <div class="paginator p-2 mb-3">
-        <button
-          mat-raised-button
-          color="warn"
-          [disabled]="currentPageIndex == 1"
-          (click)="onPreviousPage()"
-        >
-          Previous
-        </button>
-        <span>{{ currentPageIndex }}/{{ totalPages }}</span>
-        <button
-          mat-raised-button
-          color="warn"
-          [disabled]="currentPageIndex == totalPages"
-          (click)="onNextPage()"
-        >
-          Next
-        </button>
-      </div>
+      <div class="example-spacer"></div>
       <!-- <mat-form-field class="p-2 mt-4">
         <input
           matInput
@@ -62,6 +44,27 @@
         </button>
       </div>
     </mat-toolbar-row>
+    <mat-toolbar-row class="d-flex justify-content-start">
+      <div class="paginator p-2 mb-3">
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == 1"
+          (click)="onPreviousPage()"
+        >
+          Previous
+        </button>
+        <span>{{ currentPageIndex }}/{{ totalPages || 1 }}</span>
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == totalPages"
+          (click)="onNextPage()"
+        >
+          Next
+        </button>
+      </div>
+    </mat-toolbar-row>
   </mat-toolbar>
 
   <div class="mat-elevation-z8 example-container text-center mt-3" tabindex="0">
@@ -90,8 +93,8 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef class="text-center">Action</th>
           <td class="text-center" mat-cell *matCellDef="let row">
-            <button mat-icon-button color="primary" (click)="openEditForm(row)">
-              <mat-icon>edit</mat-icon>
+            <button mat-icon-button (click)="openEditForm(row)">
+              <mat-icon>create</mat-icon>
             </button>
             <button
               mat-icon-button

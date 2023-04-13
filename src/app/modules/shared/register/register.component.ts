@@ -1,7 +1,7 @@
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter} from '@angular/core';
-import { AbstractControl,EmailValidator,FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Component, EventEmitter } from '@angular/core';
+import { AbstractControl, EmailValidator, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/Services/users.service';
 
@@ -17,19 +17,19 @@ export class RegisterComponent {
   up: boolean = false;
   passwordVisible = false;
   // conPasswordVisible = false;
-  file:any;
+  file: any;
   registerForm = new FormGroup({
-    firstName: new FormControl('', [Validators.required,Validators.minLength(3),Validators.maxLength(15)]),
-    lastName: new FormControl('', [Validators.required,Validators.maxLength(15),Validators.minLength(3)]),
+    firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
+    lastName: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     photo: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required,Validators.minLength(4)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4)]),
     confirmPassword: new FormControl('', [Validators.required]),
   }
     ,
     [CustomValidators.MatchValidator('password', 'confirmPassword')])
 
-  
+
   constructor(private http: HttpClient,
     private _userService: UsersService,
     private router: Router) {
@@ -39,7 +39,7 @@ export class RegisterComponent {
 
   onFileSelect(event: any) {
     this.file = event.target.files
-    };
+  };
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
   }
@@ -49,12 +49,12 @@ export class RegisterComponent {
   // }
   onSubmit(registerForm: FormGroup) {
     const formData = new FormData();
-    formData.append('firstName',registerForm.get('firstName')?.value);
-    formData.append('lastName',registerForm.get('lastName')?.value);
-    formData.append('email',registerForm.get('email')?.value);
-    formData.append('photo',this.file[0]);
-    formData.append('password',registerForm.get('password')?.value);
-    formData.append('confirmPassword',registerForm.get('confirmPassword')?.value);
+    formData.append('firstName', registerForm.get('firstName')?.value);
+    formData.append('lastName', registerForm.get('lastName')?.value);
+    formData.append('email', registerForm.get('email')?.value);
+    formData.append('photo', this.file[0]);
+    formData.append('password', registerForm.get('password')?.value);
+    formData.append('confirmPassword', registerForm.get('confirmPassword')?.value);
 
 
     this._userService.register(formData).subscribe({
@@ -64,9 +64,9 @@ export class RegisterComponent {
         else
           alert(res.message)
       },
-      error:(err) => console.log(err)
+      error: (err) => console.log(err)
 
-  })
+    })
 
   };
 
@@ -78,7 +78,7 @@ export class RegisterComponent {
     );
   }
 
-  get m(){
+  get m() {
     return this.registerForm.controls;
   }
 
@@ -109,7 +109,7 @@ export function WhiteSpaceValidator(control: AbstractControl) {
   }
 
   if (hasErrors) {
-    return {onlyWhitespacesValidator: true};
+    return { onlyWhitespacesValidator: true };
   }
   return null;
 }

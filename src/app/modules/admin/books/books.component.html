@@ -8,8 +8,30 @@
     <h1 class="mat-headline-3 mb-1">Books</h1>
   </div>
   <mat-toolbar class="p-2">
-    <mat-toolbar-row class="">
-      <div class="container mt-4">
+    <mat-toolbar-row>
+      <div class="container">
+        <div class="paginator p-2 mb-3">
+          <button
+            mat-raised-button
+            color="warn"
+            [disabled]="currentPageIndex == 1"
+            (click)="onPreviousPage()"
+          >
+            Previous
+          </button>
+          <span>{{ currentPageIndex }}/{{ totalPages || 1 }}</span>
+          <button
+            mat-raised-button
+            color="warn"
+            [disabled]="currentPageIndex == totalPages"
+            (click)="onNextPage()"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+
+      <!--       <div class="container mt-4">
         <mat-form-field appearance="outline" style="width: 50%">
           <mat-label>Search</mat-label>
           <input
@@ -19,8 +41,7 @@
             #input
           />
         </mat-form-field>
-      </div>
-
+      </div> -->
       <span class="example-spacer"></span>
 
       <!-- (click)="openDialogform()" -->
@@ -86,8 +107,8 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef class="text-center">Action</th>
         <td mat-cell *matCellDef="let row" class="text-center">
-          <button mat-icon-button color="primary" (click)="openEditForm(row)">
-            <mat-icon>edit</mat-icon>
+          <button mat-icon-button (click)="openEditForm(row)">
+            <mat-icon>create</mat-icon>
           </button>
           <button mat-icon-button color="warn" (click)="deleteBook(row._id)">
             <mat-icon>delete</mat-icon>
@@ -108,13 +129,7 @@
     </table>
   </ng-template>
 
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    (page)="onPageChange($event)"
-  ></mat-paginator>
-
   <div class="spinner-container" *ngIf="loading; else table">
     <mat-spinner class="center" color="warn"></mat-spinner>
   </div>
 </div>
-<br /><br /><br /><br />

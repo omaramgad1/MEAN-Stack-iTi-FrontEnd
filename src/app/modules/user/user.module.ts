@@ -14,12 +14,14 @@ import { MatTableModule } from '@angular/material/table';
 import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { CategoriesComponent } from './categories/categories.component';
 @NgModule({
   declarations: [
     UserComponent,
     NavbarComponent,
     UserViewComponent,
-    PhotoDialogComponent
+    PhotoDialogComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 <button mat-icon-button style="float: right; margin: 5px" matDialogClose>
   <mat-icon>close</mat-icon>
 </button>
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
   <mat-dialog-content>
     <header>
       <h1>Add Author</h1>
@@ -9,7 +9,12 @@
 
     <p>
       <mat-form-field>
-        <input matInput placeholder="Enter Author First Name" formControlName="firstName" required />
+        <input
+          matInput
+          placeholder="Enter Author First Name"
+          formControlName="firstName"
+          required
+        />
         <mat-icon matSuffix>person</mat-icon>
         <mat-error *ngIf="myForm.get('firstName')?.hasError('required')">
           First Name is <strong>required</strong>
@@ -17,26 +22,41 @@
       </mat-form-field>
     </p>
 
-
     <p>
       <mat-form-field>
-        <input matInput placeholder="Enter Author Last Name" formControlName="lastName" required />
+        <input
+          matInput
+          placeholder="Enter Author Last Name"
+          formControlName="lastName"
+          required
+        />
         <mat-icon matSuffix>person</mat-icon>
         <mat-error *ngIf="myForm.get('lastName')?.hasError('required')">
           Last Name is <strong>required</strong>
         </mat-error>
       </mat-form-field>
     </p>
-    <p><mat-form-field>
-        <input matInput placeholder="Enter Author's date of birth" formControlName="dob" type="date">
+    <p>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Enter Author's date of birth"
+          formControlName="dob"
+          type="date"
+        />
         <mat-icon matSuffix>cake</mat-icon>
         <mat-error *ngIf="myForm.get('dob')?.hasError('required')">
           Date Of Birth is <strong>required</strong>
         </mat-error>
-      </mat-form-field></p>
+      </mat-form-field>
+    </p>
     <p>
       <mat-form-field>
-        <textarea matInput placeholder="Enter Author's Description" formControlName="bio"></textarea>
+        <textarea
+          matInput
+          placeholder="Enter Author's Description"
+          formControlName="bio"
+        ></textarea>
         <mat-icon matSuffix>person</mat-icon>
         <mat-error *ngIf="myForm.get('bio')?.hasError('required')">
           Description is <strong>required</strong>
@@ -49,10 +69,26 @@
 
     <div>
       <p>
-        <button mat-raised-button type="button" (click)="photo.click()" [ngStyle]="{
-            'backgroundColor':
-            '#A37A7A','color':'#fff'}" class="Cphoto">Choose Photo</button>
-        <input name="photo" #photo (change)="onFileSelect($event)" type='file' style="display:none" accept="image/*" />
+        <button
+          mat-raised-button
+          type="button"
+          (click)="photo.click()"
+          [ngStyle]="{
+            backgroundColor: '#A37A7A',
+            color: '#fff'
+          }"
+          class="Cphoto"
+        >
+          Choose Photo
+        </button>
+        <input
+          name="photo"
+          #photo
+          (change)="onFileSelect($event)"
+          type="file"
+          style="display: none"
+          accept="image/*"
+        />
         <mat-icon matSuffix>photo</mat-icon>
       </p>
     </div>
@@ -61,11 +97,18 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end" class="action">
-    <button mat-raised-button [ngStyle]="{
-        'backgroundColor':
-        '#A37A7A','color':'#fff'}" type="submit">{{data ? "Update" : "Save"}}</button>
+    <button
+      mat-raised-button
+      [ngStyle]="{
+        backgroundColor: '#A37A7A',
+        color: '#fff'
+      }"
+      type="submit"
+      [disabled]="myForm.invalid && !file"
+    >
+      {{ data ? "Update" : "Save" }}
+    </button>
 
     <button mat-raised-button color="danger" matDialogClose>Cancel</button>
   </mat-dialog-actions>
-  <!-- <img className="align-self-center" width= '100%' src="{{ImageUrl}}" /> -->
 </form>

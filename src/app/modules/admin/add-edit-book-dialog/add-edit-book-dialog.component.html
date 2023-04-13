@@ -5,29 +5,30 @@
 >
   <h1>{{ data ? "Update" : "Add New" }} Book</h1>
 </div>
-<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit(bookForm)">
   <div mat-dialog-content class="content">
     <div class="container-fluid d-flex flex-column justify-content-center">
       <mat-form-field appearance="outline">
         <mat-label>book Name</mat-label>
-        <input matInput formControlName="bookName" />
-        <mat-error *ngIf="bookForm.get('categoryName')?.hasError('required')">
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="bookForm.get('name')?.hasError('required')">
           category is <strong>required</strong>
         </mat-error>
       </mat-form-field>
+
       <mat-form-field appearance="outline">
-        <mat-label>catergoryId</mat-label>
+        <mat-label>Catergory Name</mat-label>
         <mat-select formControlName="categoryId">
-          <mat-option *ngFor="let cat of categories" [value]="cat">
-            {{ cat }}
+          <mat-option *ngFor="let cat of categories" [value]="cat._id">
+            {{ cat.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>authorId</mat-label>
+        <mat-label>Author Name</mat-label>
         <mat-select formControlName="AuthorId">
-          <mat-option *ngFor="let id of authors" [value]="id">
-            {{ id }}
+          <mat-option *ngFor="let auth of authors" [value]="auth._id">
+            {{ auth.firstName + " " + auth.lastName }}
           </mat-option>
         </mat-select>
       </mat-form-field>
