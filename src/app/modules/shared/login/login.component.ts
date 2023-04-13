@@ -27,6 +27,9 @@ export class LoginComponent {
     togglePasswordVisibility() {
       this.passwordVisible = !this.passwordVisible;
     }
+    get m() {
+      return this.loginForm.controls;
+    }
   submintloginForm(loginForm: FormGroup) {
     this.spinner.show();
     this._userService.login(loginForm.value).subscribe((res) => {

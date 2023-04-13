@@ -107,7 +107,7 @@ background-color: #cdb3b6;
 .regForm{
   padding-top: 0px;
   height: 90vh;
-  padding-bottom: 60%;
+  padding-bottom: 88%;
 
 }
 } 
@@ -115,10 +115,14 @@ background-color: #cdb3b6;
 @media (min-width: 270px) and (max-width:500px) {
 .register{
   height: 130%;
+  padding-bottom: 70%;
+
 }
 .regForm{
   width: 100%;
   height: 100%;
+  padding-bottom: 88%;
+
 }
 form{
   height: 100%;

@@ -59,3 +59,37 @@ input[type="password"]:focus {
     background-color: rgb(214, 112, 146);
     cursor: pointer;
   }
+
+
+
+  @media (min-width: 501px) and (max-width:950px) {
+
+    h4{
+      // color: #000;
+      color: #937f81;
+      font-size: 20px;
+      text-align: center;
+      font-family: 'DynaPuff', cursive;
+    
+    }
+    img{
+      height: 116%;
+    }
+    #container{
+      padding-bottom: 10%;
+    }
+    } 
+    
+    @media (min-width: 270px) and (max-width:500px) {
+      #container{
+        padding-bottom: 20%;
+      }
+      h4{
+        // color: #000;
+        color: #937f81;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'DynaPuff', cursive;
+      
+      }
+    }
