@@ -12,6 +12,8 @@ import { UsersService } from 'src/app/Services/users.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  passwordVisible = false;
+
   hide = true;
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.email, Validators.required]),
@@ -22,6 +24,9 @@ export class LoginComponent {
     private toastr: ToastrService,
     private spinner: NgxSpinnerService) { }
 
+    togglePasswordVisibility() {
+      this.passwordVisible = !this.passwordVisible;
+    }
   submintloginForm(loginForm: FormGroup) {
     this.spinner.show();
     this._userService.login(loginForm.value).subscribe((res) => {

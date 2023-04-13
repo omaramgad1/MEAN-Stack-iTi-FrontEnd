@@ -1,0 +1,61 @@
+*{
+  font-family: 'DynaPuff', cursive;
+
+    box-sizing: border-box;
+}
+
+.login{
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+#container{
+    // background:linear-gradient(rgba(215, 126, 133, 0.5), rgba(203, 187, 189, 0.8));
+    box-shadow: 4px 4px 4px 4px #937f81;}
+img{
+    height: 100%;
+    width: 100%;
+}
+a{
+  padding-top: 2%;
+  color: #937f81;
+}
+h4{
+  // color: #000;
+  color: #937f81;
+  font-size: 50px;
+  text-align: center;
+  font-family: 'DynaPuff', cursive;
+
+}
+label{
+  // color: 000;
+  color: #937f81;
+  font-weight: bold;
+  font-size: large;
+}
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: black;
+    float: right;
+    margin-top: -30px;
+  }
+input[type="password"]:focus {
+    outline: none;
+  }
+  
+  input[type="password"] + #pass::after {
+    content: url(../../../../assets/sleep.png);
+    margin-left: 5px;
+  }
+  
+  input[type=text] + #pass::after {
+    content:url(../../../../assets/eye-care.png);
+    margin-left: 5px;
+  }
+  input[type=submit]{
+    background-color: rgb(214, 112, 146);
+    cursor: pointer;
+  }
