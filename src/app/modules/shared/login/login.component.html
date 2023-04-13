@@ -1,105 +1,83 @@
-<<<<<<< HEAD
 <section class="login">
-<div class="container pt-5" id="container">
-<div class="row">
-
-  <div class="col-lg-6 col-md-12 col-sm-6 pb-5">
-<img src="https://assets.website-files.com/5509bda13cd56c1a716d17d1/5571e6d2ceff75333132a107_BookTL3.gif" alt="">
-  </div>
-
-
-  <div class="col-lg-6 col-md-12 col-sm-6">
-<h4 class="pb-3"> <strong>Login To Continue</strong> </h4>
-<form [formGroup]="loginForm" (ngSubmit)="submintloginForm(loginForm)">
-  <div>
-  <label for="email" class="form-label">Email</label>
-  <input type="email" class="form-control" lowercase placeholder="mohamed@example.com" formControlName="email"
-    id="email" email>
-    <div *ngIf="m.email.touched && m.email.invalid" class=" border border-3 text-center">
-      <div *ngIf="loginForm.get('email')?.errors?.['required']">Please provide Email</div>
-
-      <div *ngIf="loginForm.get('email')?.errors?.['email']">Must Be Email</div>
-=======
-<app-main-navbar></app-main-navbar>
-<div class="w-50 mx-auto py-3">
-  <div class="p-3 mat-elevation-z8">
-    <div class="row d-flex justify-content-center align-items-center h-50">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="../../../../assets/login-photo.jpg" class="img-fluid" alt="Sample image" />
->>>>>>> userBran
+  <div class="container pt-5" id="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-6 pb-5">
+        <img
+          src="https://assets.website-files.com/5509bda13cd56c1a716d17d1/5571e6d2ceff75333132a107_BookTL3.gif"
+          alt=""
+        />
       </div>
-  </div>
-  <div class="pt-4">
-    <label for="password" class="form-label">Password</label>
-    <input [type]="passwordVisible ? 'text' : 'password'" class="form-control" formControlName="password"
-      id="password">
-    <button id="pass" type="button" (click)="togglePasswordVisibility()" ></button>
-    <div *ngIf="m.password.touched && m.password.invalid" class=" border border-3 text-center">
-      <div *ngIf="loginForm.get('password')?.errors?.['required']">Please provide Password</div>
-    </div>
-<<<<<<< HEAD
-  </div>
 
-  <div class="d-flex justify-content-between">
-    <div class="pt-2">
-      <a class="text-50 h6" href="#!">Forgot password?</a>
-    </div>
-    <div class="p-2"></div>
+      <div class="col-lg-6 col-md-12 col-sm-6">
+        <h4 class="pb-3"><strong>Login To Continue</strong></h4>
+        <form [formGroup]="loginForm" (ngSubmit)="submintloginForm(loginForm)">
+          <div>
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              lowercase
+              placeholder="mohamed@example.com"
+              formControlName="email"
+              id="email"
+              email
+            />
+            <div
+              *ngIf="m.email.touched && m.email.invalid"
+              class="border border-3 text-center"
+            >
+              <div *ngIf="loginForm.get('email')?.errors?.['required']">
+                Please provide Email
+              </div>
 
-    <div class="pt-2">
-      <a class="text-50 h6" routerLink="/auth/register"> SignUp?</a>
+              <div *ngIf="loginForm.get('email')?.errors?.['email']">
+                Must Be Email
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <label for="password" class="form-label">Password</label>
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              class="form-control"
+              formControlName="password"
+              id="password"
+            />
+            <button
+              id="pass"
+              type="button"
+              (click)="togglePasswordVisibility()"
+            ></button>
+            <div
+              *ngIf="m.password.touched && m.password.invalid"
+              class="border border-3 text-center"
+            >
+              <div *ngIf="loginForm.get('password')?.errors?.['required']">
+                Please provide Password
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="pt-2">
+              <a class="text-50 h6" href="#!">Forgot password?</a>
+            </div>
+            <div class="p-2"></div>
+
+            <div class="pt-2">
+              <a class="text-50 h6" routerLink="/auth/register"> SignUp?</a>
+            </div>
+          </div>
+          <div class="d-flex flex-column pt-5">
+            <input
+              type="submit"
+              class="btn btn-lg btn-block text-white"
+              [disabled]="loginForm.invalid"
+              value="Login"
+            />
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="d-flex flex-column pt-5">
-    <input
-      type="submit"
-      class="btn btn-lg btn-block text-white"
-      [disabled]="loginForm.invalid"
-      value="Login"
-    >
-  </div>
-  </form>
-  </div>
-</div>
-
-</div>
 </section>
-=======
-    <form [formGroup]="loginForm" (ngSubmit)="submintloginForm(loginForm)">
-      <div class="form-group">
-        <label for="email" class="w-100 mb-2">Email:</label>
-        <mat-form-field appearance="outline" class="w-100 mt-2">
-          <mat-label>Enter your email</mat-label>
-          <input id="email" matInput placeholder="pat@example.com" formControlName="email" />
-          <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">must be email</mat-error>
-        </mat-form-field>
-      </div>
-      <div class="form-group">
-        <label for="Password" class="w-100 mb-3">Password:</label>
-        <mat-form-field appearance="outline" class="w-100">
-          <mat-label>Enter your password</mat-label>
-          <input id="Password" matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-          </button>
-        </mat-form-field>
-      </div>
-      <div class="d-flex justify-content-between">
-        <div class="p-2">
-          <a class="text-primary-50 h6" href="#!">Forgot password?</a>
-        </div>
-        <div class="p-2"></div>
-        <div class="p-2">
-          <a class="text-primary-50 h6" routerLink="/auth/register"> SignUp?</a>
-        </div>
-      </div>
-      <div class="d-flex flex-column mt-2">
-        <button type="submit" class="btn btn-info btn-lg btn-block text-white" [disabled]="loginForm.invalid">
-          Login
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-<app-main-footer></app-main-footer>
->>>>>>> userBran

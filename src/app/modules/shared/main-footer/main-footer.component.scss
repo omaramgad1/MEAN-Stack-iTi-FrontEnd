@@ -1,5 +1,5 @@
 $bgcolo: #937f81;
-  
+
 
 * {
     box-sizing: border-box;
@@ -8,9 +8,10 @@ $bgcolo: #937f81;
 }
 
 footer {
-    padding-top: 1em;
+    // padding-top: 1em;
     width: 100%;
     float: right;
+
     .foot {
         margin-bottom: 0px;
         background: linear-gradient(rgba(147, 127, 129, .8), rgba(147, 127, 129, .3)), url(https://www.frontlist.in/storage/post/1653642722_photo-1630343710506-89f8b9f21d31.jpg);
@@ -34,7 +35,7 @@ footer {
 
 @media (min-width: 270px) and (max-width:500px) {
     footer {
-      
+
         width: 100%;
     }
 
