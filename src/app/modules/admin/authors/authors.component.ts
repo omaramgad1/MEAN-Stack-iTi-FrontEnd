@@ -53,13 +53,16 @@ export class AuthorsComponent implements OnInit {
     } */
 
   getAuthors() {
-    this._authors.getAllAuthors().subscribe({
+    this._authors.getPageAuthors(this.currentPageIndex).subscribe({
 
       next: (res) => {
+        this.totalPages = res.pages;
+        this.currentPageIndex = res.currentPage;
         this.loading = false;
 
         this.listData = new MatTableDataSource(res.data)
         // console.log(res.data);
+
 
         this.listData.sort = this.sort;
         this.listData.paginator = this.paginator;
