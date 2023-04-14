@@ -20,14 +20,14 @@ export class CategoriesComponent {
     this.getCategory();
   }
   getCategory() {
-    // this._categoryService.getCategories(this.currentPageIndex, this.pageSize).subscribe((res) => {
-    //   this.categoryList = res.data;
-    //   this.totalPages = res.pages;
+    this._categoryService.getCategories(this.currentPageIndex, this.pageSize).subscribe((res) => {
+      this.categoryList = res.data;
+      this.totalPages = res.pages;
 
-    // }, err => {
-    //   console.log(err)
-    // }
-    // )
+    }, err => {
+      console.log(err)
+    }
+    )
   }
 
   handlePageEvent(e: PageEvent) {

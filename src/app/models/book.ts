@@ -2,7 +2,10 @@ export interface Book {
     id?: number,
     name: string,
     categoryName: string,
-    authorId: number,
+    AuthorId: {
+        _id:string,
+        firstName:string
+    },
     photo: string,
     reviews?: {
         userId: number,
