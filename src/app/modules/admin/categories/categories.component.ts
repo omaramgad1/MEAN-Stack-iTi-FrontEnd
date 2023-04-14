@@ -54,16 +54,10 @@ export class CategoriesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.categoris)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-
-
-
     }, err => {
       console.log(err)
     }
-
     )
-
-
   }
 
   openDialogform(): void {

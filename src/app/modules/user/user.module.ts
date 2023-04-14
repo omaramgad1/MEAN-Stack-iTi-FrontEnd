@@ -15,13 +15,19 @@ import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CategoriesComponent } from './categories/categories.component';
+import { UserFooterComponent } from './user-footer/user-footer.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     UserComponent,
     NavbarComponent,
     UserViewComponent,
     PhotoDialogComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    UserFooterComponent
+
   ],
   imports: [
     CommonModule,
@@ -32,8 +38,10 @@ import { CategoriesComponent } from './categories/categories.component';
     MatFormFieldModule,
     MatIconModule,
     MatTableModule,
-    MatDialogModule, 
-    FormsModule
+    MatDialogModule,
+    FormsModule,
+    MatCardModule,
+    MatPaginatorModule
   ]
 })
 export class UserModule { }

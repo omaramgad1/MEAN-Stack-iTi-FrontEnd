@@ -5,10 +5,10 @@
             <a mat-list-item routerLink="/user/read" routerLinkActive="active">Read</a>
             <a mat-list-item routerLink="/user/readig" routerLinkActive="active">Current Reading</a>
             <a mat-list-item routerLink="/user/want" routerLinkActive="active">Want To Read</a> -->
-            <a mat-list-item (click)="showAll()" routerLinkActive="active">All</a>
-            <a mat-list-item (click)="showRead()" routerLinkActive="active">Read</a>
-            <a mat-list-item (click)="showCurrent()" routerLinkActive="active">Current Reading</a>
-            <a mat-list-item (click)="showWant()" routerLinkActive="active">Want To Read</a>
+            <a mat-list-item  (click)="showAll()"  [routerLinkActive]="['active']">All</a>
+            <a mat-list-item (click)="showRead()"  [routerLinkActive]="['active']">Read</a>
+            <a mat-list-item (click)="showCurrent()"  [routerLinkActive]="['active']">Current Reading</a>
+            <a mat-list-item (click)="showWant()"  [routerLinkActive]="['active']">Want To Read</a>
         </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content class="content" style="overflow-x: auto; width: 85%;">
@@ -62,14 +62,16 @@
                         </ng-container>
 
                         <ng-container matColumnDef="shelve">
-                            <th mat-header-cell *matHeaderCellDef  style="width: 20%;" class="text-center">Shelve</th>
+                            <th mat-header-cell *matHeaderCellDef style="width: 20%;" class="text-center">Shelve</th>
                             <td *matCellDef="let row">
                                 <div class="form-group">
                                     <select class="form-control text-center" [(ngModel)]="row.shelve">
-                                      <option value="" disabled>--Please choose an option--</option>
-                                      <option value="Read" [selected]="row.shelve === 'Read'">Read</option>
-                                      <option value="Reading" [selected]="row.shelve === 'Reading'">Current reading</option>
-                                      <option value="Want to read" [selected]="row.shelve === 'Want to read'">Want to read</option>
+                                        <option value="" disabled>--Please choose an option--</option>
+                                        <option value="Read" [selected]="row.shelve === 'Read'">Read</option>
+                                        <option value="Reading" [selected]="row.shelve === 'Reading'">Current reading
+                                        </option>
+                                        <option value="Want to read" [selected]="row.shelve === 'Want to read'">Want to
+                                            read</option>
                                     </select>
                                 </div>
                             </td>

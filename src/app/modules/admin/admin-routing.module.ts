@@ -22,9 +22,6 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent },
       { path: 'books', component: BooksComponent },
       { path: 'authors', component: AuthorsComponent }
-
-
-
     ]
     ,
     canActivate: [AuthGuard, RoleGuard],

@@ -31,6 +31,11 @@ export class CategoriesService {
     return this._http.get(`http://localhost:3000/categories?page=${pageNumber}`);
   }
 
+  getCategories(pageNumber: number, pageSize: number): Observable<any> {
+
+    return this._http.get(`http://localhost:3000/categories?page=${pageNumber}&limit=${pageSize}`);
+  }
+
 
   deleteCategory(id: any): Observable<any> {
     return this._http.delete(`http://localhost:3000/categories/${id}`, {

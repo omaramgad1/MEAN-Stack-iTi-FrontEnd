@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.hr {
+  border-bottom: 5px solid pink;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#showBooks {
+  background-color: rgb(211, 156, 165);
+  color: white;
+  margin-right: auto;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  font-size: medium;
+}
+
+
+.wrapper {
+  display: inline-block;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+.example-card {
+  width: 300px;
+  box-shadow: 1px 1px 1px 1px gray;
+
+}
