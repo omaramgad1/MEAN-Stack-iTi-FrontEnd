@@ -5,11 +5,13 @@ import { CategoriesComponent } from './categories/categories.component';
 import { AuthGuard } from 'src/app/Guards/auth.guard';
 import { AllBooksComponent } from './all-books/all-books.component';
 import { RoleGuard } from 'src/app/Guards/role.guard';
+import { AllAuthorsComponent } from './all-authors/all-authors.component';
 
 const routes: Routes = [
   { path: '', component: UserComponent },
   { path:'categories',component:CategoriesComponent, canActivate :[AuthGuard] },
-  { path:'books',component:AllBooksComponent, canActivate :[AuthGuard] }
+  { path:'books',component:AllBooksComponent, canActivate :[AuthGuard] },
+  { path:'authors',component:AllAuthorsComponent, canActivate :[AuthGuard] }
 
   // {
   //   path: 'user',

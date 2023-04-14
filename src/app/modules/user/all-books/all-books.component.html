@@ -7,36 +7,19 @@
     </mat-paginator>
 
     <div class="wrapper" *ngFor="let item of books">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-
-          <mat-card-title>{{item.name}}</mat-card-title>
-          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-
-        </mat-card-header>
-        <br><br>
-        <img mat-card-image src="{{item.photo}}" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <br><br>
-
-
-          <h4>
-
-            <strong>Author Name:&nbsp;</strong>{{item.authorId}}
-          </h4>
-          <br><br>
-          <h4>
-
-            <strong>Rate:&nbsp;</strong>{{item.rating}}
-          </h4>
-        </mat-card-content>
-        <br><br>
-
-        <mat-card-actions>
+      <div class="row">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{item.photo}}" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">{{item.name}}</h2>
+          <!-- <p class="card-text">{{item.authorId.name}}</p> -->
+          <a  id="showBook" class="btn">Show Book</a>
+        </div>
+      </div>
+    </div>
+        <!-- <mat-card-actions>
           <button id="showBook" mat-button>Show Book</button>
-        </mat-card-actions>
-      </mat-card>
+        </mat-card-actions> -->
     </div>
   </div>
 </section>

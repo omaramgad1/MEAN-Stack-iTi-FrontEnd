@@ -1,1 +1,27 @@
-<p>all-authors works!</p>
+<app-navbar></app-navbar>
+<section class="books pt-5">
+  <h1>Authors</h1>
+  <div class="hr"></div>
+  <div class="container">
+    <mat-paginator [length]="100" [pageSize]="pageSize" (page)="handlePageEvent($event)" aria-label="Select page">
+    </mat-paginator>
+
+    <div class="wrapper" *ngFor="let item of authorList">
+      <div class="row">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{item.photo}}" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">{{item.firstName}}</h2>
+          <!-- <p class="card-text">{{item.authorId.name}}</p> -->
+          <a  id="showBook" class="btn">Show Books</a>
+        </div>
+      </div>
+    </div>
+        <!-- <mat-card-actions>
+          <button id="showBook" mat-button>Show Book</button>
+        </mat-card-actions> -->
+    </div>
+  </div>
+</section>
+
+<app-user-footer></app-user-footer>
