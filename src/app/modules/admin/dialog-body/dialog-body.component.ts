@@ -18,7 +18,8 @@ export class DialogBodyComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogBodyComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Author, public fb: FormBuilder,
     private _authors: AuthorsService,
-    private _dialogRef: MatDialogRef<DialogBodyComponent>) {
+    private _dialogRef: MatDialogRef<DialogBodyComponent>,
+    @Inject(MAT_DIALOG_DATA) public datas: { photoUrl: string }) {
 
     this.myForm = this.fb.group({
       firstName: new FormControl(null, [Validators.required]),

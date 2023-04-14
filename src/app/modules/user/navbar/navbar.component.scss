@@ -14,9 +14,9 @@ ul {
         a{
             color: white;
         }
-        // a :hover {
-        //     color: coral;
-        // }
+        *:hover {
+            color: coral !important;
+        }
         span{
             i{
                 color: white;
