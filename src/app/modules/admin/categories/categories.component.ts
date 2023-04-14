@@ -38,7 +38,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCategories(1, 5)
+    this.getCategories()
   }
 
 
@@ -48,11 +48,6 @@ export class CategoriesComponent implements OnInit {
       this.categoris = res.data
       this.totalPages = res.pages;
       this.dataSource = new MatTableDataSource(this.categoris)
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-
-
-
     }, err => {
       console.log(err)
     }
@@ -125,10 +120,12 @@ export class CategoriesComponent implements OnInit {
   }
 
   onPreviousPage() {
+    this.loading = true;
+
     if (this.currentPageIndex > 1) {
       this.currentPageIndex--;
-      this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
-        this.currentPageIndex = result.currentPage;
+
+      this._categoryService.getPageCategories(this.currentPageIndex).subscribe((result) => {
         this.totalPages = result.pages;
         this.dataSource = new MatTableDataSource(result.data);
         this.loading = false;
