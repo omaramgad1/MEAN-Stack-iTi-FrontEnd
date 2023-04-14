@@ -45,7 +45,7 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     CarouselComponent,
     HomeComponent,
-
+AuthorsComponent,
 
 
   ],

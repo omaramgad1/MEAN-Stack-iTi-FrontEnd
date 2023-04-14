@@ -91,7 +91,10 @@
           </button>
         </mat-cell>
       </ng-container>
+      <mat-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-row>
+
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr> -->
     </mat-table>
   </ng-template>
   <div class="spinner-container" *ngIf="loading; else table">

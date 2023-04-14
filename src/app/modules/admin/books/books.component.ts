@@ -8,7 +8,6 @@ import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/co
 import { Book } from 'src/app/models/book';
 import { CategoriesService } from 'src/app/Services/categories.service';
 import { PhotoDialogComponent } from '../../user/photo-dialog/photo-dialog.component';
-CategoriesService
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -159,6 +158,8 @@ export class BooksComponent {
       console.log(this.currentPageIndex)
       this._BooksService.getPageBooks(this.currentPageIndex).subscribe((result) => {
         this.totalPages = result.pages;
+        console.log(this.totalPages);
+        
         this.dataSource = new MatTableDataSource(result.data);
         this.loading = false;
 
