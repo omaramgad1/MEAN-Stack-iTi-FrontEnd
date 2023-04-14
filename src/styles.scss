@@ -4,21 +4,16 @@
   */
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
- html,
+/*  html,
 body {
   height: 100%;
 } 
-
+ */
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-// html, body { height: 100%; }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 .ngx-toastr {
   width: 300px !important; // Specify toastr-dialog width for all devices

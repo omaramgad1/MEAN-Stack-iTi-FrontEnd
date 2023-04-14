@@ -24,9 +24,10 @@ export class NavbarComponent {
     this.spinner.show();
 
     this._userService.logout().subscribe((res) => {
-      console.log("bye");
 
+      this._userService.loggedOut()
       this._userService.currentUser.next(null)
+
       setTimeout(() => {
         this.router.navigate(['/endless_books/home'])
         this.spinner.hide();

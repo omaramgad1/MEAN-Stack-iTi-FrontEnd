@@ -19,14 +19,12 @@ export class BooksService {
   }
 
 
-  /*   geAllBooks(): Observable<any> {
-  
-      return this._http.get(`https://backend-mean.onrender.com/books`);
-    }
-   */
+
 
   getPageBooks(pageNumber: number = 1): Observable<any> {
-    return this._http.get(`http://localhost:3000/books?page=${pageNumber}`);
+
+    pageNumber = pageNumber - 1
+    return this._http.get(`http://localhost:3000/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
 
   };
 
@@ -41,6 +39,8 @@ export class BooksService {
       withCredentials: true
     });
   }
+
+
 
   updateBook(id: string, data: any): Observable<any> {
     return this._http.patch(`http://localhost:3000/books/${id}`, data, {

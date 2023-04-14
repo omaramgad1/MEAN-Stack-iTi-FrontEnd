@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { BehaviorSubject, Observable, catchError, of, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,11 @@ export class UsersService {
   
   currentUser = new BehaviorSubject(null)
 
-  constructor(private _http: HttpClient) {
+
+  constructor(private _http: HttpClient,
+    private _CookieService: CookieService) {
+
+
   }
 
   register(user: any): Observable<any> {
@@ -31,12 +36,18 @@ export class UsersService {
 
   getProfile(): Observable<any> {
     return this._http.get('http://localhost:3000/users/profile', { withCredentials: true })
+
+
+
   }
 
   setCurrentUser(obj: any) {
     this.currentUser.next(obj)
   }
 
+  loggedOut() {
+    this._CookieService.delete('status')
+  }
 
   logout() {
     return this._http.get('http://localhost:3000/users/logout', { withCredentials: true })

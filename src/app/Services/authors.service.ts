@@ -20,7 +20,9 @@ export class AuthorsService {
     return this._http.get('http://localhost:3000/authors/all');
   }
   getPageAuthors(pageNumber: number = 1): Observable<any> {
-    return this._http.get(`http://localhost:3000/authors?pageNumber=${pageNumber}`);
+    pageNumber = pageNumber - 1
+
+    return this._http.get(`http://localhost:3000/authors?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
   }
 
   deleteAnAuthor(_id: string): Observable<any> {

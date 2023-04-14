@@ -1,8 +1,6 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddEditCategoryDialogComponent } from '../add-edit-category-dialog/add-edit-category-dialog.component';
 import { CategoriesService } from 'src/app/Services/categories.service';
@@ -30,8 +28,6 @@ export class CategoriesComponent implements OnInit {
   ];
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
 
   constructor(private _dialog: MatDialog,
@@ -42,18 +38,16 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCategories(0, 5)
+    this.getCategories()
   }
 
 
-  getCategories(pageNumber: number, pageSize: number) {
-    this._categoryService.getPageCategories(pageNumber, pageSize).subscribe((res) => {
+  getCategories() {
+    this._categoryService.getPageCategories().subscribe((res) => {
       this.loading = false;
       this.categoris = res.data
       this.totalPages = res.pages;
       this.dataSource = new MatTableDataSource(this.categoris)
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
     }, err => {
       console.log(err)
     }
@@ -72,7 +66,7 @@ export class CategoriesComponent implements OnInit {
     dialogRef.afterClosed().subscribe((val) => {
 
       if (val)
-        this.getCategories(1, 10);
+        this.getCategories();
 
 
     })
@@ -96,7 +90,7 @@ export class CategoriesComponent implements OnInit {
           next: (res) => {
 
             this._coreService.openSnackBar('Category deleted!', 'done');
-            this.getCategories(1, 10);
+            this.getCategories();
           },
           error: console.log,
         });
@@ -118,32 +112,39 @@ export class CategoriesComponent implements OnInit {
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          this.getCategories(1, 10);
+
+          this.getCategories();
         }
       },
     });
   }
 
   onPreviousPage() {
-    if (this.currentPageIndex > 0) {
+    this.loading = true;
+
+    if (this.currentPageIndex > 1) {
       this.currentPageIndex--;
-      this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
-        // this.currentPageIndex = result.currentPage;
+
+      this._categoryService.getPageCategories(this.currentPageIndex).subscribe((result) => {
         this.totalPages = result.pages;
         this.dataSource = new MatTableDataSource(result.data);
-        this.dataSource.paginator = this.paginator;
+        this.loading = false;
+
       });
     }
   }
 
   onNextPage() {
+    this.loading = true;
+
     if (this.currentPageIndex < this.totalPages) {
       this.currentPageIndex++;
-      console.log(this.currentPageIndex)
-      this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
+
+      this._categoryService.getPageCategories(this.currentPageIndex).subscribe((result) => {
         this.totalPages = result.pages;
         this.dataSource = new MatTableDataSource(result.data);
-        this.dataSource.paginator = this.paginator;
+        this.loading = false;
+
       });
     }
   }

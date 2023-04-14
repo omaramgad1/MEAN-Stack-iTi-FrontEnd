@@ -1,29 +1,48 @@
-<div class="container-fluid mt-3">
-  <div class="text-light text-center p-2" [ngStyle]="{
+<div class="container-fluid mt-3 text-center">
+  <div
+    class="text-light text-center p-2"
+    [ngStyle]="{
       backgroundColor: '#A37A7A'
     }">
     <h1 class="mat-headline-3 mb-1">Books</h1>
   </div>
+
   <mat-toolbar class="p-2">
     <mat-toolbar-row>
-      <div class="container">
-        <div class="paginator p-2 mb-3">
-          <button mat-raised-button color="warn" [disabled]="currentPageIndex == 1" (click)="onPreviousPage()">
-            Previous
-          </button>
-          <span>{{ currentPageIndex }}/{{ totalPages || 1 }}</span>
-          <button mat-raised-button color="warn" [disabled]="currentPageIndex == totalPages" (click)="onNextPage()">
-            Next
-          </button>
-        </div>
+      <div class="paginator p-2 mb-3">
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == 1"
+          (click)="onPreviousPage()"
+        >
+          Previous
+        </button>
+        <span>{{ currentPageIndex }}/{{ totalPages || 1 }}</span>
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == totalPages"
+          (click)="onNextPage()"
+        >
+          Next
+        </button>
       </div>
       <span class="example-spacer"></span>
-
-      <button class="p-2 m-1" mat-fab color="primary" (click)="openDialogform()" [ngStyle]="{
-          backgroundColor: '#A37A7A'
-        }">
-        <mat-icon>add_circle</mat-icon>
-      </button>
+      <span class="example-spacer"></span>
+      <div class="p-2" style="margin-left: 30px">
+        <button
+          class="p-2 m-1"
+          mat-fab
+          color="primary"
+          (click)="openDialogform()"
+          [ngStyle]="{
+            backgroundColor: '#A37A7A'
+          }"
+        >
+          <mat-icon>add_circle</mat-icon>
+        </button>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>
@@ -33,8 +52,12 @@
     <table mat-table [dataSource]="dataSource" matSort class="text-center">
       <ng-container matColumnDef="counter">
         <th mat-header-cell *matHeaderCellDef class="text-center">No.</th>
-        <td mat-cell *matCellDef="let element; let i = index" class="text-center">
-          {{ i + 1 }}
+        <td
+          mat-cell
+          *matCellDef="let element; let i = index"
+          class="text-center"
+        >
+          {{ i + 1 + (currentPageIndex - 1) * 5 }}
         </td>
       </ng-container>
 

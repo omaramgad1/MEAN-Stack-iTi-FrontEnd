@@ -2,8 +2,8 @@ import { Component, Inject, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Author } from 'src/app/models/author';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-// import { dialogData } from 'src/app/models/dialog';
 import { AuthorsService } from 'src/app/Services/authors.service';
+import { CoreService } from 'src/app/Services/core.service';
 
 @Component({
   selector: 'app-dialog-body',
@@ -18,7 +18,8 @@ export class DialogBodyComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogBodyComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Author, public fb: FormBuilder,
     private _authors: AuthorsService,
-    private _dialogRef: MatDialogRef<DialogBodyComponent>) {
+    private _dialogRef: MatDialogRef<DialogBodyComponent>,
+    private _coreService: CoreService) {
 
     this.myForm = this.fb.group({
       firstName: new FormControl(null, [Validators.required]),
@@ -56,7 +57,8 @@ export class DialogBodyComponent implements OnInit {
         next: (val: any) => {
 
 
-          alert("Author's Info Updated Successfully");
+          this._coreService.openSnackBar('Author Updated Successfully');
+
           this._dialogRef.close(true);
         },
         error: (error) => {
@@ -69,7 +71,10 @@ export class DialogBodyComponent implements OnInit {
 
       this._authors.addAuthor(formData).subscribe({
         next: (val: Author) => {
-          alert("Author Added Successfully");
+
+
+          this._coreService.openSnackBar('Author Added Successfully');
+
           this._dialogRef.close(true);
         },
         error: (error) => {

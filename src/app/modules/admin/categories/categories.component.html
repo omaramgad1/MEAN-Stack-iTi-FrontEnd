@@ -7,9 +7,31 @@
   >
     <h1 class="mat-headline-3 mb-1">Categories</h1>
   </div>
+
   <mat-toolbar class="p-2">
-    <mat-toolbar-row class="d-flex justify-content-between">
+    <mat-toolbar-row>
+      <div class="paginator p-2 mb-3">
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == 1"
+          (click)="onPreviousPage()"
+        >
+          Previous
+        </button>
+        <span>{{ currentPageIndex }}/{{ totalPages }}</span>
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == totalPages"
+          (click)="onNextPage()"
+        >
+          Next
+        </button>
+      </div>
+
       <div class="example-spacer"></div>
+
       <div class="p-2" style="margin-left: 30px">
         <button
           [ngStyle]="{
@@ -20,27 +42,6 @@
           (click)="openDialogform()"
         >
           <mat-icon>add_circle</mat-icon>
-        </button>
-      </div>
-    </mat-toolbar-row>
-    <mat-toolbar-row class="d-flex justify-content-start">
-      <div class="paginator p-2 mb-3">
-        <button
-          mat-raised-button
-          color="warn"
-          [disabled]="currentPageIndex == 1"
-          (click)="onPreviousPage()"
-        >
-          Previous
-        </button>
-        <span>{{ currentPageIndex }}/{{ totalPages || 1 }}</span>
-        <button
-          mat-raised-button
-          color="warn"
-          [disabled]="currentPageIndex == totalPages"
-          (click)="onNextPage()"
-        >
-          Next
         </button>
       </div>
     </mat-toolbar-row>
@@ -56,7 +57,7 @@
             *matCellDef="let element; let i = index"
             class="text-center"
           >
-            {{ i + 1 }}
+            {{ i + 1 + (currentPageIndex - 1) * 5 }}
           </td>
         </ng-container>
 
@@ -87,7 +88,6 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
       </table>
     </ng-template>
     <div class="spinner-container" *ngIf="loading; else table">

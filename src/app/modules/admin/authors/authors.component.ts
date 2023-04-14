@@ -8,7 +8,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthorsService } from 'src/app/Services/authors.service';
 import { Author } from 'src/app/models/author';
+<<<<<<< HEAD
 import { PhotoDialogComponent } from '../../user/photo-dialog/photo-dialog.component';
+=======
+import { CoreService } from 'src/app/Services/core.service';
+>>>>>>> ece5923f06812e4e9f1c24f0be4854cf73e49af7
 @Component({
   selector: 'app-authors',
   templateUrl: './authors.component.html',
@@ -19,15 +23,14 @@ export class AuthorsComponent implements OnInit {
   displayedColumns: string[] = ['counter', 'First Name', 'Last Name', 'Date Of Birth', 'bio', 'Photo', 'action'];
   authors!: Author[];
   listData!: MatTableDataSource<Author>;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
   searchKey!: string;
   currentPageIndex: number = 1;
   totalPages!: number;
   loading: boolean = true;
 
-  constructor(public matDialog: MatDialog, private _authors: AuthorsService) {
+  constructor(public matDialog: MatDialog,
+    private _authors: AuthorsService,
+    private _coreService: CoreService) {
 
   }
   ngOnInit(): void {
@@ -57,25 +60,21 @@ export class AuthorsComponent implements OnInit {
 
       next: (res) => {
         this.totalPages = res.pages;
-        this.currentPageIndex = res.currentPage;
         this.loading = false;
-
         this.listData = new MatTableDataSource(res.data)
-
-
-        this.listData.sort = this.sort;
-        this.listData.paginator = this.paginator;
-
       },
       error: console.log
     })
   }
+
+
   deleteAuthor(_id: string) {
 
 
     this._authors.deleteAnAuthor(_id).subscribe({
       next: (res) => {
-        alert("Author has Deleted Successfully");
+        this._coreService.openSnackBar('Category deleted!', 'done');
+
         this.getAuthors()
 
       },
@@ -102,25 +101,30 @@ export class AuthorsComponent implements OnInit {
 
 
   onPreviousPage() {
+    this.loading = true;
+
     if (this.currentPageIndex > 1) {
       this.currentPageIndex--;
       this._authors.getPageAuthors(this.currentPageIndex).subscribe((result) => {
-        this.currentPageIndex = result.currentPage;
         this.totalPages = result.pages;
         this.listData = new MatTableDataSource(result.data);
-        this.listData.paginator = this.paginator;
+        this.loading = false;
+
       });
     }
   }
 
   onNextPage() {
+    this.loading = true;
+
     if (this.currentPageIndex < this.totalPages) {
       this.currentPageIndex++;
       console.log(this.currentPageIndex)
       this._authors.getPageAuthors(this.currentPageIndex).subscribe((result) => {
         this.totalPages = result.pages;
         this.listData = new MatTableDataSource(result.data);
-        this.listData.paginator = this.paginator;
+        this.loading = false;
+
       });
     }
   }
