@@ -30,7 +30,7 @@ export class BooksService {
 
 
   getAllPagesBooks(pageNumber: number,pageSize: number): Observable<any> {
-    return this._http.get(`http://localhost:3000/books?page=${pageNumber}&limit=${pageSize}`);
+    return this._http.get(`http://localhost:3000/books?pageNumber=${pageNumber}&pageSize=${pageSize}`);
 
   }
 

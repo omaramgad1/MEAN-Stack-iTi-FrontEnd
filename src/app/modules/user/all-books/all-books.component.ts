@@ -16,35 +16,35 @@ export class AllBooksComponent {
 
   books!: Book[]
   searchKey!: string;
-  currentPageIndex: number = 1;
+  currentPageIndex: number = 0;
   totalPages!: number;
-  pageSize:number = 10;
+  pageSize: number = 10;
 
-  constructor(private _BooksService: BooksService){}
+  constructor(private _BooksService: BooksService) { }
 
 
   ngOnInit(): void {
     this.getBooks()
   }
 
-getBooks(){
-  this._BooksService.getAllPagesBooks(this.currentPageIndex,this.pageSize).subscribe((res) => {
-this.books=res.data;
-    this.totalPages = res.pages;
-    this.currentPageIndex = res.currentPage;
+  getBooks() {
+    this._BooksService.getAllPagesBooks(this.currentPageIndex, this.pageSize).subscribe((res) => {
+      this.books = res.data;
+      this.totalPages = res.pages;
+      this.currentPageIndex = res.currentPage;
 
-  }, err => {
-    console.log(err)
+    }, err => {
+      console.log(err)
+    }
+
+    )
   }
-
-  )
-}
 
 
   handlePageEvent(e: PageEvent) {
     this.currentPageIndex = (e.pageIndex + 1);
     this.pageSize = e.pageSize;
-    this.getBooks()    
+    this.getBooks()
   }
 
 }
