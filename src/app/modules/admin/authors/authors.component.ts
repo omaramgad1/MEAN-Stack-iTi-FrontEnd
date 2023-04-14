@@ -8,6 +8,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthorsService } from 'src/app/Services/authors.service';
 import { Author } from 'src/app/models/author';
+import { PhotoDialogComponent } from '../../user/photo-dialog/photo-dialog.component';
 @Component({
   selector: 'app-authors',
   templateUrl: './authors.component.html',
@@ -46,7 +47,7 @@ export class AuthorsComponent implements OnInit {
   }
 
   openPopup(photoUrl: string) {
-   this.matDialog.open(DialogBodyComponent, {
+    this.matDialog.open(PhotoDialogComponent, {
       data: { photoUrl }
     });
   }

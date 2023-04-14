@@ -17,9 +17,9 @@ export class CategoriesComponent {
   }
 
   ngOnInit(): void {
-    this.getCategory(1, 10);
+    this.getCategory();
   }
-  getCategory(currentPageIndex: number, pageSize: number) {
+  getCategory() {
     this._categoryService.getCategories(this.currentPageIndex, this.pageSize).subscribe((res) => {
       this.categoryList = res.data;
       this.totalPages = res.pages;
@@ -30,30 +30,9 @@ export class CategoriesComponent {
     )
   }
 
-  // onPreviousPage() {
-  //   if (this.currentPageIndex > 1) {
-  //     this.currentPageIndex--;
-  //     this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
-  //       this.currentPageIndex = result.currentPage;
-  //       this.totalPages = result.pages;
-  //     });
-  //   }
-  // }
-
-  // onNextPage() {
-  //   if (this.currentPageIndex < this.totalPages) {
-  //     this.currentPageIndex++;
-  //     console.log(this.currentPageIndex)
-  //     this._categoryService.getPageCategories(this.currentPageIndex, 5).subscribe((result) => {
-  //       this.totalPages = result.pages;
-
-  //     });
-  //   }
-  // }
-
   handlePageEvent(e: PageEvent) {
     this.currentPageIndex = (e.pageIndex + 1);
     this.pageSize = e.pageSize;
-    this.getCategory(1, 10);
+    this.getCategory();
   }
 }

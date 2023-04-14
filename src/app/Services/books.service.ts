@@ -28,9 +28,13 @@ export class BooksService {
   getPageBooks(pageNumber: number = 1): Observable<any> {
     return this._http.get(`http://localhost:3000/books?page=${pageNumber}`);
 
+  };
+
+
+  getAllPagesBooks(pageNumber: number,pageSize: number): Observable<any> {
+    return this._http.get(`http://localhost:3000/books?page=${pageNumber}&limit=${pageSize}`);
+
   }
-
-
 
   deleteBook(id: string): Observable<any> {
     return this._http.delete(`http://localhost:3000/books/${id}`, {

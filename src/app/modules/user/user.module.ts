@@ -16,8 +16,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CategoriesComponent } from './categories/categories.component';
 import { UserFooterComponent } from './user-footer/user-footer.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { AllBooksComponent } from './all-books/all-books.component';
+import { AllAuthorsComponent } from './all-authors/all-authors.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     UserViewComponent,
     PhotoDialogComponent,
     CategoriesComponent,
-    UserFooterComponent
+    UserFooterComponent,
+    AllBooksComponent,
+    AllAuthorsComponent
 
   ],
   imports: [

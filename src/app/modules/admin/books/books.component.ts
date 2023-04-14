@@ -9,6 +9,7 @@ import { AddEditBookDialogComponent } from '../add-edit-book-dialog/add-edit-boo
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../confirm-dialog/confirm-dialog.component';
 import { Book } from 'src/app/models/book';
 import { CategoriesService } from 'src/app/Services/categories.service';
+import { PhotoDialogComponent } from '../../user/photo-dialog/photo-dialog.component';
 CategoriesService
 @Component({
   selector: 'app-books',
@@ -48,7 +49,11 @@ export class BooksComponent {
     this.getBooks()
   }
 
-
+  openPopup(photoUrl: string) {
+    this._dialog.open(PhotoDialogComponent, {
+      data: { photoUrl }
+    });
+  }
 
 
 

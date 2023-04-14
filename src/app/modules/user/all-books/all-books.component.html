@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<section class="books pt-5">
+  <h1>Books</h1>
+  <div class="hr"></div>
+  <div class="container">
+    <mat-paginator [length]="100" [pageSize]="pageSize" (page)="handlePageEvent($event)" aria-label="Select page">
+    </mat-paginator>
+
+    <div class="wrapper" *ngFor="let item of books">
+      <mat-card class="example-card" >
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+
+          <mat-card-title>{{item.name}}</mat-card-title>
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+
+        </mat-card-header>
+        <img mat-card-image src="{{item.photo}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+<strong>Rate:&nbsp;</strong>{{item.rating}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button id="showBook" mat-button>Show Book</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<app-user-footer></app-user-footer>

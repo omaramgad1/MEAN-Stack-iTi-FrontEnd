@@ -18,8 +18,7 @@ export class DialogBodyComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogBodyComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Author, public fb: FormBuilder,
     private _authors: AuthorsService,
-    private _dialogRef: MatDialogRef<DialogBodyComponent>,
-    @Inject(MAT_DIALOG_DATA) public datas: { photoUrl: string }) {
+    private _dialogRef: MatDialogRef<DialogBodyComponent>) {
 
     this.myForm = this.fb.group({
       firstName: new FormControl(null, [Validators.required]),
@@ -50,8 +49,8 @@ export class DialogBodyComponent implements OnInit {
     if (this.data) {
       if (this.file)
         formData.append('photo', this.file[0]);
-      console.log(this.data);
-      console.log(myForm.value);
+      // console.log(this.data);
+      // console.log(myForm.value);
 
       this._authors.updateAnAuthor(this.data._id, formData).subscribe({
         next: (val: any) => {

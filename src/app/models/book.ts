@@ -3,6 +3,7 @@ export interface Book {
     name: string,
     categoryName: string,
     authorId: number,
+    photo: string,
     reviews?: {
         userId: number,
         review: string

@@ -31,7 +31,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CarouselComponent } from '../admin/carousel/carousel.component';
 import { HomeComponent } from './home/home.component';
-
 @NgModule({
   declarations: [
     AdminComponent,
@@ -45,7 +44,9 @@ import { HomeComponent } from './home/home.component';
     AddEditBookDialogComponent,
     FooterComponent,
     CarouselComponent,
-    HomeComponent
+    HomeComponent,
+
+
 
   ],
   imports: [
