@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-
+  
   currentUser = new BehaviorSubject(null)
 
   constructor(private _http: HttpClient) {
@@ -16,8 +16,9 @@ export class UsersService {
     return this._http.post('http://localhost:3000/users/signup', user)
   }
 
-  getUserBooks(): Observable<any> {
-    return this._http.get('http://localhost:3000/users/books/', { withCredentials: true })
+  getUserBooks(pageNumber: number): Observable<any> {
+    pageNumber = pageNumber - 1
+    return this._http.get('http://localhost:3000/users/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}', { withCredentials: true })
   }
 
   login(data: any): Observable<any> {
