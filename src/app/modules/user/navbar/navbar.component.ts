@@ -11,11 +11,16 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class NavbarComponent {
   name: string = '';
   photo: string = '';
+<<<<<<< HEAD
   constructor(private _UserService: UsersService,
     private spinner: NgxSpinnerService,
     private router: Router) {
 
     const l: any = _UserService.currentUser.getValue()
+=======
+  constructor(private _userService: UsersService) {
+    const l: any = _userService.currentUser.getValue()
+>>>>>>> 37d9910674a71339e3d63b2facfd86524f453e8c
     l.firstName = l.firstName.charAt(0).toUpperCase() + l.firstName.slice(1);
     l.lastName = l.lastName.charAt(0).toUpperCase() + l.lastName.slice(1);
     this.name = l.firstName + ' ' + l.lastName;
@@ -23,6 +28,7 @@ export class NavbarComponent {
 
     
   }
+<<<<<<< HEAD
   logout(): void {
     this.spinner.show();
 
@@ -47,4 +53,14 @@ export class NavbarComponent {
 
   }
   
+=======
+
+  logout(): void {
+    this._userService.logout().subscribe((res) => {
+      console.log("bye");
+
+    }, (err) => console.log("error")
+    )
+  }
+>>>>>>> 37d9910674a71339e3d63b2facfd86524f453e8c
 }

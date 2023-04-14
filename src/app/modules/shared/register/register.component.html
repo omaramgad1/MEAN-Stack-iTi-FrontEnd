@@ -1,92 +1,172 @@
 <section class="register">
   <section class="regForm mt-4 pt-5">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
-
       <div class="container">
-
         <div class="row pb-2">
           <div class="col-lg-6 col-md-12 col-sm-12">
-            <label for="firstName" class="form-label"><strong>First Name</strong>
+            <label for="firstName" class="form-label"
+              ><strong>First Name</strong>
             </label>
-            <input type="text" class="form-control" placeholder="Enter Your First Name" formControlName="firstName"
-              id="firstName">
-              <br>
-              <div *ngIf="m.firstName.touched && m.firstName.invalid" class="text-light border border-3  text-center">
-                <div *ngIf="registerForm.get('firstName')?.errors?.['minLength']">first Name must be at least 3 characters</div>
-                <div *ngIf="registerForm.get('firstName')?.errors?.['required']">Please provide first Name</div>
-
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter Your First Name"
+              formControlName="firstName"
+              id="firstName"
+            />
+            <br />
+            <div
+              *ngIf="m.firstName.touched && m.firstName.invalid"
+              class="text-light border border-3 text-center"
+            >
+              <div *ngIf="registerForm.get('firstName')?.errors?.['minLength']">
+                first Name must be at least 3 characters
               </div>
+              <div *ngIf="registerForm.get('firstName')?.errors?.['required']">
+                Please provide first Name
+              </div>
+            </div>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-12">
-            <label for="lastName" class="form-label"><strong>Last Name</strong></label>
-            <input type="text" class="form-control" minlength="4" placeholder="Enter Your Last Name" formControlName="lastName"
-              id="lastName">
-              <br>
-              <div *ngIf="m.lastName.touched && m.lastName.invalid" class="text-light border border-3 text-center">
-                <div *ngIf="registerForm.get('lastName')?.errors?.['minLength']">last Name must be at least 3 characters</div>
-                <div *ngIf="registerForm.get('lastName')?.errors?.['required']">Please provide last Name</div>
-
+            <label for="lastName" class="form-label"
+              ><strong>Last Name</strong></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              minlength="4"
+              placeholder="Enter Your Last Name"
+              formControlName="lastName"
+              id="lastName"
+            />
+            <br />
+            <div
+              *ngIf="m.lastName.touched && m.lastName.invalid"
+              class="text-light border border-3 text-center"
+            >
+              <div *ngIf="registerForm.get('lastName')?.errors?.['minLength']">
+                last Name must be at least 3 characters
               </div>
+              <div *ngIf="registerForm.get('lastName')?.errors?.['required']">
+                Please provide last Name
+              </div>
+            </div>
           </div>
-
         </div>
         <div class="row pb-2">
           <div class="col-lg-6 col-md-12 col-sm-12">
             <label for="email" class="form-label"><strong>Email</strong></label>
-            <input type="email" class="form-control" lowercase placeholder="mohamed@example.com" formControlName="email"
-              id="email">
-              <br>
-              <div *ngIf="m.email.touched && m.email.invalid" class="text-light border border-3 text-center">
-              <div *ngIf="registerForm.get('email')?.errors?.['email']">Must Be Email</div>
-              <div *ngIf="registerForm.get('email')?.errors?.['required']">Please provide Email</div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <label for="formFile" class="form-label"><strong>Photo</strong></label>
-            <input class="form-control" (change)="onFileSelect($event)" accept="image/*" formControlName="photo" type="file"
-              id="formFile">
-              <br>
-              <div *ngIf="m.photo.touched && m.photo.invalid" class="text-light border border-3  text-center">
-                <div *ngIf="registerForm.get('photo')?.errors?.['required']">Please provide Photo</div>
-
+            <input
+              type="email"
+              class="form-control"
+              lowercase
+              placeholder="mohamed@example.com"
+              formControlName="email"
+              id="email"
+            />
+            <br />
+            <div
+              *ngIf="m.email.touched && m.email.invalid"
+              class="text-light border border-3 text-center"
+            >
+              <div *ngIf="registerForm.get('email')?.errors?.['email']">
+                Must Be Email
               </div>
-          </div>
-
-        </div>
-        <div class="row pb-2 ">
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <label for="password" class="form-label"><strong>Password</strong></label>
-            <input [type]="passwordVisible ? 'text' : 'password'" class="form-control" formControlName="password"
-              id="password">
-            
-            <button id="pass" type="button" (click)="togglePasswordVisibility()" ></button>
-            <br>
-            <div *ngIf="m.password.touched && m.password.invalid" class="text-light border border-3  text-center">
-              <div *ngIf="registerForm.get('password')?.errors?.['minLength']">Must Be Email</div>
-              <div *ngIf="registerForm.get('password')?.errors?.['required']">Please provide Password</div>
+              <div *ngIf="registerForm.get('email')?.errors?.['required']">
+                Please provide Email
+              </div>
             </div>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-12">
-            <label for="conPassword" class="form-label"><strong>Confirm Password</strong></label>
-            <input type="password" class="form-control" formControlName="confirmPassword" id="conPassword">
-            <br>
-            <div *ngIf="m.confirmPassword.touched && m.confirmPassword.invalid" class="text-light border border-3 text-center">
-              <div *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Please provide Confirm Password</div>
+            <label for="formFile" class="form-label"
+              ><strong>Photo</strong></label
+            >
+            <input
+              class="form-control"
+              (change)="onFileSelect($event)"
+              accept="image/*"
+              formControlName="photo"
+              type="file"
+              id="formFile"
+            />
+            <br />
+            <div
+              *ngIf="m.photo.touched && m.photo.invalid"
+              class="text-light border border-3 text-center"
+            >
+              <div *ngIf="registerForm.get('photo')?.errors?.['required']">
+                Please provide Photo
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pb-2">
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <label for="password" class="form-label"
+              ><strong>Password</strong></label
+            >
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              class="form-control"
+              formControlName="password"
+              id="password"
+            />
+
+            <button
+              id="pass"
+              type="button"
+              (click)="togglePasswordVisibility()"
+            ></button>
+            <br />
+            <div
+              *ngIf="m.password.touched && m.password.invalid"
+              class="text-light border border-3 text-center"
+            >
+              <div *ngIf="registerForm.get('password')?.errors?.['minLength']">
+                Must Be Email
+              </div>
+              <div *ngIf="registerForm.get('password')?.errors?.['required']">
+                Please provide Password
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <label for="conPassword" class="form-label"
+              ><strong>Confirm Password</strong></label
+            >
+            <input
+              type="password"
+              class="form-control"
+              formControlName="confirmPassword"
+              id="conPassword"
+            />
+            <br />
+            <div
+              *ngIf="m.confirmPassword.touched && m.confirmPassword.invalid"
+              class="text-light border border-3 text-center"
+            >
+              <div
+                *ngIf="registerForm.get('confirmPassword')?.errors?.['required']"
+              >
+                Please provide Confirm Password
+              </div>
             </div>
             <!-- <button id="conpass" type="button" (click)="toggleConPasswordVisibility()" ></button> -->
-
           </div>
-          <p *ngIf="passwordMatchError" class="text-light border border-3 text-center">Password does not match</p>
+          <p
+            *ngIf="passwordMatchError"
+            class="text-light border border-3 text-center"
+          >
+            Password does not match
+          </p>
         </div>
 
         <div class="row pt-4">
           <div class="col-lg-12 col-md-12 col-sm-12" id="submit">
-            <input [disabled]="registerForm.invalid"  type="submit">
+            <input [disabled]="registerForm.invalid" type="submit" />
           </div>
         </div>
-
       </div>
     </form>
-
   </section>
 </section>

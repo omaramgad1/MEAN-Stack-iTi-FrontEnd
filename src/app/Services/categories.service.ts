@@ -28,7 +28,7 @@ export class CategoriesService {
   }
   getPageCategories(pageNumber: number, pageSize: number): Observable<any> {
 
-    return this._http.get(`http://localhost:3000/categories?page=${pageNumber}`);
+    return this._http.get(`http://localhost:3000/categories?pageNumber=${pageNumber}`);
   }
 
   getCategories(pageNumber: number, pageSize: number): Observable<any> {

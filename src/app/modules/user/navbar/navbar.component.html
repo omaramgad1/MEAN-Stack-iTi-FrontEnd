@@ -7,6 +7,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-2">
           <li class="nav-item ms-3">
+<<<<<<< HEAD
             <a class="nav-link"  [routerLink]="'/user'"
             [routerLinkActive]="['active']">Home</a>
           </li>
@@ -17,6 +18,9 @@
               [routerLinkActive]="['active']"
               >Categories</a
             >
+=======
+            <a class="nav-link" routerLink="/endless_books/home">Home</a>
+>>>>>>> 37d9910674a71339e3d63b2facfd86524f453e8c
           </li>
           <li class="nav-item ms-3">
             <a class="nav-link"  [routerLink]="'/user/books'"
@@ -65,9 +69,14 @@
           </a>
         </li>
         <li class="nav-item me-3 me-lg-1" style="margin-left: 40px">
+<<<<<<< HEAD
           <a class="nav-link logout" [routerLinkActive]="['active']"
           (click)="logout()" [routerLink]="'/endless_books/home'">
             <span><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></span>
+=======
+          <a class="nav-link logout" href="#">
+            <span><i class="fa fa-sign-out fa-3x" aria-hidden="true" (click)="logout()"></i></span>
+>>>>>>> 37d9910674a71339e3d63b2facfd86524f453e8c
           </a>
         </li>
       </ul>

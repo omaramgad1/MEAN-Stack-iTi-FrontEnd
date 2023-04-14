@@ -1,56 +1,83 @@
 <section class="login">
-<div class="container pt-5" id="container">
-<div class="row">
-
-  <div class="col-lg-6 col-md-12 col-sm-6 pb-5">
-<img src="https://assets.website-files.com/5509bda13cd56c1a716d17d1/5571e6d2ceff75333132a107_BookTL3.gif" alt="">
-  </div>
-
-
-  <div class="col-lg-6 col-md-12 col-sm-6">
-<h4 class="pb-3"> <strong>Login To Continue</strong> </h4>
-<form [formGroup]="loginForm" (ngSubmit)="submintloginForm(loginForm)">
-  <div>
-  <label for="email" class="form-label">Email</label>
-  <input type="email" class="form-control" lowercase placeholder="mohamed@example.com" formControlName="email"
-    id="email" email>
-    <div *ngIf="m.email.touched && m.email.invalid" class=" border border-3 text-center">
-      <div *ngIf="loginForm.get('email')?.errors?.['required']">Please provide Email</div>
-
-      <div *ngIf="loginForm.get('email')?.errors?.['email']">Must Be Email</div>
+  <div class="container pt-5" id="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-6 pb-5">
+        <img
+          src="https://assets.website-files.com/5509bda13cd56c1a716d17d1/5571e6d2ceff75333132a107_BookTL3.gif"
+          alt=""
+        />
       </div>
-  </div>
-  <div class="pt-4">
-    <label for="password" class="form-label">Password</label>
-    <input [type]="passwordVisible ? 'text' : 'password'" class="form-control" formControlName="password"
-      id="password">
-    <button id="pass" type="button" (click)="togglePasswordVisibility()" ></button>
-    <div *ngIf="m.password.touched && m.password.invalid" class=" border border-3 text-center">
-      <div *ngIf="loginForm.get('password')?.errors?.['required']">Please provide Password</div>
+
+      <div class="col-lg-6 col-md-12 col-sm-6">
+        <h4 class="pb-3"><strong>Login To Continue</strong></h4>
+        <form [formGroup]="loginForm" (ngSubmit)="submintloginForm(loginForm)">
+          <div>
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              lowercase
+              placeholder="mohamed@example.com"
+              formControlName="email"
+              id="email"
+              email
+            />
+            <div
+              *ngIf="m.email.touched && m.email.invalid"
+              class="border border-3 text-center"
+            >
+              <div *ngIf="loginForm.get('email')?.errors?.['required']">
+                Please provide Email
+              </div>
+
+              <div *ngIf="loginForm.get('email')?.errors?.['email']">
+                Must Be Email
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <label for="password" class="form-label">Password</label>
+            <input
+              [type]="passwordVisible ? 'text' : 'password'"
+              class="form-control"
+              formControlName="password"
+              id="password"
+            />
+            <button
+              id="pass"
+              type="button"
+              (click)="togglePasswordVisibility()"
+            ></button>
+            <div
+              *ngIf="m.password.touched && m.password.invalid"
+              class="border border-3 text-center"
+            >
+              <div *ngIf="loginForm.get('password')?.errors?.['required']">
+                Please provide Password
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="pt-2">
+              <a class="text-50 h6" href="#!">Forgot password?</a>
+            </div>
+            <div class="p-2"></div>
+
+            <div class="pt-2">
+              <a class="text-50 h6" routerLink="/auth/register"> SignUp?</a>
+            </div>
+          </div>
+          <div class="d-flex flex-column pt-5">
+            <input
+              type="submit"
+              class="btn btn-lg btn-block text-white"
+              [disabled]="loginForm.invalid"
+              value="Login"
+            />
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-
-  <div class="d-flex justify-content-between">
-    <div class="pt-2">
-      <a class="text-50 h6" href="#!">Forgot password?</a>
-    </div>
-    <div class="p-2"></div>
-
-    <div class="pt-2">
-      <a class="text-50 h6" routerLink="/auth/register"> SignUp?</a>
-    </div>
-  </div>
-  <div class="d-flex flex-column pt-5">
-    <input
-      type="submit"
-      class="btn btn-lg btn-block text-white"
-      [disabled]="loginForm.invalid"
-      value="Login"
-    >
-  </div>
-  </form>
-  </div>
-</div>
-
-</div>
 </section>

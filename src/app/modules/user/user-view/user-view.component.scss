@@ -119,3 +119,30 @@ $bgcolo: #937f81;
   [data-star^="4.8"]::after{width:96%}
   [data-star^="4.9"]::after{width:98%}
   [data-star^="5"]::after{width:100%}
+
+  
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.paginator button,
+.paginator div {
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.paginator button[disabled],
+.paginator div.active {
+  background-color: #ccc;
+  cursor: default;
+}
+
+.paginator span {
+  margin: 0 10px;
+}

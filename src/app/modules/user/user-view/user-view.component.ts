@@ -29,6 +29,8 @@ export class UserViewComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   @Output() ratingChange = new EventEmitter<number>();
   stars: any[] = [];
+  currentPageIndex: number = 1;
+  totalPages!: number;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -100,8 +102,9 @@ export class UserViewComponent implements OnInit {
   }
 
   getBooks() {
-    this._userService.getUserBooks().subscribe((res) => {
+    this._userService.getUserBooks(1).subscribe((res) => {
       this.dataSource = new MatTableDataSource(res.data.books);
+      this.totalPages = res.pages;
       this.dataSource.data.forEach((row: any) => {
         row.stars = this.createStars(row.rating);
       });
@@ -166,4 +169,26 @@ export class UserViewComponent implements OnInit {
     this.selectedOption = 'Want to Read';
   }
 
+  onPreviousPage() {
+    if (this.currentPageIndex > 1) {
+      this.currentPageIndex--;
+      this._userService.getUserBooks(this.currentPageIndex).subscribe((result) => {
+        this.totalPages = result.pages;
+        this.dataSource = new MatTableDataSource(result.data);
+        this.dataSource.paginator = this.paginator;
+      });
+    }
+  }
+
+  onNextPage() {
+    if (this.currentPageIndex < this.totalPages) {
+      this.currentPageIndex++;
+      console.log(this.currentPageIndex)
+      this._userService.getUserBooks(this.currentPageIndex).subscribe((result) => {
+        this.totalPages = result.pages;
+        this.dataSource = new MatTableDataSource(result.data);
+        this.dataSource.paginator = this.paginator;
+      });
+    }
+  }
 }
