@@ -1,9 +1,8 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree, RouterModule } from '@angular/router';
-import { Observable } from 'rxjs';
 import { UsersService } from '../Services/users.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatCardLgImage } from '@angular/material/card';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +13,25 @@ export class HomeGuardGuard implements CanActivate {
 
 
   constructor(private _UsersService: UsersService, private _router: Router,
-    private spinner: NgxSpinnerService) {
+    private spinner: NgxSpinnerService, private _CookieService: CookieService) {
   }
 
   async canActivate(route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
     this.spinner.show()
 
+
+    if (!this._CookieService.check('status')) {
+      this.spinner.hide();
+
+      return true
+    }
     try {
+
+
       const response = await this._UsersService.getProfile().toPromise()
+
+
       setTimeout(() => {
 
         if (response.role === 'admin') {
@@ -41,11 +50,13 @@ export class HomeGuardGuard implements CanActivate {
       }, 1000)
 
       return false
-    } catch (error) {
+    } catch (error: any) {
+
+
       this.spinner.hide();
 
       return true;
     }
   }
+
 }
- 

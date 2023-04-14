@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
@@ -22,14 +23,15 @@ export class LoginComponent {
   constructor(private _userService: UsersService,
     private router: Router,
     private toastr: ToastrService,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService,
+    private _CookieService: CookieService) { }
 
-    togglePasswordVisibility() {
-      this.passwordVisible = !this.passwordVisible;
-    }
-    get m() {
-      return this.loginForm.controls;
-    }
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
+  get m() {
+    return this.loginForm.controls;
+  }
   submintloginForm(loginForm: FormGroup) {
     this.spinner.show();
     this._userService.login(loginForm.value).subscribe((res) => {
@@ -37,7 +39,9 @@ export class LoginComponent {
       if (res.message === 'success') {
 
         this._userService.getProfile().subscribe((res) => {
+          this._CookieService.delete('status')
 
+          this._CookieService.set('status', '')
           this._userService.setCurrentUser(res)
           setTimeout(() => {
 

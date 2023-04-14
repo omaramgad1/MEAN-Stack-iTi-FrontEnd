@@ -8,52 +8,51 @@
     <h1 class="mat-headline-3 mb-1">Authors</h1>
   </div>
   <mat-toolbar class="p-2">
-    <mat-toolbar-row class="">
-      <div class="container">
-
-        <div class="paginator p-2 mb-3">
-          <button
-            mat-raised-button
-            color="warn"
-            [disabled]="currentPageIndex == 1"
-            (click)="onPreviousPage()"
-          >
-            Previous
-          </button>
-          <span>{{ currentPageIndex }}/{{ totalPages }}</span>
-          <button
-            mat-raised-button
-            color="warn"
-            [disabled]="currentPageIndex == totalPages"
-            (click)="onNextPage()"
-          >
-            Next
-          </button>
-        </div>
+    <mat-toolbar-row>
+      <div class="paginator p-2 mb-3">
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == 1"
+          (click)="onPreviousPage()"
+        >
+          Previous
+        </button>
+        <span>{{ currentPageIndex }}/{{ totalPages }}</span>
+        <button
+          mat-raised-button
+          color="warn"
+          [disabled]="currentPageIndex == totalPages"
+          (click)="onNextPage()"
+        >
+          Next
+        </button>
       </div>
 
       <span class="example-spacer"></span>
-      <button
-        class="p-2 m-1"
-        mat-fab
-        [ngStyle]="{
-          backgroundColor: '#A37A7A'
-        }"
-        (click)="openDialog()"
-      >
-        <img src="assets/add-user.png" />
-      </button>
+      <div class="p-2" style="margin-left: 30px">
+        <button
+          class="p-2 m-1"
+          mat-fab
+          [ngStyle]="{
+            backgroundColor: '#A37A7A'
+          }"
+          (click)="openDialog()"
+        >
+          <img src="assets/add-user.png" />
+        </button>
+      </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>
 
-<div class=" mt-3 text-center container-fluid mat-elevation-z8">
+<div class="mt-3 text-center container-fluid mat-elevation-z8">
   <ng-template #table>
-    <mat-table [dataSource]="listData" matSort >
+    <mat-table [dataSource]="listData" matSort>
       <ng-container matColumnDef="counter">
         <mat-header-cell *matHeaderCellDef mat-sort-header>No.</mat-header-cell>
         <mat-cell *matCellDef="let element; let i = index">
-          {{ i + 1 }}
+          {{ i + 1 + (currentPageIndex - 1) * 5 }}
         </mat-cell>
       </ng-container>
       <ng-container matColumnDef="First Name">
@@ -92,7 +91,6 @@
       </ng-container>
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </mat-table>
-
   </ng-template>
   <div class="spinner-container" *ngIf="loading; else table">
     <mat-spinner class="center" color="warn"></mat-spinner>

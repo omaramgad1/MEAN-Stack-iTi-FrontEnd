@@ -1,7 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BooksService } from 'src/app/Services/books.service';
 import { CoreService } from 'src/app/Services/core.service';
@@ -25,18 +23,14 @@ export class BooksComponent {
 
   displayedColumns: string[] = [
     'counter',
-
     'bookName',
     'authorId',
-
     'categoryId',
     "action"
 
   ];
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
   constructor(private _dialog: MatDialog,
     private _BooksService: BooksService,
     private _coreService: CoreService,
@@ -63,9 +57,10 @@ export class BooksComponent {
 
     dialogRef.afterClosed().subscribe((val) => {
 
-      if (val)
-        this.getBooks();
+      if (val) {
 
+        this.getBooks();
+      }
 
     })
   }
@@ -74,11 +69,8 @@ export class BooksComponent {
     this._BooksService.getPageBooks().subscribe((res) => {
       this.loading = false;
       this.totalPages = res.pages;
-      this.currentPageIndex = res.currentPage;
 
       this.dataSource = new MatTableDataSource(res.data)
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
     }, err => {
       console.log(err)
     }
@@ -101,6 +93,7 @@ export class BooksComponent {
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
+
           this.getBooks();
         }
       },
@@ -140,25 +133,30 @@ export class BooksComponent {
 
 
   onPreviousPage() {
+    this.loading = true;
+
     if (this.currentPageIndex > 1) {
       this.currentPageIndex--;
       this._BooksService.getPageBooks(this.currentPageIndex).subscribe((result) => {
-        this.currentPageIndex = result.currentPage;
         this.totalPages = result.pages;
         this.dataSource = new MatTableDataSource(result.data);
-        this.dataSource.paginator = this.paginator;
+        this.loading = false;
+
       });
     }
   }
 
   onNextPage() {
+    this.loading = true;
+
     if (this.currentPageIndex < this.totalPages) {
       this.currentPageIndex++;
       console.log(this.currentPageIndex)
       this._BooksService.getPageBooks(this.currentPageIndex).subscribe((result) => {
         this.totalPages = result.pages;
         this.dataSource = new MatTableDataSource(result.data);
-        this.dataSource.paginator = this.paginator;
+        this.loading = false;
+
       });
     }
   }
