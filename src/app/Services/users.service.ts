@@ -22,8 +22,13 @@ export class UsersService {
   }
 
   getUserBooks(pageNumber: number): Observable<any> {
-    pageNumber = pageNumber - 1
-    return this._http.get('http://localhost:3000/users/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}', { withCredentials: true })
+    // pageNumber = pageNumber - 1
+    return this._http.get(`http://localhost:3000/userBook?page=${pageNumber < 0 ? 0 : pageNumber}`, { withCredentials: true })
+  }
+
+  getUserBooksByShelve(pageNumber: number, shelve: string): Observable<any> {
+    // pageNumber = pageNumber - 1
+    return this._http.get(`http://localhost:3000/userBook/${shelve}?page=${pageNumber < 0 ? 0 : pageNumber}`, { withCredentials: true })
   }
 
   login(data: any): Observable<any> {
