@@ -46,7 +46,6 @@ export class UserViewComponent implements OnInit {
   ngOnInit(): void {
     this.getBooks();
     this.stars = Array(5).fill(null).map(() => ({ filled: false, hover: false }));
-
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
@@ -103,10 +102,10 @@ export class UserViewComponent implements OnInit {
 
   getBooks() {
     this._userService.getUserBooks(1).subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res.data.books);
+      this.dataSource = new MatTableDataSource(res.data[0].books);
       this.totalPages = res.pages;
       this.dataSource.data.forEach((row: any) => {
-        row.stars = this.createStars(row.rating);
+        row.stars = this.createStars(row.rate);
       });
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -115,6 +114,26 @@ export class UserViewComponent implements OnInit {
     })
   }
 
+  getBooksByShelve(shelve: string) {
+    this._userService.getUserBooksByShelve(1, shelve).subscribe((res) => {
+      
+      if(res.data.length == 0){
+        this.dataSource = new MatTableDataSource();
+        this.totalPages = 0;
+        return;
+      }else{
+        this.dataSource = new MatTableDataSource(res.data[0].books);
+        this.totalPages = res.pages;
+        this.dataSource.data.forEach((row: any) => {
+          row.stars = this.createStars(row.rate);
+        });
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      }
+    }, err => {
+      console.log(err)
+    })
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -152,21 +171,26 @@ export class UserViewComponent implements OnInit {
   showAll() {
     // this.router.navigate(['user/books']);
     this.selectedOption = 'All Books';
+    this.getBooks();
+
   }
 
   showRead() {
     // this.router.navigate(['user/books/read']);
     this.selectedOption = 'Read';
+    this.getBooksByShelve('read');
   }
 
   showCurrent() {
     // this.router.navigate(['user/books/reading']);
     this.selectedOption = 'Currently Reading';
+    this.getBooksByShelve('current read');
   }
 
   showWant() {
     // this.router.navigate(['user/books/want']);
     this.selectedOption = 'Want to Read';
+    this.getBooksByShelve('want to read');
   }
 
   onPreviousPage() {
