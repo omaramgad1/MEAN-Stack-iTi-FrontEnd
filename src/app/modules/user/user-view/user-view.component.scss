@@ -1,3 +1,4 @@
+$bgcolo: #937f81;
 .example-container {
     width: 99%;
     height: 100%;
@@ -8,19 +9,21 @@
     width: 15%;
     height: 80%;
     float: left;
-    background-color: #f1f1f1;
+    background-color:#bba1a4;
     padding: 2vw; /* Use viewport width units for responsive padding */
+    a{
+      margin-top: 2vw; /* Use viewport width units for responsive margin */
+    
+  }
+
 }
 
-mat-nav-list > a {
-    margin-top: 2vw; /* Use viewport width units for responsive margin */
-}
 
 .legend {
     font-size: 1.4vw; /* Use viewport width units for responsive font size */
     margin: auto;
     font-weight: bold;
-    color: darkred; 
+    color: #b59ea0; 
     width: 20%;
     margin: 2vw; /* Use viewport width units for responsive margin */
     text-align: center;
@@ -117,3 +120,30 @@ mat-nav-list > a {
   [data-star^="4.8"]::after{width:96%}
   [data-star^="4.9"]::after{width:98%}
   [data-star^="5"]::after{width:100%}
+
+  
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.paginator button,
+.paginator div {
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.paginator button[disabled],
+.paginator div.active {
+  background-color: #ccc;
+  cursor: default;
+}
+
+.paginator span {
+  margin: 0 10px;
+}

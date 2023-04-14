@@ -74,7 +74,9 @@
       <ng-container matColumnDef="Photo">
         <mat-header-cell *matHeaderCellDef>photo</mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <img width="60%" height="100px" src="{{ element.photo }}" />
+          <!-- <img width="60%" height="100px" src="{{ element.photo }}" /> -->
+          <span mat-button (click)="openPopup(element.photo)"
+                                    style="cursor: pointer"><mat-icon>burst_mode</mat-icon></span>
         </mat-cell>
       </ng-container>
 

@@ -45,6 +45,12 @@ export class AuthorsComponent implements OnInit {
     })
   }
 
+  openPopup(photoUrl: string) {
+   this.matDialog.open(DialogBodyComponent, {
+      data: { photoUrl }
+    });
+  }
+
   getAuthors() {
     this._authors.getPageAuthors(this.currentPageIndex).subscribe({
 

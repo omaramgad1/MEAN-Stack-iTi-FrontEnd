@@ -1,22 +1,25 @@
 <ng-container>
   <!-- Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid justify-content-between">
       <!-- Left elements -->
       <div class="d-flex">
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-2">
           <li class="nav-item ms-3">
-            <a class="nav-link" routerLink="/endless_books/home">Home</a>
+            <a class="nav-link" [routerLink]="'/'">Home</a>
           </li>
           <li class="nav-item ms-3">
-            <a class="nav-link" href="#">Categories</a>
+            <a class="nav-link"  [routerLink]="'categories'"
+            [routerLinkActive]="['active']">Categories</a>
           </li>
           <li class="nav-item ms-3">
-            <a class="nav-link" href="#">Books</a>
+            <a class="nav-link"  [routerLink]="'user/books'"
+            [routerLinkActive]="['active']">Books</a>
           </li>
           <li class="nav-item ms-3">
-            <a class="nav-link" href="#">Authors</a>
+            <a class="nav-link"  [routerLink]="'user/authors'"
+            [routerLinkActive]="['active']">Authors</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -53,12 +56,13 @@
               alt="Black and White Portrait of a Man"
               loading="lazy"
             />
-            <strong class="d-none d-sm-block ms-2">{{ name }}</strong>
+            <strong class="d-none d-sm-block ms-2 text-light">{{ name }}</strong>
           </a>
         </li>
         <li class="nav-item me-3 me-lg-1" style="margin-left: 40px">
-          <a class="nav-link logout" href="#">
-            <span><i class="fa fa-sign-out fa-3x" aria-hidden="true" (click)="logout()"></i></span>
+          <a class="nav-link logout" [routerLinkActive]="['active']"
+          (click)="logout()" [routerLink]="'/endless_books/home'">
+            <span><i class="fa fa-sign-out fa-3x" aria-hidden="true"></i></span>
           </a>
         </li>
       </ul>

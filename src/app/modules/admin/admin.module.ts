@@ -18,13 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
-
 import { MatTableModule } from '@angular/material/table';
-
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 import { MatIconModule } from '@angular/material/icon';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { AuthorsComponent } from './authors/authors.component';

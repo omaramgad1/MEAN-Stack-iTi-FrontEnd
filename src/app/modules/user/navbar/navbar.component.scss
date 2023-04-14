@@ -1,7 +1,26 @@
+$bgcolo: #937f81;
 * {
     color: black;
 }
 
-* :hover {
-    color: coral;
+
+
+nav{
+    background-color: $bgcolo;
+}
+
+ul {
+    li{
+        a{
+            color: white;
+        }
+        *:hover {
+            color: coral !important;
+        }
+        span{
+            i{
+                color: white;
+            }
+        }
+    }
 }

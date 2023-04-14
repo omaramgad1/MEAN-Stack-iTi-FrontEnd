@@ -1,1 +1,22 @@
-<p>categories works!</p>
+<app-navbar></app-navbar>
+<section class="categories pt-5">
+  <h1>Category List</h1>
+  <div class="hr"></div>
+  <div class="container">
+    <mat-paginator [length]="100" [pageSize]="pageSize" (page)="handlePageEvent($event)" aria-label="Select page">
+    </mat-paginator>
+
+    <div class="wrapper" *ngFor="let item of categoryList">
+      <mat-card class="example-card" >
+        <mat-card-header>
+          <mat-card-title id="title">{{item.name}}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-actions>
+          <button id="showBooks" mat-button>Show Books</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>
+<app-user-footer></app-user-footer>
