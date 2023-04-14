@@ -8,11 +8,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AuthorsService } from 'src/app/Services/authors.service';
 import { Author } from 'src/app/models/author';
-<<<<<<< HEAD
 import { PhotoDialogComponent } from '../../user/photo-dialog/photo-dialog.component';
-=======
 import { CoreService } from 'src/app/Services/core.service';
->>>>>>> ece5923f06812e4e9f1c24f0be4854cf73e49af7
 @Component({
   selector: 'app-authors',
   templateUrl: './authors.component.html',
