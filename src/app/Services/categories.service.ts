@@ -41,6 +41,9 @@ export class CategoriesService {
     });
   }
 
+  getBooksByCategoryId(categoryId: number): Observable<any> {
+    return this._http.get(`http://localhost:3000/categories/${categoryId}`);
+  }
   updateCategory(id: number, data: any): Observable<any> {
     return this._http.patch(`http://localhost:3000/categories/${id}`, data, {
       withCredentials: true

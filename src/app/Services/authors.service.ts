@@ -25,6 +25,12 @@ export class AuthorsService {
     return this._http.get(`http://localhost:3000/authors?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
   }
 
+  getAuthors(pageNumber: number = 1,pageSize:number): Observable<any> {
+    pageNumber = pageNumber - 1
+
+    return this._http.get(`http://localhost:3000/authors?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+  }
+
   deleteAnAuthor(_id: string): Observable<any> {
     return this._http.delete(`http://localhost:3000/authors/${_id}`, {
       withCredentials: true

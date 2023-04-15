@@ -20,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AllBooksComponent } from './all-books/all-books.component';
 import { AllAuthorsComponent } from './all-authors/all-authors.component';
+import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-books-by-category-id.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AllAuthorsComponent } from './all-authors/all-authors.component';
     CategoriesComponent,
     UserFooterComponent,
     AllBooksComponent,
-    AllAuthorsComponent
+    AllAuthorsComponent,
+    GetBooksByCategoryIdComponent,
+
 
   ],
   imports: [
