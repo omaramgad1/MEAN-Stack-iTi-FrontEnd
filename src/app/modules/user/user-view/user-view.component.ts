@@ -9,6 +9,7 @@ import { UsersService } from 'src/app/Services/users.service';
 import { Book } from 'src/app/models/book';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+
 @Component({
   selector: 'app-user-view',
   templateUrl: './user-view.component.html',
