@@ -10,6 +10,7 @@ import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-bo
 import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { BooksComponent } from '../admin/books/books.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,8 @@ const routes: Routes = [
 
       { path: 'authors', component: AllAuthorsComponent },
       { path: 'categories/:id', component: GetBooksByCategoryIdComponent },
+      { path: 'books/:id', component: BookDetailsComponent },
+
     ]
 
   }

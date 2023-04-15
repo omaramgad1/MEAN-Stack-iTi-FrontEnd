@@ -27,6 +27,7 @@ export class BookDetailsComponent {
      private _BooksService: BooksService,
      private _AuthorsService: AuthorsService,
      private _CategoriesService:CategoriesService) {
+    
     this.form = this.fb.group({
       rating: ['', Validators.required],
     })
@@ -45,27 +46,16 @@ export class BookDetailsComponent {
   }
   getBook(id:string) {
     this._BooksService.getBookById(id).subscribe((res) => {
-  
-      this.book = res.data;
-  
-    }, err => {
-      console.log(err)
-    }
-  
-    )
-    this._AuthorsService.getAuthorById(this.book.AuthorId).subscribe((res) => {
-  
-      this.authorName = res.firstName + ' ' + res.lastName;
+      console.log(res.book);
+      console.log(res.book.AuthorId);
+      
+      this.book = res.book;
   
     }, err => {
       console.log(err)
     })
-    this._CategoriesService.getCategorieByID(this.book.categoryId).subscribe((res) => {
-  
-      this.categoryName = res.name ;
-  
-    }, err => {
-      console.log(err)
-    })
+    console.log(this.book);
+    // console.log(this.book.AuthorId);
   }
+ 
 }
