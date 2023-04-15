@@ -1,0 +1,589 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mean-stack-i-ti-front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mean-stack-i-ti-front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  HomeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/admin/home/home.component.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./home.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./home.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#quotes" >quotes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quotes"></a>
+                    <span class="name">
+                        <span ><b>quotes</b></span>
+                        <a href="#quotes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      quotes: &quot;You will face many defeats in life, but never let yourself be defeated.&quot;,
+      name: &quot;Maya Angelou&quot;
+    },
+    {
+      quotes: &quot;Keep smiling, because life is a beautiful thing and there&#x27;s so much to smile about.&quot;,
+      name: &quot;Marilyn Monroe&quot;
+    },
+    {
+      quotes: &quot;Life is a long lesson in humility.&quot;,
+      name: &quot;James M. Barrie&quot;
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/modules/admin/home/home.component.ts:9</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-home&#x27;,
+  templateUrl: &#x27;./home.component.html&#x27;,
+  styleUrls: [&#x27;./home.component.scss&#x27;]
+})
+export class HomeComponent {
+  quotes &#x3D; [
+    {
+      quotes: &quot;You will face many defeats in life, but never let yourself be defeated.&quot;,
+      name: &quot;Maya Angelou&quot;
+    },
+    {
+      quotes: &quot;Keep smiling, because life is a beautiful thing and there&#x27;s so much to smile about.&quot;,
+      name: &quot;Marilyn Monroe&quot;
+    },
+    {
+      quotes: &quot;Life is a long lesson in humility.&quot;,
+      name: &quot;James M. Barrie&quot;
+    },
+  ]
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;body&quot;&gt;
+  &lt;header&gt;
+    &lt;div class&#x3D;&quot;header&quot;&gt;
+      &lt;h2&gt;&quot;Small cheer and great &lt;span&gt;Welcome&lt;/span&gt; makes a merry feast&quot;&lt;/h2&gt;
+      &lt;p&gt;William Shakespeare&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;h3&gt;About Us&lt;/h3&gt;
+    &lt;div class&#x3D;&quot;hr&quot;&gt;&lt;/div&gt;
+    &lt;section class&#x3D;&quot;about&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot; id&#x3D;&quot;us&quot;&gt;
+        &lt;div
+          class&#x3D;&quot;col-lg-6 col-md-6 col-sm-12 text-center justify-content-center align-items-center&quot;
+        &gt;
+          &lt;img
+            src&#x3D;&quot;https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib&#x3D;rb-4.0.3&amp;ixid&#x3D;MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlYWRpbmd8ZW58MHx8MHx8&amp;auto&#x3D;format&amp;fit&#x3D;crop&amp;w&#x3D;500&amp;q&#x3D;60&quot;
+            alt&#x3D;&quot;aboutUs&quot;
+          /&gt;
+        &lt;/div&gt;
+
+        &lt;div
+          class&#x3D;&quot;col-lg-6 col-md-6 col-sm-12 text-center justify-content-center align-items-center&quot;
+        &gt;
+          &lt;p&gt;
+            “I pronounce after all there is no pleasure like perusing!” -
+            &lt;i&gt;Jane Austen, Pride and Prejudice.&lt;/i&gt;&lt;br /&gt;
+            Dear readers, We offer a tremendous gathering of books in the
+            various classifications of Fiction, Non-fiction, Biographies,
+            History, Religions,etc
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+    &lt;app-carousel [quotes]&#x3D;&quot;quotes&quot; [autoSlide]&#x3D;&quot;true&quot;&gt;&lt;/app-carousel&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./home.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">* {
+    box-sizing: border-box;
+}
+
+header {
+
+    background: linear-gradient(rgba(147, 127, 129, .5), rgba(147, 127, 129, .8)), url(https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto&#x3D;compress&amp;cs&#x3D;tinysrgb&amp;w&#x3D;1260&amp;h&#x3D;750&amp;dpr&#x3D;1);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+
+    .header {
+        color: white;
+        opacity: 1;
+        text-align: center;
+        padding-top: 280px;
+        line-height: 2px;
+
+        h2 {
+            font-size: 40px;
+        }
+
+        p {
+            padding-top: 40px;
+            font-size: 30px;
+        }
+
+        span {
+            color: pink;
+        }
+    }
+
+
+}
+
+.body {
+
+    background-color: white;
+
+    img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h3 {
+        padding-top: 5rem;
+        text-align: center;
+        font-size: 35px;
+
+    }
+
+    .hr {
+        border-bottom: 5px solid pink;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about {
+        width: 100%;
+        line-height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+
+        img {
+            width: 570px;
+            height: 235px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        padding-top: 5rem;
+        display: flex;
+
+        p {
+            font-size: larger;
+            padding-top: 40px;
+            height: 140px;
+            width: 570px;
+            color: gray;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    }
+
+    #us {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+}
+
+@media (min-width: 270px) and (max-width:500px) {
+
+
+
+
+    header {
+        width: 110% !important;
+        margin-left: auto;
+        margin-right: auto;
+
+        .header {
+            color: white;
+            opacity: 1;
+            text-align: center;
+            padding-top: 150px;
+            line-height: 2px;
+            margin-left: auto;
+            margin-right: auto;
+
+            h2 {
+                font-size: 20px;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            p {
+                padding-top: 20px;
+                font-size: 20px;
+            }
+        }
+
+
+    }
+
+    .about {
+        img {
+            width: 270px !important;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        p {
+            width: 280px !important;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+    }
+
+
+}
+
+
+@media (min-width: 501px) and (max-width:800px) {
+
+
+    header {
+
+
+        .header {
+            color: white;
+            opacity: 1;
+            text-align: center;
+            padding-top: 150px;
+            line-height: 2px;
+            margin-left: auto;
+            margin-right: auto;
+
+            h2 {
+                font-size: 20px;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            p {
+                padding-top: 20px;
+                font-size: 20px;
+            }
+        }
+
+
+    }
+
+    .about {
+        img {
+            width: 440px !important;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        p {
+            width: 440px !important;
+
+        }
+
+    }
+
+
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="body">  <header>    <div class="header">      <h2>"Small cheer and great <span>Welcome</span> makes a merry feast"</h2>      <p>William Shakespeare</p>    </div>  </header>  <main>    <h3>About Us</h3>    <div class="hr"></div>    <section class="about">      <div class="row" id="us">        <div          class="col-lg-6 col-md-6 col-sm-12 text-center justify-content-center align-items-center"        >          <img            src="https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHJlYWRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"            alt="aboutUs"          />        </div>        <div          class="col-lg-6 col-md-6 col-sm-12 text-center justify-content-center align-items-center"        >          <p>            “I pronounce after all there is no pleasure like perusing!” -            <i>Jane Austen, Pride and Prejudice.</i><br />            Dear readers, We offer a tremendous gathering of books in the            various classifications of Fiction, Non-fiction, Biographies,            History, Religions,etc          </p>        </div>      </div>    </section>    <br /><br /><br /><br />    <app-carousel [quotes]="quotes" [autoSlide]="true"></app-carousel>  </main></div></div>'
+    var COMPONENTS = [{'name': 'AddEditBookDialogComponent', 'selector': 'app-add-edit-book-dialog'},{'name': 'AddEditCategoryDialogComponent', 'selector': 'app-add-edit-category-dialog'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AllAuthorsComponent', 'selector': 'app-all-authors'},{'name': 'AllBooksComponent', 'selector': 'app-all-books'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorsComponent', 'selector': 'app-authors'},{'name': 'BooksComponent', 'selector': 'app-books'},{'name': 'CarouselComponent', 'selector': 'app-carousel'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DialogBodyComponent', 'selector': 'app-dialog-body'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GetBooksByCategoryIdComponent', 'selector': 'app-get-books-by-category-id'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainFooterComponent', 'selector': 'app-main-footer'},{'name': 'MainNavbarComponent', 'selector': 'app-main-navbar'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'PhotoDialogComponent', 'selector': 'app-photo-dialog'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UserFooterComponent', 'selector': 'app-user-footer'},{'name': 'UserViewComponent', 'selector': 'app-user-view'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
