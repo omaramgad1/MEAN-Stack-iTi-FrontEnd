@@ -4,6 +4,7 @@
       <div class="container">
         <div class="row pb-2">
           <div class="col-lg-6 col-md-12 col-sm-12">
+
             <label for="firstName" class="form-label"
               ><strong>First Name</strong>
             </label>
@@ -15,13 +16,17 @@
               id="firstName"
             />
             <br />
+
             <div
-              *ngIf="m.firstName.touched && m.firstName.invalid"
+              *ngIf="registerForm.get('firstName')?.errors !=null && registerForm.get('firstName')?.touched"
               class="text-light border border-3 text-center"
             >
-              <div *ngIf="registerForm.get('firstName')?.errors?.['minLength']">
+              <div *ngIf="registerForm.controls['firstName']?.errors?.['minlength']">
                 first Name must be at least 3 characters
               </div>
+              <div *ngIf="registerForm.controls['firstName']?.errors?.['maxlength']">
+Sorry You Can Only Enter 15 Characters       
+       </div>
               <div *ngIf="registerForm.get('firstName')?.errors?.['required']">
                 Please provide first Name
               </div>
@@ -44,9 +49,12 @@
               *ngIf="m.lastName.touched && m.lastName.invalid"
               class="text-light border border-3 text-center"
             >
-              <div *ngIf="registerForm.get('lastName')?.errors?.['minLength']">
-                last Name must be at least 3 characters
-              </div>
+            <div *ngIf="registerForm.controls['lastName']?.errors?.['minlength']">
+              Last Name must be at least 3 characters
+            </div>
+            <div *ngIf="registerForm.controls['firstName']?.errors?.['maxlength']">
+              Sorry You Can Only Enter 15 Characters       
+                     </div>
               <div *ngIf="registerForm.get('lastName')?.errors?.['required']">
                 Please provide last Name
               </div>
@@ -122,9 +130,10 @@
               *ngIf="m.password.touched && m.password.invalid"
               class="text-light border border-3 text-center"
             >
-              <div *ngIf="registerForm.get('password')?.errors?.['minLength']">
-                Must Be Email
-              </div>
+            <div *ngIf="registerForm.controls['password']?.errors?.['minlength']">
+              Password must be at least 4 characters
+
+            </div>
               <div *ngIf="registerForm.get('password')?.errors?.['required']">
                 Please provide Password
               </div>
