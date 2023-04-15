@@ -42,6 +42,9 @@ export class LoginComponent {
           this._CookieService.delete('status')
 
           this._CookieService.set('status', '')
+          this._CookieService.set('jwt', res.token)
+
+
           this._userService.setCurrentUser(res)
           setTimeout(() => {
 
