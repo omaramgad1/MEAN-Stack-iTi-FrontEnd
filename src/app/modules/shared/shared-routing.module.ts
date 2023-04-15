@@ -18,7 +18,6 @@ const routes: Routes = [
       },
       { path: 'login', component: LoginComponent, canActivate: [HomeGuardGuard] },
       { path: 'register', component: RegisterComponent, canActivate: [HomeGuardGuard] },
-      {path:"**",component:NotFoundComponent}
 
     ]
 

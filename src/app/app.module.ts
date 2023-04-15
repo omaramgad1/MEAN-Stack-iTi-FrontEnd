@@ -8,6 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 
@@ -34,6 +35,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SharedModule,
   ],
   providers: [
+
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

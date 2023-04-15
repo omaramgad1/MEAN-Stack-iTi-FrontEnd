@@ -60,6 +60,10 @@ export class LoginComponent {
 
           }, 2000);
 
+        }, (err) => {
+
+          this.toastr.error('Error', err.error.message);
+          this.spinner.hide();
         })
       }
 
