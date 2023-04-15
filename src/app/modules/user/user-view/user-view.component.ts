@@ -97,6 +97,13 @@ export class UserViewComponent implements OnInit {
     row.rating = newRating;
     row.stars = this.createStars(newRating);
     this.dataSource._updateChangeSubscription();
+    
+    this._userService.updateUserBookRate(row.bookId._id, newRating).subscribe((res) => {
+      console.log(res);
+      this.getBooks();
+    }, (err: any) => {
+      console.log(err)
+    })
     this.ratingChange.emit(newRating);
   }
 
@@ -193,6 +200,14 @@ export class UserViewComponent implements OnInit {
     this.getBooksByShelve('want to read');
   }
 
+  updateShelve(book: any, selectedShelve: string) {
+    this._userService.updateShelve(book._id, selectedShelve).subscribe((res) => {
+      this.getBooks();
+    }, (err: any) => {
+      console.log(err)
+    })
+  }
+  
   onPreviousPage() {
     if (this.currentPageIndex > 1) {
       this.currentPageIndex--;

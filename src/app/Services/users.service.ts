@@ -38,6 +38,13 @@ export class UsersService {
     })
 
   }
+  updateShelve(bookId: string, shelve: string): Observable<any> {
+    return this._http.patch(`http://localhost:3000/userBook/${bookId}`, { shelve }, { withCredentials: true })
+  }
+
+  updateUserBookRate(bookId: string, rate: number): Observable<any> {
+    return this._http.patch(`http://localhost:3000/userBook/${bookId}`, { rate }, { withCredentials: true })
+  }
 
   getProfile(): Observable<any> {
     return this._http.get('http://localhost:3000/users/profile', { withCredentials: true })
