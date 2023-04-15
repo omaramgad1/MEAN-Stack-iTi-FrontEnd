@@ -13,7 +13,6 @@ import { BooksComponent } from '../admin/books/books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
   {
     path: '',
     redirectTo: 'dashboard',
@@ -21,14 +20,6 @@ const routes: Routes = [
   },
   {   path: '', component: UserComponent, children: [
       { path: 'dashboard', component: UserViewComponent },
-=======
-  { path: '', component: UserComponent },
-  { path: 'categories', component: CategoriesComponent },
-  { path: 'books', component: AllBooksComponent },
-  { path: 'authors', component: AllAuthorsComponent },
-  { path: 'categories/:id', component: GetBooksByCategoryIdComponent },
-  { path: "**", component: NotFoundComponent }
->>>>>>> 69e0384598076156cfb7450d8c58449d7ae5ac93
 
       { path: 'categories', component: CategoriesComponent },
       { path: 'books', component: AllBooksComponent },
