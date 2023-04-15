@@ -38,11 +38,12 @@ export class LoginComponent {
 
       if (res.message === 'success') {
 
+        this._CookieService.set('jwt', res.token)
+
         this._userService.getProfile().subscribe((res) => {
           this._CookieService.delete('status')
 
           this._CookieService.set('status', '')
-          this._CookieService.set('jwt', res.token)
 
 
           this._userService.setCurrentUser(res)

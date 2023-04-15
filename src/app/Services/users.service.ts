@@ -66,4 +66,11 @@ export class UsersService {
     return this._http.get('https://backend-mean.onrender.com/users/logout', { withCredentials: true })
 
   }
+
+  /*   getToken() {
+  
+  
+      return this._CookieService.get('token')
+  
+    } */
 }
