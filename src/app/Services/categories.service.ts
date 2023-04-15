@@ -17,35 +17,35 @@ export class CategoriesService {
 
   addNewCategory(data: any): Observable<any> {
 
-    return this._http.post(`http://localhost:3000/categories`, data, {
+    return this._http.post(`https://backend-mean.onrender.com/categories`, data, {
       withCredentials: true
     });
   }
 
   geAllCategories(): Observable<any> {
 
-    return this._http.get(`http://localhost:3000/categories/all`);
+    return this._http.get(`https://backend-mean.onrender.com/categories/all`);
   }
   getPageCategories(pageNumber: number = 1): Observable<any> {
     pageNumber = pageNumber - 1
-    return this._http.get(`http://localhost:3000/categories?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
+    return this._http.get(`https://backend-mean.onrender.com/categories?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
   }
 
-  getCategories(pageNumber: number = 1,pageSize:number): Observable<any> {
+  getCategories(pageNumber: number = 1, pageSize: number): Observable<any> {
     pageNumber = pageNumber - 1
-    return this._http.get(`http://localhost:3000/categories?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+    return this._http.get(`https://backend-mean.onrender.com/categories?pageNumber=${pageNumber}&pageSize=${pageSize}`);
   }
   deleteCategory(id: any): Observable<any> {
-    return this._http.delete(`http://localhost:3000/categories/${id}`, {
+    return this._http.delete(`https://backend-mean.onrender.com/categories/${id}`, {
       withCredentials: true
     });
   }
 
   getBooksByCategoryId(categoryId: number): Observable<any> {
-    return this._http.get(`http://localhost:3000/categories/${categoryId}`);
+    return this._http.get(`https://backend-mean.onrender.com/categories/${categoryId}`);
   }
   updateCategory(id: number, data: any): Observable<any> {
-    return this._http.patch(`http://localhost:3000/categories/${id}`, data, {
+    return this._http.patch(`https://backend-mean.onrender.com/categories/${id}`, data, {
       withCredentials: true
     });
   }
