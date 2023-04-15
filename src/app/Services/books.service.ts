@@ -13,30 +13,30 @@ export class BooksService {
 
   addNewBook(data: any): Observable<any> {
 
-    return this._http.post(`http://localhost:3000/books`, data, {
+    return this._http.post(`https://backend-mean.onrender.com/books`, data, {
       withCredentials: true
     });
   }
 
 
 
- 
+
 
   getPageBooks(pageNumber: number = 1): Observable<any> {
 
     pageNumber = pageNumber - 1
-    return this._http.get(`http://localhost:3000/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
+    return this._http.get(`https://backend-mean.onrender.com/books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
 
   };
 
 
-  getAllPagesBooks(pageNumber: number,pageSize: number): Observable<any> {
-    return this._http.get(`http://localhost:3000/books?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+  getAllPagesBooks(pageNumber: number, pageSize: number): Observable<any> {
+    return this._http.get(`https://backend-mean.onrender.com/books?pageNumber=${pageNumber}&pageSize=${pageSize}`);
 
   }
 
   deleteBook(id: string): Observable<any> {
-    return this._http.delete(`http://localhost:3000/books/${id}`, {
+    return this._http.delete(`https://backend-mean.onrender.com/books/${id}`, {
       withCredentials: true
     });
   }
@@ -44,7 +44,7 @@ export class BooksService {
 
 
   updateBook(id: string, data: any): Observable<any> {
-    return this._http.patch(`http://localhost:3000/books/${id}`, data, {
+    return this._http.patch(`https://backend-mean.onrender.com/books/${id}`, data, {
       withCredentials: true
     });
   }
