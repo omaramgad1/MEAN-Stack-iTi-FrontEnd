@@ -7,6 +7,7 @@ import { AllBooksComponent } from './all-books/all-books.component';
 import { RoleGuard } from 'src/app/Guards/role.guard';
 import { AllAuthorsComponent } from './all-authors/all-authors.component';
 import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-books-by-category-id.component';
+import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: UserComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path:'books',component:AllBooksComponent, canActivate :[AuthGuard] },
   { path:'authors',component:AllAuthorsComponent, canActivate :[AuthGuard] },
   { path:'categories/:id',component:GetBooksByCategoryIdComponent, canActivate :[AuthGuard] },
+  {path:"**",component:NotFoundComponent}
 
 
 

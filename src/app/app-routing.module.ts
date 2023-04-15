@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { RoleGuard } from './Guards/role.guard';
 import { HomeGuardGuard } from './Guards/home-guard.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,7 @@ const routes: Routes = [
 
     data: { allowedRoles: ['user'] }
   },
-
+{path:"**",component:NotFoundComponent}
 
 ];
 

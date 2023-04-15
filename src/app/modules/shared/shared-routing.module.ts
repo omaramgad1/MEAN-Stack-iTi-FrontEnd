@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { HomeGuardGuard } from 'src/app/Guards/home-guard.guard';
+import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,11 @@ const routes: Routes = [
       },
       { path: 'login', component: LoginComponent, canActivate: [HomeGuardGuard] },
       { path: 'register', component: RegisterComponent, canActivate: [HomeGuardGuard] },
+      {path:"**",component:NotFoundComponent}
+
     ]
+
+
   },
 
 
