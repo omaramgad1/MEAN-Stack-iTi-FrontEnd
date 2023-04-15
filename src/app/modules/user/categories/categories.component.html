@@ -3,7 +3,7 @@
   <h1>Category List</h1>
   <div class="hr"></div>
   <div class="container">
-    <mat-paginator [length]="100" [pageSize]="pageSize" (page)="handlePageEvent($event)" aria-label="Select page">
+    <mat-paginator [length]="dataLength" [pageSize]="pageSize" (page)="handlePageEvent($event)" aria-label="Select page">
     </mat-paginator>
 
     <div class="wrapper" *ngFor="let item of categoryList">
