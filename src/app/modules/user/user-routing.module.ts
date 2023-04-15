@@ -11,11 +11,11 @@ import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: UserComponent },
-  { path:'categories',component:CategoriesComponent, canActivate :[AuthGuard] },
-  { path:'books',component:AllBooksComponent, canActivate :[AuthGuard] },
-  { path:'authors',component:AllAuthorsComponent, canActivate :[AuthGuard] },
-  { path:'categories/:id',component:GetBooksByCategoryIdComponent, canActivate :[AuthGuard] },
-  {path:"**",component:NotFoundComponent}
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'books', component: AllBooksComponent },
+  { path: 'authors', component: AllAuthorsComponent },
+  { path: 'categories/:id', component: GetBooksByCategoryIdComponent },
+  { path: "**", component: NotFoundComponent }
 
 
 

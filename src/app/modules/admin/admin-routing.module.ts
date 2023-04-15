@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'authors', component: AuthorsComponent }
     ]
     ,
-    canActivate: [AuthGuard, RoleGuard],
+    // canActivate: [AuthGuard, RoleGuard],
     data: { allowedRoles: ['admin'] }
   },
 

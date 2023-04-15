@@ -67,10 +67,10 @@ export class UsersService {
 
   }
 
-  /*   getToken() {
-  
-  
-      return this._CookieService.get('token')
-  
-    } */
+  getToken() {
+
+
+    return this._CookieService.get('jwt')
+
+  }
 }

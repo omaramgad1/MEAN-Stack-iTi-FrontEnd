@@ -10,9 +10,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-/* import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './Services/auth-interceptor.service';
- */
+
 
 
 
@@ -39,7 +39,7 @@ import { AuthInterceptorService } from './Services/auth-interceptor.service';
   providers: [
 
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

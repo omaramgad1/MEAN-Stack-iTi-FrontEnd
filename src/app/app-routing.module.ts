@@ -15,13 +15,13 @@ const routes: Routes = [
   {
     path: 'endless_books',
     loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule),
-    canActivate: [HomeGuardGuard],
+    // canActivate: [HomeGuardGuard],
 
   },
   {
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
-    canActivate: [AuthGuard, RoleGuard],
+    // canActivate: [AuthGuard, RoleGuard],
     data: { allowedRoles: ['admin'] }
   },
 
@@ -29,11 +29,11 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
-    canActivate: [AuthGuard, RoleGuard],
+    // canActivate: [AuthGuard, RoleGuard],
 
     data: { allowedRoles: ['user'] }
   },
-{path:"**",component:NotFoundComponent}
+  { path: "**", component: NotFoundComponent }
 
 ];
 
