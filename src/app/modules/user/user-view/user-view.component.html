@@ -65,7 +65,7 @@
                             <th mat-header-cell *matHeaderCellDef style="width: 20%;" class="text-center">Shelve</th>
                             <td *matCellDef="let row">
                                 <div class="form-group">
-                                    <select class="form-control text-center" [(ngModel)]="row.shelve">
+                                    <select class="form-control text-center" [(ngModel)]="row.shelve" (change)="updateShelve(row.bookId, row.shelve)">
                                         <option value="" disabled>--Please choose an option--</option>
                                         <option value="read" [selected]="row.shelve.toLowerCase().trim() === 'read'">Read</option>
                                         <option value="current read" [selected]="row.shelve.toLowerCase().trim() === 'current read'">Current reading
