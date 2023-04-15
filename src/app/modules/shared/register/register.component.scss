@@ -61,27 +61,46 @@ label{
   color: #fff;
 
 }
-input[type=submit]{
-
+.subBut{
 width: 200px;
 text-align: center;
 font-size: 20px;
 background-color: rgb(231, 174, 183);
 color:#fff;
-
+cursor: pointer;
 padding: 10px;
 border-radius: 25px;
 border: 0px;
-cursor: pointer;
+margin-right: auto;
+margin-left: auto;
+text-align: center;
+justify-content: center;
+align-items: center;
 }
-input[type=submit]:hover{
-background-color: #cdb3b6;
-
+.subBut::after{
+  content: "submit";
 }
-#submit{
+.inval{
+  background-color: gray;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+  width: 280px;
+}
+.inval::after{
+  content: "please fill all form fields first";
+}
+
+// input[type=submit]:hover{
+// background-color: #cdb3b6;
+
+// }
+#submit{
+  margin-right: auto;
+margin-left: auto;
+text-align: center;
+justify-content: center;
+align-items: center;
 }
 
 

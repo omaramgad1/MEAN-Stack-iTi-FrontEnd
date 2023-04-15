@@ -18,7 +18,7 @@
             <br />
 
             <div
-              *ngIf="registerForm.get('firstName')?.errors !=null && registerForm.get('firstName')?.touched"
+              *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched"
               class="text-light border border-3 text-center"
             >
               <div *ngIf="registerForm.controls['firstName']?.errors?.['minlength']">
@@ -52,7 +52,7 @@ Sorry You Can Only Enter 15 Characters
             <div *ngIf="registerForm.controls['lastName']?.errors?.['minlength']">
               Last Name must be at least 3 characters
             </div>
-            <div *ngIf="registerForm.controls['firstName']?.errors?.['maxlength']">
+            <div *ngIf="registerForm.controls['lastName']?.errors?.['maxlength']">
               Sorry You Can Only Enter 15 Characters       
                      </div>
               <div *ngIf="registerForm.get('lastName')?.errors?.['required']">
@@ -127,16 +127,20 @@ Sorry You Can Only Enter 15 Characters
             ></button>
             <br />
             <div
-              *ngIf="m.password.touched && m.password.invalid"
+              *ngIf="(registerForm.controls['password'].touched || registerForm.controls['password'].dirty ) && registerForm.controls['password'].invalid"
               class="text-light border border-3 text-center"
             >
+
             <div *ngIf="registerForm.controls['password']?.errors?.['minlength']">
               Password must be at least 4 characters
 
             </div>
-              <div *ngIf="registerForm.get('password')?.errors?.['required']">
+
+              <div *ngIf="registerForm.controls['password']?.errors?.['required']">
                 Please provide Password
               </div>
+
+
             </div>
           </div>
           <div class="col-lg-6 col-md-12 col-sm-12">
@@ -169,10 +173,16 @@ Sorry You Can Only Enter 15 Characters
             Password does not match
           </p>
         </div>
+        <!-- <div
+        
+        class="text-light border border-3 text-center"
+      >
+      
+      </div> -->
 
-        <div class="row pt-4">
+        <div class="row pt-5">
           <div class="col-lg-12 col-md-12 col-sm-12" id="submit">
-            <input [disabled]="registerForm.invalid" type="submit" />
+            <button class="subBut" [disabled]="registerForm.invalid" [ngClass]="registerForm.invalid ? 'inval' : 'subBut'"  ></button>
           </div>
         </div>
       </div>
