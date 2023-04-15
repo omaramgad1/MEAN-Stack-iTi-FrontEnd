@@ -8,16 +8,26 @@ import { RoleGuard } from 'src/app/Guards/role.guard';
 import { AllAuthorsComponent } from './all-authors/all-authors.component';
 import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-books-by-category-id.component';
 import { NotFoundComponent } from 'src/app/not-found/not-found.component';
+import { UserViewComponent } from './user-view/user-view.component';
+import { BooksComponent } from '../admin/books/books.component';
 
 const routes: Routes = [
-  { path: '', component: UserComponent },
-  { path:'categories',component:CategoriesComponent, canActivate :[AuthGuard] },
-  { path:'books',component:AllBooksComponent, canActivate :[AuthGuard] },
-  { path:'authors',component:AllAuthorsComponent, canActivate :[AuthGuard] },
-  { path:'categories/:id',component:GetBooksByCategoryIdComponent, canActivate :[AuthGuard] },
-  {path:"**",component:NotFoundComponent}
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {   path: '', component: UserComponent, children: [
+      { path: 'dashboard', component: UserViewComponent },
 
+      { path: 'categories', component: CategoriesComponent },
+      { path: 'books', component: AllBooksComponent },
 
+      { path: 'authors', component: AllAuthorsComponent },
+      { path: 'categories/:id', component: GetBooksByCategoryIdComponent },
+    ]
+
+  }
 
   // {
   //   path: 'user',
