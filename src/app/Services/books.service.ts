@@ -49,4 +49,7 @@ export class BooksService {
       withCredentials: true
     });
   }
+  getBookById(id: string): Observable<any> {
+    return this._http.get(`${baseUrl}books/${id}`)
+  }
 }

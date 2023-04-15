@@ -31,6 +31,9 @@ export class AuthorsService {
 
     return this._http.get(`${baseUrl}authors?pageNumber=${pageNumber}&pageSize=${pageSize}`);
   }
+  getAuthorById(id:string): Observable<any> {
+    return this._http.get(`${baseUrl}authors/${id}`);
+  }
 
   deleteAnAuthor(_id: string): Observable<any> {
     return this._http.delete(`${baseUrl}authors/${_id}`, {

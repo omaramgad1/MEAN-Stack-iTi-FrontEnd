@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AuthorsService } from 'src/app/Services/authors.service';
+import { BooksService } from 'src/app/Services/books.service';
+import { CategoriesService } from 'src/app/Services/categories.service';
+import { UsersService } from 'src/app/Services/users.service';
 
 @Component({
   selector: 'app-book-details',
@@ -12,15 +17,55 @@ export class BookDetailsComponent {
   rate: boolean = true;
   public form: FormGroup;
   value: number = 5;
-  constructor(private fb: FormBuilder) {
+  id!:string;
+  book: any
+  authorName!:string
+  categoryName!:string
+  constructor(private fb: FormBuilder,
+     private _UsersService: UsersService,
+     private route:ActivatedRoute,
+     private _BooksService: BooksService,
+     private _AuthorsService: AuthorsService,
+     private _CategoriesService:CategoriesService) {
     this.form = this.fb.group({
       rating: ['', Validators.required],
     })
+  }
+  ngOnInit(): void {
+    this.route.params.subscribe(params=>this.getBook(params['id']))
   }
   changeStatus() {
     this.select = !this.select
   }
   changeRate() {
     this.rate = !this.rate
+  }
+  updateStatus(){
+    this._UsersService.updateShelve(this.id, this.selected).subscribe()
+  }
+  getBook(id:string) {
+    this._BooksService.getBookById(id).subscribe((res) => {
+  
+      this.book = res.data;
+  
+    }, err => {
+      console.log(err)
+    }
+  
+    )
+    this._AuthorsService.getAuthorById(this.book.AuthorId).subscribe((res) => {
+  
+      this.authorName = res.firstName + ' ' + res.lastName;
+  
+    }, err => {
+      console.log(err)
+    })
+    this._CategoriesService.getCategorieByID(this.book.categoryId).subscribe((res) => {
+  
+      this.categoryName = res.name ;
+  
+    }, err => {
+      console.log(err)
+    })
   }
 }

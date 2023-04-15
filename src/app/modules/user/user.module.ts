@@ -27,6 +27,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     NgxStarRatingModule,
     ReactiveFormsModule,
+    MatButtonModule,
   ]
 })
 export class UserModule { }
