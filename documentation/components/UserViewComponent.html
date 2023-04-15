@@ -1,0 +1,2358 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mean-stack-i-ti-front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mean-stack-i-ti-front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  UserViewComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/user/user-view/user-view.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-view</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user-view.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-view.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#books" >books</a>
+                            </li>
+                            <li>
+                                <a href="#currentPageIndex" >currentPageIndex</a>
+                            </li>
+                            <li>
+                                <a href="#dataSource" >dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#displayedColumns" >displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#paginator" >paginator</a>
+                            </li>
+                            <li>
+                                <a href="#searchKey" >searchKey</a>
+                            </li>
+                            <li>
+                                <a href="#selectedOption" >selectedOption</a>
+                            </li>
+                            <li>
+                                <a href="#sort" >sort</a>
+                            </li>
+                            <li>
+                                <a href="#stars" >stars</a>
+                            </li>
+                            <li>
+                                <a href="#totalPages" >totalPages</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyFilter" >applyFilter</a>
+                            </li>
+                            <li>
+                                <a href="#createStars" >createStars</a>
+                            </li>
+                            <li>
+                                <a href="#getBooks" >getBooks</a>
+                            </li>
+                            <li>
+                                <a href="#getBooksByShelve" >getBooksByShelve</a>
+                            </li>
+                            <li>
+                                <a href="#getNextData" >getNextData</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onNextPage" >onNextPage</a>
+                            </li>
+                            <li>
+                                <a href="#onPreviousPage" >onPreviousPage</a>
+                            </li>
+                            <li>
+                                <a href="#onSearchClear" >onSearchClear</a>
+                            </li>
+                            <li>
+                                <a href="#onStarClick" >onStarClick</a>
+                            </li>
+                            <li>
+                                <a href="#onStarHover" >onStarHover</a>
+                            </li>
+                            <li>
+                                <a href="#onStarLeave" >onStarLeave</a>
+                            </li>
+                            <li>
+                                <a href="#openPopup" >openPopup</a>
+                            </li>
+                            <li>
+                                <a href="#showAll" >showAll</a>
+                            </li>
+                            <li>
+                                <a href="#showCurrent" >showCurrent</a>
+                            </li>
+                            <li>
+                                <a href="#showRead" >showRead</a>
+                            </li>
+                            <li>
+                                <a href="#showWant" >showWant</a>
+                            </li>
+                            <li>
+                                <a href="#updateShelve" >updateShelve</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ratingChange" >ratingChange</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_dialog: MatDialog, _BooksService: <a href="../injectables/BooksService.html" target="_self">BooksService</a>, _userService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, activatedRoute: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_BooksService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BooksService.html" target="_self" >BooksService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>activatedRoute</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ratingChange"></a>
+                        <b>ratingChange</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/core/EventEmitter" target="_blank" >EventEmitter</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <span ><b>applyFilter</b></span>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyFilter(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:144</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createStars"></a>
+                    <span class="name">
+                        <span ><b>createStars</b></span>
+                        <a href="#createStars"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createStars(rating: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rating</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBooks"></a>
+                    <span class="name">
+                        <span ><b>getBooks</b></span>
+                        <a href="#getBooks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBooks()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBooksByShelve"></a>
+                    <span class="name">
+                        <span ><b>getBooksByShelve</b></span>
+                        <a href="#getBooksByShelve"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBooksByShelve(shelve: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>shelve</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNextData"></a>
+                    <span class="name">
+                        <span ><b>getNextData</b></span>
+                        <a href="#getNextData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNextData(currentSize: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, offset: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:159</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentSize</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>offset</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNextPage"></a>
+                    <span class="name">
+                        <span ><b>onNextPage</b></span>
+                        <a href="#onNextPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onNextPage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:222</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPreviousPage"></a>
+                    <span class="name">
+                        <span ><b>onPreviousPage</b></span>
+                        <a href="#onPreviousPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onPreviousPage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="211"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:211</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSearchClear"></a>
+                    <span class="name">
+                        <span ><b>onSearchClear</b></span>
+                        <a href="#onSearchClear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSearchClear(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:153</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStarClick"></a>
+                    <span class="name">
+                        <span ><b>onStarClick</b></span>
+                        <a href="#onStarClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onStarClick(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, star: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>star</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStarHover"></a>
+                    <span class="name">
+                        <span ><b>onStarHover</b></span>
+                        <a href="#onStarHover"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onStarHover(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, star: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:80</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>star</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStarLeave"></a>
+                    <span class="name">
+                        <span ><b>onStarLeave</b></span>
+                        <a href="#onStarLeave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onStarLeave(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, star: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>star</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openPopup"></a>
+                    <span class="name">
+                        <span ><b>openPopup</b></span>
+                        <a href="#openPopup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openPopup(photoUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:172</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>photoUrl</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAll"></a>
+                    <span class="name">
+                        <span ><b>showAll</b></span>
+                        <a href="#showAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showAll()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="178"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:178</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showCurrent"></a>
+                    <span class="name">
+                        <span ><b>showCurrent</b></span>
+                        <a href="#showCurrent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showCurrent()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="191"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:191</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showRead"></a>
+                    <span class="name">
+                        <span ><b>showRead</b></span>
+                        <a href="#showRead"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showRead()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:185</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showWant"></a>
+                    <span class="name">
+                        <span ><b>showWant</b></span>
+                        <a href="#showWant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showWant()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="197"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:197</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateShelve"></a>
+                    <span class="name">
+                        <span ><b>updateShelve</b></span>
+                        <a href="#updateShelve"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateShelve(book: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, selectedShelve: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>book</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>selectedShelve</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="books"></a>
+                    <span class="name">
+                        <span ><b>books</b></span>
+                        <a href="#books"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Book.html" target="_self" >Book[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentPageIndex"></a>
+                    <span class="name">
+                        <span ><b>currentPageIndex</b></span>
+                        <a href="#currentPageIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataSource"></a>
+                    <span class="name">
+                        <span ><b>dataSource</b></span>
+                        <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatTableDataSource&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <span ><b>displayedColumns</b></span>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;photo&#x27;,
+    &#x27;name&#x27;,
+    &quot;author&quot;,
+    &#x27;avgRate&#x27;,
+    &#x27;rating&#x27;,
+    &#x27;shelve&#x27;,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paginator"></a>
+                    <span class="name">
+                        <span ><b>paginator</b></span>
+                        <a href="#paginator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatPaginator</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatPaginator)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchKey"></a>
+                    <span class="name">
+                        <span ><b>searchKey</b></span>
+                        <a href="#searchKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedOption"></a>
+                    <span class="name">
+                        <span ><b>selectedOption</b></span>
+                        <a href="#selectedOption"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;All Books&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sort"></a>
+                    <span class="name">
+                        <span ><b>sort</b></span>
+                        <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatSort</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(MatSort)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stars"></a>
+                    <span class="name">
+                        <span ><b>stars</b></span>
+                        <a href="#stars"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalPages"></a>
+                    <span class="name">
+                        <span ><b>totalPages</b></span>
+                        <a href="#totalPages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/user/user-view/user-view.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, OnInit, Output, ViewChild } from &#x27;@angular/core&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { PhotoDialogComponent } from &#x27;../photo-dialog/photo-dialog.component&#x27;;
+import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
+import { MatSort } from &#x27;@angular/material/sort&#x27;;
+import { MatTableDataSource } from &#x27;@angular/material/table&#x27;;
+import { BooksService } from &#x27;src/app/Services/books.service&#x27;;
+import { UsersService } from &#x27;src/app/Services/users.service&#x27;;
+import { Book } from &#x27;src/app/models/book&#x27;;
+import { ActivatedRoute, NavigationEnd, Router } from &#x27;@angular/router&#x27;;
+import { filter } from &#x27;rxjs/operators&#x27;;
+@Component({
+  selector: &#x27;app-user-view&#x27;,
+  templateUrl: &#x27;./user-view.component.html&#x27;,
+  styleUrls: [&#x27;./user-view.component.scss&#x27;]
+})
+export class UserViewComponent implements OnInit {
+  books!: Book[]
+  searchKey!: string;
+  selectedOption: string &#x3D; &#x27;All Books&#x27;;
+  displayedColumns: string[] &#x3D; [
+    &#x27;photo&#x27;,
+    &#x27;name&#x27;,
+    &quot;author&quot;,
+    &#x27;avgRate&#x27;,
+    &#x27;rating&#x27;,
+    &#x27;shelve&#x27;,
+  ];
+  dataSource!: MatTableDataSource&lt;any&gt;;
+  @Output() ratingChange &#x3D; new EventEmitter&lt;number&gt;();
+  stars: any[] &#x3D; [];
+  currentPageIndex: number &#x3D; 1;
+  totalPages!: number;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(
+    private _dialog: MatDialog,
+    private _BooksService: BooksService,
+    private _userService: UsersService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.getBooks();
+    this.stars &#x3D; Array(5).fill(null).map(() &#x3D;&gt; ({ filled: false, hover: false }));
+    this.router.events.pipe(
+      filter(event &#x3D;&gt; event instanceof NavigationEnd)
+    ).subscribe(() &#x3D;&gt; {
+      // Get the current route URL and set the selectedOption variable accordingly
+      const url &#x3D; this.activatedRoute.snapshot.url[0].path;
+      switch (url) {
+        case &#x27;read&#x27;:
+          this.selectedOption &#x3D; &#x27;Read&#x27;;
+          break;
+        case &#x27;reading&#x27;:
+          this.selectedOption &#x3D; &#x27;Currently Reading&#x27;;
+          break;
+        case &#x27;want&#x27;:
+          this.selectedOption &#x3D; &#x27;Want to Read&#x27;;
+          break;
+        default:
+          this.selectedOption &#x3D; &#x27;All Books&#x27;;
+          break;
+      }
+    });
+  }
+
+  createStars(rating: number) {
+    const stars &#x3D; Array(5).fill(null).map(() &#x3D;&gt; ({ filled: false, hover: false }));
+    const roundedRating &#x3D; Math.round(rating);
+    for (let i &#x3D; 0; i &lt; roundedRating; i++) {
+      stars[i].filled &#x3D; true;
+    }
+    return stars;
+  }
+
+  onStarHover(row: any, star: any) {
+    const index &#x3D; row.stars.indexOf(star);
+    for (let i &#x3D; 0; i &lt;&#x3D; index; i++) {
+      row.stars[i].hover &#x3D; true;
+    }
+  }
+
+  onStarLeave(row: any, star: any) {
+    const index &#x3D; row.stars.indexOf(star);
+    for (let i &#x3D; 0; i &lt;&#x3D; index; i++) {
+      row.stars[i].hover &#x3D; false;
+    }
+  }
+
+  onStarClick(row: any, star: any) {
+    const index &#x3D; row.stars.indexOf(star);
+    const newRating &#x3D; index + 1;
+    row.rating &#x3D; newRating;
+    row.stars &#x3D; this.createStars(newRating);
+    this.dataSource._updateChangeSubscription();
+    
+    this._userService.updateUserBookRate(row.bookId._id, newRating).subscribe((res) &#x3D;&gt; {
+      console.log(res);
+      this.getBooks();
+    }, (err: any) &#x3D;&gt; {
+      console.log(err)
+    })
+    this.ratingChange.emit(newRating);
+  }
+
+  getBooks() {
+    this._userService.getUserBooks(1).subscribe((res) &#x3D;&gt; {
+      this.dataSource &#x3D; new MatTableDataSource(res.data[0].books);
+      this.totalPages &#x3D; res.pages;
+      this.dataSource.data.forEach((row: any) &#x3D;&gt; {
+        row.stars &#x3D; this.createStars(row.rate);
+      });
+      this.dataSource.sort &#x3D; this.sort;
+      this.dataSource.paginator &#x3D; this.paginator;
+    }, err &#x3D;&gt; {
+      console.log(err)
+    })
+  }
+
+  getBooksByShelve(shelve: string) {
+    this._userService.getUserBooksByShelve(1, shelve).subscribe((res) &#x3D;&gt; {
+      
+      if(res.data.length &#x3D;&#x3D; 0){
+        this.dataSource &#x3D; new MatTableDataSource();
+        this.totalPages &#x3D; 0;
+        return;
+      }else{
+        this.dataSource &#x3D; new MatTableDataSource(res.data[0].books);
+        this.totalPages &#x3D; res.pages;
+        this.dataSource.data.forEach((row: any) &#x3D;&gt; {
+          row.stars &#x3D; this.createStars(row.rate);
+        });
+        this.dataSource.sort &#x3D; this.sort;
+        this.dataSource.paginator &#x3D; this.paginator;
+      }
+    }, err &#x3D;&gt; {
+      console.log(err)
+    })
+  }
+  applyFilter(event: Event) {
+    const filterValue &#x3D; (event.target as HTMLInputElement).value;
+    this.dataSource.filter &#x3D; filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  onSearchClear(event: Event) {
+    this.searchKey &#x3D; &quot;&quot;;
+    this.applyFilter(event)
+  }
+
+
+  getNextData(currentSize: number, offset: number) {
+    this._BooksService.getPageBooks(offset)
+      .subscribe((response: any) &#x3D;&gt; {
+        this.books.length &#x3D; currentSize;
+        this.books.push(...response.data);
+        this.books.length &#x3D; response.total;
+
+        this.dataSource &#x3D; new MatTableDataSource&lt;any&gt;(this.books);
+        this.dataSource._updateChangeSubscription();
+        this.dataSource.paginator &#x3D; this.paginator;
+      })
+  }
+
+  openPopup(photoUrl: string) {
+    this._dialog.open(PhotoDialogComponent, {
+      data: { photoUrl }
+    });
+  }
+
+  showAll() {
+    // this.router.navigate([&#x27;user/books&#x27;]);
+    this.selectedOption &#x3D; &#x27;All Books&#x27;;
+    this.getBooks();
+
+  }
+
+  showRead() {
+    // this.router.navigate([&#x27;user/books/read&#x27;]);
+    this.selectedOption &#x3D; &#x27;Read&#x27;;
+    this.getBooksByShelve(&#x27;read&#x27;);
+  }
+
+  showCurrent() {
+    // this.router.navigate([&#x27;user/books/reading&#x27;]);
+    this.selectedOption &#x3D; &#x27;Currently Reading&#x27;;
+    this.getBooksByShelve(&#x27;current read&#x27;);
+  }
+
+  showWant() {
+    // this.router.navigate([&#x27;user/books/want&#x27;]);
+    this.selectedOption &#x3D; &#x27;Want to Read&#x27;;
+    this.getBooksByShelve(&#x27;want to read&#x27;);
+  }
+
+  updateShelve(book: any, selectedShelve: string) {
+    this._userService.updateShelve(book._id, selectedShelve).subscribe((res) &#x3D;&gt; {
+      this.getBooks();
+    }, (err: any) &#x3D;&gt; {
+      console.log(err)
+    })
+  }
+  
+  onPreviousPage() {
+    if (this.currentPageIndex &gt; 1) {
+      this.currentPageIndex--;
+      this._userService.getUserBooks(this.currentPageIndex).subscribe((result) &#x3D;&gt; {
+        this.totalPages &#x3D; result.pages;
+        this.dataSource &#x3D; new MatTableDataSource(result.data);
+        this.dataSource.paginator &#x3D; this.paginator;
+      });
+    }
+  }
+
+  onNextPage() {
+    if (this.currentPageIndex &lt; this.totalPages) {
+      this.currentPageIndex++;
+      console.log(this.currentPageIndex)
+      this._userService.getUserBooks(this.currentPageIndex).subscribe((result) &#x3D;&gt; {
+        this.totalPages &#x3D; result.pages;
+        this.dataSource &#x3D; new MatTableDataSource(result.data);
+        this.dataSource.paginator &#x3D; this.paginator;
+      });
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-drawer-container class&#x3D;&quot;example-container&quot;&gt;
+    &lt;mat-drawer class&#x3D;&quot;slidebar gradient-custom&quot; mode&#x3D;&quot;side&quot; opened&gt;
+        &lt;mat-nav-list&gt;
+            &lt;!-- &lt;a mat-list-item routerLink&#x3D;&quot;/user&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;All&lt;/a&gt;
+            &lt;a mat-list-item routerLink&#x3D;&quot;/user/read&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;Read&lt;/a&gt;
+            &lt;a mat-list-item routerLink&#x3D;&quot;/user/readig&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;Current Reading&lt;/a&gt;
+            &lt;a mat-list-item routerLink&#x3D;&quot;/user/want&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;Want To Read&lt;/a&gt; --&gt;
+            &lt;a mat-list-item  (click)&#x3D;&quot;showAll()&quot;  [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;All&lt;/a&gt;
+            &lt;a mat-list-item (click)&#x3D;&quot;showRead()&quot;  [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;Read&lt;/a&gt;
+            &lt;a mat-list-item (click)&#x3D;&quot;showCurrent()&quot;  [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;Current Reading&lt;/a&gt;
+            &lt;a mat-list-item (click)&#x3D;&quot;showWant()&quot;  [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;Want To Read&lt;/a&gt;
+        &lt;/mat-nav-list&gt;
+    &lt;/mat-drawer&gt;
+    &lt;mat-drawer-content class&#x3D;&quot;content&quot; style&#x3D;&quot;overflow-x: auto; width: 85%;&quot;&gt;
+        &lt;div class&#x3D;&quot;container mt-2&quot;&gt;
+            &lt;div class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+                &lt;fieldset class&#x3D;&quot;field&quot;&gt;
+                    &lt;legend class&#x3D;&quot;legend ms-4 mt-2&quot;&gt;{{ selectedOption }}&lt;/legend&gt;
+                    &lt;table mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort class&#x3D;&quot;text-center&quot;&gt;
+                        &lt;ng-container matColumnDef&#x3D;&quot;photo&quot;&gt;
+                            &lt;th mat-header-cell *matHeaderCellDef class&#x3D;&quot;text-center&quot;&gt;Cover&lt;/th&gt;
+                            &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot; class&#x3D;&quot;text-center&quot;&gt;
+
+                                &lt;span mat-button (click)&#x3D;&quot;openPopup(row.bookId.photo)&quot;
+                                    style&#x3D;&quot;cursor: pointer&quot;&gt;&lt;mat-icon&gt;burst_mode&lt;/mat-icon&gt;&lt;/span&gt;
+                            &lt;/td&gt;
+                        &lt;/ng-container&gt;
+
+                        &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+                            &lt;th mat-header-cell *matHeaderCellDef class&#x3D;&quot;text-center&quot;&gt;Name&lt;/th&gt;
+                            &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot; class&#x3D;&quot;text-center&quot;&gt;
+                                {{ row.bookId.name }}
+                            &lt;/td&gt;
+                        &lt;/ng-container&gt;
+
+                        &lt;ng-container matColumnDef&#x3D;&quot;author&quot;&gt;
+                            &lt;th mat-header-cell *matHeaderCellDef class&#x3D;&quot;text-center&quot;&gt;
+                                Author
+                            &lt;/th&gt;
+                            &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot; class&#x3D;&quot;text-center&quot;&gt;
+                                {{ row.bookId.AuthorId.firstName }} {{ row.bookId.AuthorId.lastName }}
+                            &lt;/td&gt;
+                        &lt;/ng-container&gt;
+
+                        &lt;ng-container matColumnDef&#x3D;&quot;avgRate&quot;&gt;
+                            &lt;th mat-header-cell *matHeaderCellDef class&#x3D;&quot;text-center&quot;&gt;Avg Rate&lt;/th&gt;
+                            &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot; class&#x3D;&quot;text-center&quot;&gt;
+                                &lt;i [attr.data-star]&#x3D;&quot;row.bookId.rating&quot;&gt;&lt;/i&gt;
+                            &lt;/td&gt;
+                        &lt;/ng-container&gt;
+
+                        &lt;ng-container matColumnDef&#x3D;&quot;rating&quot;&gt;
+                            &lt;th mat-header-cell *matHeaderCellDef class&#x3D;&quot;text-center&quot;&gt;Rating&lt;/th&gt;
+                            &lt;td *matCellDef&#x3D;&quot;let row&quot;&gt;
+                                &lt;span *ngFor&#x3D;&quot;let star of row.stars&quot; (mouseover)&#x3D;&quot;onStarHover(row, star)&quot;
+                                    (mouseout)&#x3D;&quot;onStarLeave(row, star)&quot; (click)&#x3D;&quot;onStarClick(row, star)&quot;&gt;
+                                    &lt;i class&#x3D;&quot;fa&quot; [ngClass]&#x3D;&quot;{&#x27;star-hover&#x27;: star.hover}&quot;&gt;
+                                        {{ star.filled ? &#x27;★&#x27; : &#x27;☆&#x27; }}
+                                    &lt;/i&gt;
+                                &lt;/span&gt;
+                            &lt;/td&gt;
+                        &lt;/ng-container&gt;
+
+                        &lt;ng-container matColumnDef&#x3D;&quot;shelve&quot;&gt;
+                            &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width: 20%;&quot; class&#x3D;&quot;text-center&quot;&gt;Shelve&lt;/th&gt;
+                            &lt;td *matCellDef&#x3D;&quot;let row&quot;&gt;
+                                &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                                    &lt;select class&#x3D;&quot;form-control text-center&quot; [(ngModel)]&#x3D;&quot;row.shelve&quot; (change)&#x3D;&quot;updateShelve(row.bookId, row.shelve)&quot;&gt;
+                                        &lt;option value&#x3D;&quot;&quot; disabled&gt;--Please choose an option--&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;read&quot; [selected]&#x3D;&quot;row.shelve.toLowerCase().trim() &#x3D;&#x3D;&#x3D; &#x27;read&#x27;&quot;&gt;Read&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;current read&quot; [selected]&#x3D;&quot;row.shelve.toLowerCase().trim() &#x3D;&#x3D;&#x3D; &#x27;current read&#x27;&quot;&gt;Current reading
+                                        &lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;want to read&quot; [selected]&#x3D;&quot;row.shelve.toLowerCase().trim() &#x3D;&#x3D;&#x3D; &#x27;want to read&#x27;&quot;&gt;Want to
+                                            read&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+                            &lt;/td&gt;
+                        &lt;/ng-container&gt;
+
+                        &lt;!-- Row shown when there is no matching data. --&gt;
+                        &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+                        &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns&quot;&gt;&lt;/tr&gt;
+                    &lt;/table&gt;
+                    &lt;div class&#x3D;&quot;paginator p-2 mb-3&quot;&gt;
+                        &lt;button
+                          mat-raised-button
+                          color&#x3D;&quot;warn&quot;
+                          [disabled]&#x3D;&quot;currentPageIndex &#x3D;&#x3D; 1&quot;
+                          (click)&#x3D;&quot;onPreviousPage()&quot;
+                        &gt;
+                          Previous
+                        &lt;/button&gt;
+                        &lt;span&gt;{{ currentPageIndex }}/{{ totalPages || 1 }}&lt;/span&gt;
+                        &lt;button
+                          mat-raised-button
+                          color&#x3D;&quot;warn&quot;
+                          [disabled]&#x3D;&quot;currentPageIndex &#x3D;&#x3D; totalPages&quot;
+                          (click)&#x3D;&quot;onNextPage()&quot;
+                        &gt;
+                          Next
+                        &lt;/button&gt;
+                      &lt;/div&gt;
+                &lt;/fieldset&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/mat-drawer-content&gt;
+&lt;/mat-drawer-container&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./user-view.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$bgcolo: #937f81;
+.example-container {
+    width: 99%;
+    height: 100%;
+    margin: 1vw; /* Use viewport width units for responsive margin */
+}
+
+.slidebar{
+    width: 15%;
+    height: 80%;
+    float: left;
+    background-color:#bba1a4;
+    padding: 2vw; /* Use viewport width units for responsive padding */
+    a{
+      margin-top: 2vw; /* Use viewport width units for responsive margin */
+    
+  }
+
+
+}
+
+
+.legend {
+    font-size: 1.4vw; /* Use viewport width units for responsive font size */
+    margin: auto;
+    font-weight: bold;
+    color: #b59ea0; 
+    width: 20%;
+    margin: 2vw; /* Use viewport width units for responsive margin */
+    text-align: center;
+    padding: 2vw; /* Use viewport width units for responsive padding */
+    border: 0.2vw solid #ccc; /* Use viewport width units for responsive border */
+    border-radius: 20%;
+}
+
+.fa {
+    font-size: 1.4vw;
+    color: gold;
+    margin-right: 0.25rem;
+  }
+  .star-hover {
+    color: orange;
+    cursor: pointer;
+  }
+
+  [data-star] {
+    text-align:left;
+    font-style:normal;
+    display:inline-block;
+    position: relative;
+    unicode-bidi: bidi-override;
+  }
+  [data-star]::before { 
+    display:block;
+    content: &#x27;★★★★★&#x27;;
+    color: #eee;
+    font-size: 25px;
+  
+  }
+  [data-star]::after {
+    white-space:nowrap;
+    position:absolute;
+    top:0;
+    left:0;
+    content: &#x27;★★★★★&#x27;;
+    width: 0;
+    color: gold;
+    overflow:hidden;
+    height:100%;
+    font-size: 25px;
+  
+  }
+  
+  [data-star^&#x3D;&quot;0.1&quot;]::after,[data-star^&#x3D;&quot;.1&quot;]::after{width:2%}
+  [data-star^&#x3D;&quot;0.2&quot;]::after,[data-star^&#x3D;&quot;.2&quot;]::after{width:4%}
+  [data-star^&#x3D;&quot;0.3&quot;]::after,[data-star^&#x3D;&quot;.3&quot;]::after{width:6%}
+  [data-star^&#x3D;&quot;0.4&quot;]::after,[data-star^&#x3D;&quot;.4&quot;]::after{width:8%}
+  [data-star^&#x3D;&quot;0.5&quot;]::after,[data-star^&#x3D;&quot;.5&quot;]::after{width:10%}
+  [data-star^&#x3D;&quot;0.6&quot;]::after,[data-star^&#x3D;&quot;.6&quot;]::after{width:12%}
+  [data-star^&#x3D;&quot;0.7&quot;]::after,[data-star^&#x3D;&quot;.7&quot;]::after{width:14%}
+  [data-star^&#x3D;&quot;0.8&quot;]::after,[data-star^&#x3D;&quot;.8&quot;]::after{width:16%}
+  [data-star^&#x3D;&quot;0.9&quot;]::after,[data-star^&#x3D;&quot;.9&quot;]::after{width:18%}
+  [data-star^&#x3D;&quot;1&quot;]::after{width:20%}
+  [data-star^&#x3D;&quot;1.1&quot;]::after{width:22%}
+  [data-star^&#x3D;&quot;1.2&quot;]::after{width:24%}
+  [data-star^&#x3D;&quot;1.3&quot;]::after{width:26%}
+  [data-star^&#x3D;&quot;1.4&quot;]::after{width:28%}
+  [data-star^&#x3D;&quot;1.5&quot;]::after{width:30%}
+  [data-star^&#x3D;&quot;1.6&quot;]::after{width:32%}
+  [data-star^&#x3D;&quot;1.7&quot;]::after{width:34%}
+  [data-star^&#x3D;&quot;1.8&quot;]::after{width:36%}
+  [data-star^&#x3D;&quot;1.9&quot;]::after{width:38%}
+  [data-star^&#x3D;&quot;2&quot;]::after{width:40%}
+  [data-star^&#x3D;&quot;2.1&quot;]::after{width:42%}
+  [data-star^&#x3D;&quot;2.2&quot;]::after{width:44%}
+  [data-star^&#x3D;&quot;2.3&quot;]::after{width:46%}
+  [data-star^&#x3D;&quot;2.4&quot;]::after{width:48%}
+  [data-star^&#x3D;&quot;2.5&quot;]::after{width:50%}
+  [data-star^&#x3D;&quot;2.6&quot;]::after{width:52%}
+  [data-star^&#x3D;&quot;2.7&quot;]::after{width:54%}
+  [data-star^&#x3D;&quot;2.8&quot;]::after{width:56%}
+  [data-star^&#x3D;&quot;2.9&quot;]::after{width:58%}
+  [data-star^&#x3D;&quot;3&quot;]::after{width:60%}
+  [data-star^&#x3D;&quot;3.1&quot;]::after{width:62%}
+  [data-star^&#x3D;&quot;3.2&quot;]::after{width:64%}
+  [data-star^&#x3D;&quot;3.3&quot;]::after{width:66%}
+  [data-star^&#x3D;&quot;3.4&quot;]::after{width:68%}
+  [data-star^&#x3D;&quot;3.5&quot;]::after{width:70%}
+  [data-star^&#x3D;&quot;3.6&quot;]::after{width:72%}
+  [data-star^&#x3D;&quot;3.7&quot;]::after{width:74%}
+  [data-star^&#x3D;&quot;3.8&quot;]::after{width:76%}
+  [data-star^&#x3D;&quot;3.9&quot;]::after{width:78%}
+  [data-star^&#x3D;&quot;4&quot;]::after{width:80%}
+  [data-star^&#x3D;&quot;4.1&quot;]::after{width:82%}
+  [data-star^&#x3D;&quot;4.2&quot;]::after{width:84%}
+  [data-star^&#x3D;&quot;4.3&quot;]::after{width:86%}
+  [data-star^&#x3D;&quot;4.4&quot;]::after{width:88%}
+  [data-star^&#x3D;&quot;4.5&quot;]::after{width:90%}
+  [data-star^&#x3D;&quot;4.6&quot;]::after{width:92%}
+  [data-star^&#x3D;&quot;4.7&quot;]::after{width:94%}
+  [data-star^&#x3D;&quot;4.8&quot;]::after{width:96%}
+  [data-star^&#x3D;&quot;4.9&quot;]::after{width:98%}
+  [data-star^&#x3D;&quot;5&quot;]::after{width:100%}
+
+  
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.paginator button,
+.paginator div {
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.paginator button[disabled],
+.paginator div.active {
+  background-color: #ccc;
+  cursor: default;
+}
+
+.paginator span {
+  margin: 0 10px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-drawer-container class="example-container">    <mat-drawer class="slidebar gradient-custom" mode="side" opened>        <mat-nav-list>            <!-- <a mat-list-item routerLink="/user" routerLinkActive="active">All</a>            <a mat-list-item routerLink="/user/read" routerLinkActive="active">Read</a>            <a mat-list-item routerLink="/user/readig" routerLinkActive="active">Current Reading</a>            <a mat-list-item routerLink="/user/want" routerLinkActive="active">Want To Read</a> -->            <a mat-list-item  (click)="showAll()"  [routerLinkActive]="[\'active\']">All</a>            <a mat-list-item (click)="showRead()"  [routerLinkActive]="[\'active\']">Read</a>            <a mat-list-item (click)="showCurrent()"  [routerLinkActive]="[\'active\']">Current Reading</a>            <a mat-list-item (click)="showWant()"  [routerLinkActive]="[\'active\']">Want To Read</a>        </mat-nav-list>    </mat-drawer>    <mat-drawer-content class="content" style="overflow-x: auto; width: 85%;">        <div class="container mt-2">            <div class="mat-elevation-z8">                <fieldset class="field">                    <legend class="legend ms-4 mt-2">{{ selectedOption }}</legend>                    <table mat-table [dataSource]="dataSource" matSort class="text-center">                        <ng-container matColumnDef="photo">                            <th mat-header-cell *matHeaderCellDef class="text-center">Cover</th>                            <td mat-cell *matCellDef="let row" class="text-center">                                <span mat-button (click)="openPopup(row.bookId.photo)"                                    style="cursor: pointer"><mat-icon>burst_mode</mat-icon></span>                            </td>                        </ng-container>                        <ng-container matColumnDef="name">                            <th mat-header-cell *matHeaderCellDef class="text-center">Name</th>                            <td mat-cell *matCellDef="let row" class="text-center">                                {{ row.bookId.name }}                            </td>                        </ng-container>                        <ng-container matColumnDef="author">                            <th mat-header-cell *matHeaderCellDef class="text-center">                                Author                            </th>                            <td mat-cell *matCellDef="let row" class="text-center">                                {{ row.bookId.AuthorId.firstName }} {{ row.bookId.AuthorId.lastName }}                            </td>                        </ng-container>                        <ng-container matColumnDef="avgRate">                            <th mat-header-cell *matHeaderCellDef class="text-center">Avg Rate</th>                            <td mat-cell *matCellDef="let row" class="text-center">                                <i [attr.data-star]="row.bookId.rating"></i>                            </td>                        </ng-container>                        <ng-container matColumnDef="rating">                            <th mat-header-cell *matHeaderCellDef class="text-center">Rating</th>                            <td *matCellDef="let row">                                <span *ngFor="let star of row.stars" (mouseover)="onStarHover(row, star)"                                    (mouseout)="onStarLeave(row, star)" (click)="onStarClick(row, star)">                                    <i class="fa" [ngClass]="{\'star-hover\': star.hover}">                                        {{ star.filled ? \'★\' : \'☆\' }}                                    </i>                                </span>                            </td>                        </ng-container>                        <ng-container matColumnDef="shelve">                            <th mat-header-cell *matHeaderCellDef style="width: 20%;" class="text-center">Shelve</th>                            <td *matCellDef="let row">                                <div class="form-group">                                    <select class="form-control text-center" [(ngModel)]="row.shelve" (change)="updateShelve(row.bookId, row.shelve)">                                        <option value="" disabled>--Please choose an option--</option>                                        <option value="read" [selected]="row.shelve.toLowerCase().trim() === \'read\'">Read</option>                                        <option value="current read" [selected]="row.shelve.toLowerCase().trim() === \'current read\'">Current reading                                        </option>                                        <option value="want to read" [selected]="row.shelve.toLowerCase().trim() === \'want to read\'">Want to                                            read</option>                                    </select>                                </div>                            </td>                        </ng-container>                        <!-- Row shown when there is no matching data. -->                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>                    </table>                    <div class="paginator p-2 mb-3">                        <button                          mat-raised-button                          color="warn"                          [disabled]="currentPageIndex == 1"                          (click)="onPreviousPage()"                        >                          Previous                        </button>                        <span>{{ currentPageIndex }}/{{ totalPages || 1 }}</span>                        <button                          mat-raised-button                          color="warn"                          [disabled]="currentPageIndex == totalPages"                          (click)="onNextPage()"                        >                          Next                        </button>                      </div>                </fieldset>            </div>        </div>    </mat-drawer-content></mat-drawer-container></div>'
+    var COMPONENTS = [{'name': 'AddEditBookDialogComponent', 'selector': 'app-add-edit-book-dialog'},{'name': 'AddEditCategoryDialogComponent', 'selector': 'app-add-edit-category-dialog'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AllAuthorsComponent', 'selector': 'app-all-authors'},{'name': 'AllBooksComponent', 'selector': 'app-all-books'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorsComponent', 'selector': 'app-authors'},{'name': 'BooksComponent', 'selector': 'app-books'},{'name': 'CarouselComponent', 'selector': 'app-carousel'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DialogBodyComponent', 'selector': 'app-dialog-body'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GetBooksByCategoryIdComponent', 'selector': 'app-get-books-by-category-id'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainFooterComponent', 'selector': 'app-main-footer'},{'name': 'MainNavbarComponent', 'selector': 'app-main-navbar'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'PhotoDialogComponent', 'selector': 'app-photo-dialog'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UserFooterComponent', 'selector': 'app-user-footer'},{'name': 'UserViewComponent', 'selector': 'app-user-view'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserViewComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserViewComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable, catchError, of, throwError } from 'rxjs';
 
-const baseUrl = 'https://backend-mean.onrender.com';
+const baseUrl = 'https://backend-mean.onrender.com/';
 @Injectable({
   providedIn: 'root'
 })
@@ -64,6 +64,13 @@ export class UsersService {
 
   logout() {
     return this._http.get('https://backend-mean.onrender.com/users/logout', { withCredentials: true })
+
+  }
+
+  getToken() {
+
+
+    return this._CookieService.get('jwt')
 
   }
 }

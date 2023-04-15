@@ -14,10 +14,10 @@ const routes: Routes = [
   {
     path: '', component: SharedComponent, children: [
       {
-        path: 'home', component: HomeComponent, canActivate: [HomeGuardGuard],
+        path: 'home', component: HomeComponent,
       },
-      { path: 'login', component: LoginComponent, canActivate: [HomeGuardGuard] },
-      { path: 'register', component: RegisterComponent, canActivate: [HomeGuardGuard] },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
 
     ]
 

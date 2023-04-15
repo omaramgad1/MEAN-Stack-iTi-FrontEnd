@@ -1,0 +1,884 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>mean-stack-i-ti-front-end documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">mean-stack-i-ti-front-end documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/shared/login/login.component.ts</code>
+</p>
+
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#hide" >hide</a>
+                            </li>
+                            <li>
+                                <a href="#loginForm" >loginForm</a>
+                            </li>
+                            <li>
+                                <a href="#passwordVisible" >passwordVisible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#submintloginForm" >submintloginForm</a>
+                            </li>
+                            <li>
+                                <a href="#togglePasswordVisibility" >togglePasswordVisibility</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#m" >m</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_userService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, toastr: ToastrService, spinner: NgxSpinnerService, _CookieService: CookieService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/modules/shared/login/login.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastr</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastrService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>spinner</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgxSpinnerService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_CookieService</td>
+                                                  
+                                                        <td>
+                                                                    <code>CookieService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submintloginForm"></a>
+                    <span class="name">
+                        <span ><b>submintloginForm</b></span>
+                        <a href="#submintloginForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submintloginForm(loginForm: <a href="https://angular.io/api/forms/FormGroup" target="_blank">FormGroup</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/modules/shared/login/login.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>loginForm</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="togglePasswordVisibility"></a>
+                    <span class="name">
+                        <span ><b>togglePasswordVisibility</b></span>
+                        <a href="#togglePasswordVisibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>togglePasswordVisibility()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/modules/shared/login/login.component.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hide"></a>
+                    <span class="name">
+                        <span ><b>hide</b></span>
+                        <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/modules/shared/login/login.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginForm"></a>
+                    <span class="name">
+                        <span ><b>loginForm</b></span>
+                        <a href="#loginForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    email: new FormControl(null, [Validators.email, Validators.required]),
+    password: new FormControl(null, [Validators.required]),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/modules/shared/login/login.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordVisible"></a>
+                    <span class="name">
+                        <span ><b>passwordVisible</b></span>
+                        <a href="#passwordVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/modules/shared/login/login.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="m"></a>
+                        <span class="name"><b>m</b><a href="#m"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>m()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/modules/shared/login/login.component.ts:32</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { FormControl, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { CookieService } from &#x27;ngx-cookie-service&#x27;;
+import { NgxSpinnerService } from &#x27;ngx-spinner&#x27;;
+import { ToastrService } from &#x27;ngx-toastr&#x27;;
+
+import { UsersService } from &#x27;src/app/Services/users.service&#x27;;
+
+@Component({
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrls: [&#x27;./login.component.scss&#x27;]
+})
+export class LoginComponent {
+  passwordVisible &#x3D; false;
+
+  hide &#x3D; true;
+  loginForm &#x3D; new FormGroup({
+    email: new FormControl(null, [Validators.email, Validators.required]),
+    password: new FormControl(null, [Validators.required]),
+  })
+  constructor(private _userService: UsersService,
+    private router: Router,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
+    private _CookieService: CookieService) { }
+
+  togglePasswordVisibility() {
+    this.passwordVisible &#x3D; !this.passwordVisible;
+  }
+  get m() {
+    return this.loginForm.controls;
+  }
+  submintloginForm(loginForm: FormGroup) {
+    this.spinner.show();
+    this._userService.login(loginForm.value).subscribe((res) &#x3D;&gt; {
+
+      if (res.message &#x3D;&#x3D;&#x3D; &#x27;success&#x27;) {
+
+        this._userService.getProfile().subscribe((res) &#x3D;&gt; {
+          this._CookieService.delete(&#x27;status&#x27;)
+
+          this._CookieService.set(&#x27;status&#x27;, &#x27;&#x27;)
+          this._userService.setCurrentUser(res)
+          setTimeout(() &#x3D;&gt; {
+
+            if (res[&#x27;role&#x27;] &#x3D;&#x3D;&#x3D; &#x27;admin&#x27;) {
+              this.toastr.success(res.firstName, &#x27;Welcome Back &#x27;);
+
+              this.router.navigate([&#x27;/admin&#x27;])
+              this.spinner.hide();
+            }
+            else if (res[&#x27;role&#x27;] &#x3D;&#x3D;&#x3D; &#x27;user&#x27;) {
+              this.toastr.success(res.firstName, &#x27;Welcome Back &#x27;);
+
+              this.router.navigate([&#x27;/user&#x27;])
+              this.spinner.hide();
+            }
+
+          }, 2000);
+
+        }, (err) &#x3D;&gt; {
+
+          this.toastr.error(&#x27;Error&#x27;, err.error.message);
+          this.spinner.hide();
+        })
+      }
+
+
+    }, (err) &#x3D;&gt; {
+      this.toastr.error(&#x27;Error&#x27;, err.error.message);
+      this.spinner.hide();
+
+    }
+    )
+  }
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;login&quot;&gt;
+  &lt;div class&#x3D;&quot;container pt-5&quot; id&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+      &lt;div class&#x3D;&quot;col-lg-6 col-md-12 col-sm-6 pb-5&quot;&gt;
+        &lt;img
+          src&#x3D;&quot;https://assets.website-files.com/5509bda13cd56c1a716d17d1/5571e6d2ceff75333132a107_BookTL3.gif&quot;
+          alt&#x3D;&quot;&quot;
+        /&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;col-lg-6 col-md-12 col-sm-6&quot;&gt;
+        &lt;h4 class&#x3D;&quot;pb-3&quot;&gt;&lt;strong&gt;Login To Continue&lt;/strong&gt;&lt;/h4&gt;
+        &lt;form [formGroup]&#x3D;&quot;loginForm&quot; (ngSubmit)&#x3D;&quot;submintloginForm(loginForm)&quot;&gt;
+          &lt;div&gt;
+            &lt;label for&#x3D;&quot;email&quot; class&#x3D;&quot;form-label&quot;&gt;Email&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;email&quot;
+              class&#x3D;&quot;form-control&quot;
+              lowercase
+              placeholder&#x3D;&quot;mohamed@example.com&quot;
+              formControlName&#x3D;&quot;email&quot;
+              id&#x3D;&quot;email&quot;
+              email
+            /&gt;
+            &lt;div
+              *ngIf&#x3D;&quot;m.email.touched &amp;&amp; m.email.invalid&quot;
+              class&#x3D;&quot;border border-3 text-center&quot;
+            &gt;
+              &lt;div *ngIf&#x3D;&quot;loginForm.get(&#x27;email&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Please provide Email
+              &lt;/div&gt;
+
+              &lt;div *ngIf&#x3D;&quot;loginForm.get(&#x27;email&#x27;)?.errors?.[&#x27;email&#x27;]&quot;&gt;
+                Must Be Email
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;pt-4&quot;&gt;
+            &lt;label for&#x3D;&quot;password&quot; class&#x3D;&quot;form-label&quot;&gt;Password&lt;/label&gt;
+            &lt;input
+              [type]&#x3D;&quot;passwordVisible ? &#x27;text&#x27; : &#x27;password&#x27;&quot;
+              class&#x3D;&quot;form-control&quot;
+              formControlName&#x3D;&quot;password&quot;
+              id&#x3D;&quot;password&quot;
+            /&gt;
+            &lt;button
+              id&#x3D;&quot;pass&quot;
+              type&#x3D;&quot;button&quot;
+              (click)&#x3D;&quot;togglePasswordVisibility()&quot;
+            &gt;&lt;/button&gt;
+            &lt;div
+              *ngIf&#x3D;&quot;m.password.touched &amp;&amp; m.password.invalid&quot;
+              class&#x3D;&quot;border border-3 text-center&quot;
+            &gt;
+              &lt;div *ngIf&#x3D;&quot;loginForm.get(&#x27;password&#x27;)?.errors?.[&#x27;required&#x27;]&quot;&gt;
+                Please provide Password
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+            &lt;div class&#x3D;&quot;pt-2&quot;&gt;
+              &lt;a class&#x3D;&quot;text-50 h6&quot; href&#x3D;&quot;#!&quot;&gt;Forgot password?&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;p-2&quot;&gt;&lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;pt-2&quot;&gt;
+              &lt;a class&#x3D;&quot;text-50 h6&quot; routerLink&#x3D;&quot;/auth/register&quot;&gt; SignUp?&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;d-flex flex-column pt-5&quot;&gt;
+            &lt;input
+              type&#x3D;&quot;submit&quot;
+              class&#x3D;&quot;btn btn-lg btn-block text-white&quot;
+              [disabled]&#x3D;&quot;loginForm.invalid&quot;
+              value&#x3D;&quot;Login&quot;
+            /&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./login.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">*{
+  font-family: &#x27;DynaPuff&#x27;, cursive;
+
+    box-sizing: border-box;
+}
+
+.login{
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+#container{
+    box-shadow: 4px 4px 4px 4px #937f81;}
+img{
+    height: 100%;
+    width: 100%;
+}
+a{
+  padding-top: 2%;
+  color: #937f81;
+}
+h4{
+  color: #937f81;
+  font-size: 50px;
+  text-align: center;
+  font-family: &#x27;DynaPuff&#x27;, cursive;
+
+}
+label{
+  color: #937f81;
+  font-weight: bold;
+  font-size: large;
+}
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: black;
+    float: right;
+    margin-top: -30px;
+  }
+input[type&#x3D;&quot;password&quot;]:focus {
+    outline: none;
+  }
+  
+  input[type&#x3D;&quot;password&quot;] + #pass::after {
+    content: url(../../../../assets/sleep.png);
+    margin-left: 5px;
+  }
+  
+  input[type&#x3D;text] + #pass::after {
+    content:url(../../../../assets/eye-care.png);
+    margin-left: 5px;
+  }
+  input[type&#x3D;submit]{
+    background-color: rgb(214, 112, 146);
+    cursor: pointer;
+  }
+
+
+
+  @media (min-width: 501px) and (max-width:950px) {
+
+    h4{
+      color: #937f81;
+      font-size: 20px;
+      text-align: center;
+      font-family: &#x27;DynaPuff&#x27;, cursive;
+    
+    }
+    img{
+      height: 116%;
+    }
+    #container{
+      padding-bottom: 10%;
+    }
+    } 
+    
+    @media (min-width: 270px) and (max-width:500px) {
+      #container{
+        padding-bottom: 20%;
+      }
+      h4{
+        color: #937f81;
+        font-size: 20px;
+        text-align: center;
+        font-family: &#x27;DynaPuff&#x27;, cursive;
+      
+      }
+    }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="login">  <div class="container pt-5" id="container">    <div class="row">      <div class="col-lg-6 col-md-12 col-sm-6 pb-5">        <img          src="https://assets.website-files.com/5509bda13cd56c1a716d17d1/5571e6d2ceff75333132a107_BookTL3.gif"          alt=""        />      </div>      <div class="col-lg-6 col-md-12 col-sm-6">        <h4 class="pb-3"><strong>Login To Continue</strong></h4>        <form [formGroup]="loginForm" (ngSubmit)="submintloginForm(loginForm)">          <div>            <label for="email" class="form-label">Email</label>            <input              type="email"              class="form-control"              lowercase              placeholder="mohamed@example.com"              formControlName="email"              id="email"              email            />            <div              *ngIf="m.email.touched && m.email.invalid"              class="border border-3 text-center"            >              <div *ngIf="loginForm.get(\'email\')?.errors?.[\'required\']">                Please provide Email              </div>              <div *ngIf="loginForm.get(\'email\')?.errors?.[\'email\']">                Must Be Email              </div>            </div>          </div>          <div class="pt-4">            <label for="password" class="form-label">Password</label>            <input              [type]="passwordVisible ? \'text\' : \'password\'"              class="form-control"              formControlName="password"              id="password"            />            <button              id="pass"              type="button"              (click)="togglePasswordVisibility()"            ></button>            <div              *ngIf="m.password.touched && m.password.invalid"              class="border border-3 text-center"            >              <div *ngIf="loginForm.get(\'password\')?.errors?.[\'required\']">                Please provide Password              </div>            </div>          </div>          <div class="d-flex justify-content-between">            <div class="pt-2">              <a class="text-50 h6" href="#!">Forgot password?</a>            </div>            <div class="p-2"></div>            <div class="pt-2">              <a class="text-50 h6" routerLink="/auth/register"> SignUp?</a>            </div>          </div>          <div class="d-flex flex-column pt-5">            <input              type="submit"              class="btn btn-lg btn-block text-white"              [disabled]="loginForm.invalid"              value="Login"            />          </div>        </form>      </div>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AddEditBookDialogComponent', 'selector': 'app-add-edit-book-dialog'},{'name': 'AddEditCategoryDialogComponent', 'selector': 'app-add-edit-category-dialog'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AllAuthorsComponent', 'selector': 'app-all-authors'},{'name': 'AllBooksComponent', 'selector': 'app-all-books'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorsComponent', 'selector': 'app-authors'},{'name': 'BooksComponent', 'selector': 'app-books'},{'name': 'CarouselComponent', 'selector': 'app-carousel'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'DialogBodyComponent', 'selector': 'app-dialog-body'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GetBooksByCategoryIdComponent', 'selector': 'app-get-books-by-category-id'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainFooterComponent', 'selector': 'app-main-footer'},{'name': 'MainNavbarComponent', 'selector': 'app-main-navbar'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'PhotoDialogComponent', 'selector': 'app-photo-dialog'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'SharedComponent', 'selector': 'app-shared'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UserFooterComponent', 'selector': 'app-user-footer'},{'name': 'UserViewComponent', 'selector': 'app-user-view'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
