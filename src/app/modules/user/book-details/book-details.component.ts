@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/Services/users.service';
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.scss']
+
 })
 export class BookDetailsComponent {
   selected: string = "Read"
@@ -17,10 +18,10 @@ export class BookDetailsComponent {
   rate: boolean = true;
   // public form: FormGroup;
   value: number = 5;
-  id!: string;
-  book: any
-  authorName!: string
-  categoryName!: string
+  id: string = '';
+  book: any = {}
+  authorName: string = ''
+  categoryName: string = ''
   constructor(private fb: FormBuilder,
     private _UsersService: UsersService,
     private route: ActivatedRoute,

@@ -5,34 +5,7 @@
         <div class="preview col-md-6">
           <div class="preview-pic tab-content">
             <div class="tab-pane active" id="pic-1">
-              <img src="https://i.imgur.com/8JIWpnw.jpg" />
-              <!-- <img src="{{book.photo}}" /> -->
-              <div class="mt-4">
-                <span class="h6 m-2">Rate: {{ book.rating }}</span
-                ><br />
-                <span class="h6 m-2">Ratings: {{ book.totalRate }}</span>
-                <button class="btn btn-primary" (click)="addToUser(book)">
-                  add to user
-                </button>
-                <!--                 <div class="d-flex justify-content-end mt-2">
-                  <form [formGroup]="form" class="mt-2 me-4">
-                    <ngx-star-rating
-                      formControlName="rating"
-                      [id]="'rating'"
-                      [disabled]="rate"
-                    ></ngx-star-rating>
-                  </form>
-                  <div>
-                    <button
-                      mat-raised-button
-                      style="background: #ff9f1a"
-                      (click)="changeRate()"
-                    >
-                      {{ rate ? "Change Rate" : "Done" }}
-                    </button>
-                  </div>
-                </div> -->
-              </div>
+              <img src="{{ book.photo }}" />
             </div>
           </div>
         </div>
@@ -44,156 +17,153 @@
           </h4>
           <h4 class="product-title">{{ book.categoryId.name }}</h4>
 
-          <div class="action d-flex justify-content-start">
-            <div>
-              <mat-form-field appearance="fill">
-                <mat-label *ngIf="!selected">Change Status</mat-label>
-                <mat-select [(value)]="selected" [disabled]="select">
-                  <mat-option>None</mat-option>
-                  <mat-option value="want to read">Want To Read</mat-option>
-                  <mat-option value="current read">Currently Read</mat-option>
-                  <mat-option value="read">Read</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
+          <div class="mt-4">
+            <span class="h6 m-2">Rate: {{ book.rating }}</span
+            ><br />
+            <span class="h6 m-2">Ratings: {{ book.totalRate }}</span>
+            <button class="btn btn-primary" (click)="addToUser(book)">
+              add to user
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
 
-            <div>
-              <button
-                mat-raised-button
-                class="mt-2 mx-2"
-                style="background: #ff9f1a"
-                (click)="changeStatus()"
-              >
-                {{ select ? "Change Status" : "Done" }}
-              </button>
+
+<div>
+  <button
+    mat-raised-button
+    class="mt-2 mx-2"
+    style="background: #ff9f1a"
+    (click)="changeStatus()"
+  >
+    {{ select ? "Change Status" : "Done" }}
+  </button>
+</div>
+</div>
+<div class="row d-flex justify-content-center">
+<div class="col-md-12">
+  <div
+    class="card m-0 border mat-elevation-z8"
+    style="background-color: #f0f2f5"
+  >
+    <h1 class="product-title">Reviews Section</h1>
+
+    <div class="card-body p-4">
+      <div class="form-outline mb-4">
+        <input
+          type="text"
+          id="addANote"
+          class="form-control"
+          placeholder="Type comment..."
+        />
+
+        <label class="form-label" for="addANote"
+          >+ Add a note</label
+        >
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h4>Type your note, and hit enter to add it</h4>
+
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
+                alt="avatar"
+                width="40"
+                height="40"
+              />
+              <p class="small mb-0 ms-2">User Name</p>
             </div>
           </div>
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-12">
-              <div
-                class="card m-0 border mat-elevation-z8"
-                style="background-color: #f0f2f5"
-              >
-                <h1 class="product-title">Reviews Section</h1>
+        </div>
+      </div>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h4>Type your note, and hit enter to add it</h4>
 
-                <div class="card-body p-4">
-                  <div class="form-outline mb-4">
-                    <input
-                      type="text"
-                      id="addANote"
-                      class="form-control"
-                      placeholder="Type comment..."
-                    />
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
+                alt="avatar"
+                width="40"
+                height="40"
+              />
+              <p class="small mb-0 ms-2">User Name</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h4>Type your note, and hit enter to add it</h4>
 
-                    <label class="form-label" for="addANote"
-                      >+ Add a note</label
-                    >
-                  </div>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
+                alt="avatar"
+                width="40"
+                height="40"
+              />
+              <p class="small mb-0 ms-2">User Name</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h4>Type your note, and hit enter to add it</h4>
 
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h4>Type your note, and hit enter to add it</h4>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
+                alt="avatar"
+                width="40"
+                height="40"
+              />
+              <p class="small mb-0 ms-2">User Name</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h4>Type your note, and hit enter to add it</h4>
 
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
-                            alt="avatar"
-                            width="40"
-                            height="40"
-                          />
-                          <p class="small mb-0 ms-2">User Name</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body">
-                      <h4>Type your note, and hit enter to add it</h4>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
+                alt="avatar"
+                width="40"
+                height="40"
+              />
+              <p class="small mb-0 ms-2">User Name</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h4>Type your note, and hit enter to add it</h4>
 
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
-                            alt="avatar"
-                            width="40"
-                            height="40"
-                          />
-                          <p class="small mb-0 ms-2">User Name</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body">
-                      <h4>Type your note, and hit enter to add it</h4>
-
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
-                            alt="avatar"
-                            width="40"
-                            height="40"
-                          />
-                          <p class="small mb-0 ms-2">User Name</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body">
-                      <h4>Type your note, and hit enter to add it</h4>
-
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
-                            alt="avatar"
-                            width="40"
-                            height="40"
-                          />
-                          <p class="small mb-0 ms-2">User Name</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body">
-                      <h4>Type your note, and hit enter to add it</h4>
-
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
-                            alt="avatar"
-                            width="40"
-                            height="40"
-                          />
-                          <p class="small mb-0 ms-2">User Name</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-2">
-                    <div class="card-body">
-                      <h4>Type your note, and hit enter to add it</h4>
-
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
-                            alt="avatar"
-                            width="40"
-                            height="40"
-                          />
-                          <p class="small mb-0 ms-2">User Name</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
+                alt="avatar"
+                width="40"
+                height="40"
+              />
+              <p class="small mb-0 ms-2">User Name</p>
             </div>
           </div>
         </div>
@@ -201,3 +171,8 @@
     </div>
   </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div> -->

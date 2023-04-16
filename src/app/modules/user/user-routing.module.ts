@@ -11,6 +11,7 @@ import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { BooksComponent } from '../admin/books/books.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
       { path: 'categories/:id', component: GetBooksByCategoryIdComponent },
       { path: 'authors/:id', component: AuthorDetailsComponent },
 
-      // { path: 'books/:id', component: BookDetailsComponent },
+      { path: 'books/:id', component: BookDetailsComponent },
 
     ]
 

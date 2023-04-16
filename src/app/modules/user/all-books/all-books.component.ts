@@ -14,7 +14,7 @@ export class AllBooksComponent {
   // currentPageIndex: number = 1;
   // totalPages!: number;
 
-  books!: Book[]
+  books: Book[] = []
   searchKey!: string;
   currentPageIndex: number = 0;
   totalPages!: number;
