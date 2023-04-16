@@ -24,7 +24,6 @@ export class BooksService {
 
 
   getPageBooks(pageNumber: number = 1): Observable<any> {
-
     pageNumber = pageNumber - 1
     return this._http.get(`${baseUrl}books?pageNumber=${pageNumber < 0 ? 0 : pageNumber}`);
 

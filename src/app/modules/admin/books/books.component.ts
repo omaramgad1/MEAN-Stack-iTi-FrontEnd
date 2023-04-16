@@ -159,7 +159,7 @@ export class BooksComponent {
       this._BooksService.getPageBooks(this.currentPageIndex).subscribe((result) => {
         this.totalPages = result.pages;
         console.log(this.totalPages);
-        
+
         this.dataSource = new MatTableDataSource(result.data);
         this.loading = false;
 

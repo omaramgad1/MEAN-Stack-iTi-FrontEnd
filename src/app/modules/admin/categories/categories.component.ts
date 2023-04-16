@@ -17,7 +17,7 @@ export class CategoriesComponent implements OnInit {
   searchKey!: string;
   categoris!: Category[];
   loading: boolean = true;
-  currentPageIndex: number = 0;
+  currentPageIndex: number = 1;
   totalPages!: number;
 
 
@@ -43,10 +43,14 @@ export class CategoriesComponent implements OnInit {
 
 
   getCategories() {
-    this._categoryService.getPageCategories().subscribe((res) => {
+    // console.log(this.totalPages);
+
+    this._categoryService.getPageCategories(1).subscribe((res) => {
       this.loading = false;
       this.categoris = res.data
       this.totalPages = res.pages;
+      console.log(res);
+
       this.dataSource = new MatTableDataSource(this.categoris)
     }, err => {
       console.log(err)

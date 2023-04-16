@@ -13,10 +13,10 @@ export class NavbarComponent {
   constructor(private _userService: UsersService,
     private spinner: NgxSpinnerService,
     private router: Router,) {
-    this._userService.getProfile().subscribe(user => {
-      this.title = user.firstName + " " + user.lastName;
+    const user: any = this._userService.currentUser.getValue();
 
-    })
+    this.title = user.firstName + " " + user.lastName;
+
 
   }
 
@@ -25,8 +25,6 @@ export class NavbarComponent {
 
     this._userService.logout().subscribe((res) => {
 
-      this._userService.loggedOut()
-      this._userService.currentUser.next(null)
 
       setTimeout(() => {
         this.router.navigate(['/endless_books/home'])

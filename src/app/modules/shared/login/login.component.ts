@@ -34,62 +34,33 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
   submintloginForm(loginForm: FormGroup) {
-    // this.spinner.show();
+    this.spinner.show();
     this._userService.login(loginForm.value).subscribe((res) => {
 
       if (res.message === 'success') {
+        this._CookieService.deleteAll();
+        this._CookieService.set('jwt', res.token);
+        let user: any = jwt_decode(res.token);
+        this._userService.savecurrentuser();
 
-        this._CookieService.set('jwt', res.token)
-        let user: any = jwt_decode(res.token)
+        setTimeout(() => {
+          if (user['role'] == 'admin') {
 
-        // setTimeout(() => {
-        if (user['role'] == 'admin') {
+            this.toastr.success(user['firstName'], 'Welcome Back ');
 
-          this.toastr.success(user['firstName'], 'Welcome Back ');
+            this.router.navigate(['/admin'])
+            this.spinner.hide();
+          }
+          else if (user['role'] == 'user') {
+            this.toastr.success(user['firstName'], 'Welcome Back ');
 
-          this.router.navigate(['/admin'])
-          // this.spinner.hide();
-        }
-        else if (user['role'] == 'user') {
-          this.toastr.success(user['firstName'], 'Welcome Back ');
+            this.router.navigate(['/user'])
+            this.spinner.hide();
+          }
 
-          this.router.navigate(['/user'])
-          // this.spinner.hide();
-        }
-
-        // }, 2000);
+        }, 2000);
 
 
-        /* 
-                this._userService.getProfile().subscribe((res) => {
-                  this._CookieService.delete('status')
-        
-                  this._CookieService.set('status', '')
-        
-        
-                  this._userService.setCurrentUser(res)
-                  setTimeout(() => {
-        
-                    if (res['role'] === 'admin') {
-                      this.toastr.success(res.firstName, 'Welcome Back ');
-        
-                      this.router.navigate(['/admin'])
-                      this.spinner.hide();
-                    }
-                    else if (res['role'] === 'user') {
-                      this.toastr.success(res.firstName, 'Welcome Back ');
-        
-                      this.router.navigate(['/user'])
-                      this.spinner.hide();
-                    }
-        
-                  }, 2000); 
-        
-                }, (err) => {
-        
-                  this.toastr.error('Error', err.error.message);
-                  this.spinner.hide();
-                })*/
       }
     }, (err) => {
       this.toastr.error('Error', err.error.message);

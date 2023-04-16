@@ -13,7 +13,7 @@ export class AuthorsService {
 
   }
   addAuthor(data: any): Observable<any> {
-    return this._http.post('${baseUrl}authors', data, {
+    return this._http.post(`${baseUrl}authors`, data, {
       withCredentials: true
     });
   }

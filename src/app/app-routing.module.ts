@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { RoleGuard } from './Guards/role.guard';
-import { HomeGuardGuard } from './Guards/home-guard.guard';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeGuard } from './Guards/home.guard';
 
 const routes: Routes = [
   {
@@ -15,13 +14,13 @@ const routes: Routes = [
   {
     path: 'endless_books',
     loadChildren: () => import('./modules/shared/shared.module').then(m => m.SharedModule),
-    // canActivate: [HomeGuardGuard],
+    canActivate: [HomeGuard],
 
   },
   {
     path: 'admin',
     loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
-    // canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
     data: { allowedRoles: ['admin'] }
   },
 
@@ -29,7 +28,7 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule),
-    // canActivate: [AuthGuard, RoleGuard],
+    canActivate: [AuthGuard, RoleGuard],
 
     data: { allowedRoles: ['user'] }
   },

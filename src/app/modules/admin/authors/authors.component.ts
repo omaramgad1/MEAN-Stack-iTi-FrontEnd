@@ -57,6 +57,9 @@ export class AuthorsComponent implements OnInit {
 
       next: (res) => {
         this.totalPages = res.pages;
+
+        console.log(res);
+
         this.loading = false;
         this.listData = new MatTableDataSource(res.data)
       },
