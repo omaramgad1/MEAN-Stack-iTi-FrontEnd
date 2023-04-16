@@ -8,9 +8,10 @@
               <img src="https://i.imgur.com/8JIWpnw.jpg" />
               <!-- <img src="{{book.photo}}" /> -->
               <div class="mt-4">
-                <span class="h6 m-2">Rate: {{book.rating}}</span><br>
-                <span class="h6 m-2">Ratings: {{book.totalRate}}</span>
-                <div class="d-flex justify-content-end mt-2">
+                <span class="h6 m-2">Rate: {{ book.rating }}</span
+                ><br />
+                <span class="h6 m-2">Ratings: {{ book.totalRate }}</span>
+                <!--                 <div class="d-flex justify-content-end mt-2">
                   <form [formGroup]="form" class="mt-2 me-4">
                     <ngx-star-rating
                       formControlName="rating"
@@ -27,16 +28,18 @@
                       {{ rate ? "Change Rate" : "Done" }}
                     </button>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
         </div>
 
         <div class="details col-md-6">
-          <h1 class="product-title">{{book.name}}</h1>
-          <h4 class="product-title">{{book.AuthorId.firstName+ ' '+book.AuthorId.lastName}}</h4>
-          <h4 class="product-title">{{book.categoryId.name}}</h4>
+          <h1 class="product-title">{{ book.name }}</h1>
+          <h4 class="product-title">
+            {{ book.AuthorId.firstName + " " + book.AuthorId.lastName }}
+          </h4>
+          <h4 class="product-title">{{ book.categoryId.name }}</h4>
 
           <div class="action d-flex justify-content-start">
             <div>

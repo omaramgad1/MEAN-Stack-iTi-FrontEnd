@@ -15,25 +15,24 @@ export class BookDetailsComponent {
   selected: string = "Read"
   select: boolean = true;
   rate: boolean = true;
-  public form: FormGroup;
+  // public form: FormGroup;
   value: number = 5;
-  id!:string;
+  id!: string;
   book: any
-  authorName!:string
-  categoryName!:string
+  authorName!: string
+  categoryName!: string
   constructor(private fb: FormBuilder,
-     private _UsersService: UsersService,
-     private route:ActivatedRoute,
-     private _BooksService: BooksService,
-     private _AuthorsService: AuthorsService,
-     private _CategoriesService:CategoriesService) {
-    
-    this.form = this.fb.group({
-      rating: ['', Validators.required],
-    })
+    private _UsersService: UsersService,
+    private route: ActivatedRoute,
+    private _BooksService: BooksService,
+  ) {
+    /*     
+        this.form = this.fb.group({
+          rating: ['', Validators.required],
+        }) */
   }
   ngOnInit(): void {
-    this.route.params.subscribe(params=>this.getBook(params['id']))
+    this.route.params.subscribe(params => this.getBook(params['id']))
   }
   changeStatus() {
     this.select = !this.select
@@ -41,21 +40,21 @@ export class BookDetailsComponent {
   changeRate() {
     this.rate = !this.rate
   }
-  updateStatus(){
+  updateStatus() {
     this._UsersService.updateShelve(this.id, this.selected).subscribe()
   }
-  getBook(id:string) {
+  getBook(id: string) {
     this._BooksService.getBookById(id).subscribe((res) => {
       console.log(res.book);
       console.log(res.book.AuthorId);
-      
+
       this.book = res.book;
-  
+
     }, err => {
       console.log(err)
     })
     console.log(this.book);
     // console.log(this.book.AuthorId);
   }
- 
+
 }

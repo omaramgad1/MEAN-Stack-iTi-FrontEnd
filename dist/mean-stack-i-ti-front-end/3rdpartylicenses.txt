@@ -292,9 +292,6 @@ MIT
 ngx-spinner
 MIT
 
-ngx-star-rating
-MIT
-
 ngx-toastr
 MIT
 The MIT License (MIT)

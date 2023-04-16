@@ -25,7 +25,6 @@ import { AuthorDetailsComponent } from './author-details/author-details.componen
 import { AuthorBooksComponent } from './author-books/author-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { MatSelectModule } from '@angular/material/select';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -59,7 +58,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatPaginatorModule,
     MatSelectModule,
-    NgxStarRatingModule,
     ReactiveFormsModule,
     MatButtonModule,
   ]
