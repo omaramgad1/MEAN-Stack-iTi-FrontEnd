@@ -112,6 +112,7 @@ export class UserViewComponent implements OnInit {
     this._userService.getUserBooks(1).subscribe((res) => {
       this.dataSource = new MatTableDataSource(res.data[0].books);
       this.totalPages = res.pages;
+      
       this.dataSource.data.forEach((row: any) => {
         row.stars = this.createStars(row.rate);
       });

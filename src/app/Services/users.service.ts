@@ -27,12 +27,12 @@ export class UsersService {
   }
 
   getUserBooks(pageNumber: number): Observable<any> {
-    // pageNumber = pageNumber - 1
+    pageNumber = pageNumber - 1
     return this._http.get(`${baseUrl}userBook?page=${pageNumber < 0 ? 0 : pageNumber}`)
   }
 
   getUserBooksByShelve(pageNumber: number, shelve: string): Observable<any> {
-    // pageNumber = pageNumber - 1
+    pageNumber = pageNumber - 1
     return this._http.get(`${baseUrl}userBook/${shelve}?page=${pageNumber < 0 ? 0 : pageNumber}`)
   }
 
