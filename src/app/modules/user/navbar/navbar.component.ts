@@ -15,11 +15,11 @@ export class NavbarComponent {
     private spinner: NgxSpinnerService,
     private router: Router) {
 
-    const l: any = _UserService.currentUser.getValue()
-    l.firstName = l.firstName.charAt(0).toUpperCase() + l.firstName.slice(1);
-    l.lastName = l.lastName.charAt(0).toUpperCase() + l.lastName.slice(1);
-    this.name = l.firstName + ' ' + l.lastName;
-    this.photo = l.photo;
+    // const l: any = _UserService.currentUser.getValue()
+    // l.firstName = l.firstName.charAt(0).toUpperCase() + l.firstName.slice(1);
+    // l.lastName = l.lastName.charAt(0).toUpperCase() + l.lastName.slice(1);
+    // this.name = l.firstName + ' ' + l.lastName;
+    // this.photo = l.photo;
 
     
   }

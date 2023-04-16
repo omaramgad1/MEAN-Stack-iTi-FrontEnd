@@ -21,6 +21,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AllBooksComponent } from './all-books/all-books.component';
 import { AllAuthorsComponent } from './all-authors/all-authors.component';
 import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-books-by-category-id.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { AuthorBooksComponent } from './author-books/author-books.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -34,8 +41,9 @@ import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-bo
     AllBooksComponent,
     AllAuthorsComponent,
     GetBooksByCategoryIdComponent,
-
-
+    AuthorDetailsComponent,
+    AuthorBooksComponent,
+    BookDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -49,7 +57,11 @@ import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-bo
     MatDialogModule,
     FormsModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule,
+    NgxStarRatingModule,
+    ReactiveFormsModule,
+    MatButtonModule,
   ]
 })
 export class UserModule { }

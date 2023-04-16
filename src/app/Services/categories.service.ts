@@ -37,6 +37,9 @@ export class CategoriesService {
     pageNumber = pageNumber - 1
     return this._http.get(`${baseUrl}categories?pageNumber=${pageNumber}&pageSize=${pageSize}`);
   }
+  getCategorieByID(id:string): Observable<any> {
+    return this._http.get(`${baseUrl}categories/${id}`);
+  }
   deleteCategory(id: any): Observable<any> {
     return this._http.delete(`${baseUrl}categories/${id}`, {
       withCredentials: true
