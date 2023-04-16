@@ -26,6 +26,7 @@ import { AuthorBooksComponent } from './author-books/author-books.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MatButtonModule } from '@angular/material/button';
     GetBooksByCategoryIdComponent,
     AuthorDetailsComponent,
     AuthorBooksComponent,
+    BookDetailsComponent
 
   ],
   imports: [
