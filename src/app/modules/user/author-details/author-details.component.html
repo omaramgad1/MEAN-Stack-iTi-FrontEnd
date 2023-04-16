@@ -2,25 +2,33 @@
   <div class="row justify-content-center">
     <div class="col-md-7 col-lg-4 mb-5 mb-lg-0 wow fadeIn">
       <div class="card border-0 mat-elevation-z8">
-        <img
-          src="https://www.bootdey.com/img/Content/avatar/avatar6.png"
-          alt="..."
-        />
+        <img src="{{ data.photo }}" alt="..." />
         <div class="card-body p-1-9 p-xl-5">
           <div class="mb-4">
-            <h3 class="h4 mb-0">Dakota Johnston</h3>
-            <span class="text-primary">CEO &amp; Founder</span>
+            <p class="text-primary h6">Name:</p>
+
+            <p class="h4 mb-1">
+              {{ data.firstName + " " + data.lastName }}
+            </p>
+            <p class="text-primary h6 mt-2">Date Of Birth:</p>
+
+            <p class="h6 mt-2">{{ data.dob | date }}</p>
+            <p class="text-primary h6">Bio:</p>
+            <p class="mt-2 h6">{{ data.bio }}</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="col-lg-8 mat-elevation-z8 p-4">
-      <!--   <div class="text-start mb-1-6 wow fadeIn">
-        <h2 class="h1 mb-0 text-primary">#About Me</h2>
-
-      </div> -->
-      <app-author-books></app-author-books>
+      <div class="text-center mb-3 wow fadeIn">
+        <p class="h1">{{ data.firstName + " " + data.lastName }} Books :</p>
+      </div>
+      <div class="row text-center">
+        <div class="col-4 m-2" *ngFor="let item of books">
+          <app-author-books [book]="item"></app-author-books>
+        </div>
+      </div>
     </div>
   </div>
 </div>

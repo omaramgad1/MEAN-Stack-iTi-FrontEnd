@@ -35,6 +35,7 @@ export class LoginComponent {
   }
   submintloginForm(loginForm: FormGroup) {
     this.spinner.show();
+
     this._userService.login(loginForm.value).subscribe((res) => {
 
       if (res.message === 'success') {
@@ -52,6 +53,8 @@ export class LoginComponent {
             this.spinner.hide();
           }
           else if (user['role'] == 'user') {
+
+
             this.toastr.success(user['firstName'], 'Welcome Back ');
 
             this.router.navigate(['/user'])
@@ -67,7 +70,11 @@ export class LoginComponent {
       this.spinner.hide();
 
     }
-    )
+    ), (err: any) => {
+      this.toastr.error('Error', err.error.message);
+      this.spinner.hide();
+
+    }
   }
 }
 

@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Author } from '../models/author';
 import { Observable } from 'rxjs';
-const baseUrl = 'https://backend-mean.onrender.com/';
-
+const baseUrl = 'http://localhost:3000/';
+// https://backend-mean.onrender.com/
 @Injectable({
   providedIn: 'root'
 })
@@ -31,9 +31,13 @@ export class AuthorsService {
 
     return this._http.get(`${baseUrl}authors?pageNumber=${pageNumber}&pageSize=${pageSize}`);
   }
-  getAuthorById(id:string): Observable<any> {
+  getAuthorById(id: string): Observable<any> {
     return this._http.get(`${baseUrl}authors/${id}`);
   }
+  getAllBooksByAuthorId(id: string): Observable<any> {
+    return this._http.get(`${baseUrl}authors/books/${id}`);
+  }
+
 
   deleteAnAuthor(_id: string): Observable<any> {
     return this._http.delete(`${baseUrl}authors/${_id}`, {

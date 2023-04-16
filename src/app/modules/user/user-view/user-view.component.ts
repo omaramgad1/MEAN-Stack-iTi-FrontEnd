@@ -98,7 +98,7 @@ export class UserViewComponent implements OnInit {
     row.rating = newRating;
     row.stars = this.createStars(newRating);
     this.dataSource._updateChangeSubscription();
-    
+
     this._userService.updateUserBookRate(row.bookId._id, newRating).subscribe((res) => {
       console.log(res);
       this.getBooks();
@@ -124,12 +124,12 @@ export class UserViewComponent implements OnInit {
 
   getBooksByShelve(shelve: string) {
     this._userService.getUserBooksByShelve(1, shelve).subscribe((res) => {
-      
-      if(res.data.length == 0){
+
+      if (res.data.length == 0) {
         this.dataSource = new MatTableDataSource();
         this.totalPages = 0;
         return;
-      }else{
+      } else {
         this.dataSource = new MatTableDataSource(res.data[0].books);
         this.totalPages = res.pages;
         this.dataSource.data.forEach((row: any) => {
@@ -142,6 +142,8 @@ export class UserViewComponent implements OnInit {
       console.log(err)
     })
   }
+
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -208,7 +210,7 @@ export class UserViewComponent implements OnInit {
       console.log(err)
     })
   }
-  
+
   onPreviousPage() {
     if (this.currentPageIndex > 1) {
       this.currentPageIndex--;

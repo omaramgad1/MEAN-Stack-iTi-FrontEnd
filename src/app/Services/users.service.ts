@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable, catchError, of, throwError } from 'rxjs';
 import jwt_decode from "jwt-decode";
 
-const baseUrl = 'https://backend-mean.onrender.com/';
+const baseUrl = 'http://localhost:3000/';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,9 +38,7 @@ export class UsersService {
 
   login(data: any): Observable<any> {
 
-    return this._http.post(`${baseUrl}users/login`, data, {
-      withCredentials: true
-    })
+    return this._http.post(`${baseUrl}users/login`, data)
 
   }
   updateShelve(bookId: string, shelve: string): Observable<any> {
@@ -64,7 +62,7 @@ export class UsersService {
   logout() {
     this._CookieService.delete('jwt')
     this.currentUser.next(null);
-    return this._http.get('https://backend-mean.onrender.com/users/logout')
+    return this._http.get(`${baseUrl}users/logout`)
 
   }
 

@@ -10,7 +10,7 @@ import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-bo
 import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { BooksComponent } from '../admin/books/books.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
 
 const routes: Routes = [
   {
@@ -18,7 +18,8 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full'
   },
-  {   path: '', component: UserComponent, children: [
+  {
+    path: '', component: UserComponent, children: [
       { path: 'dashboard', component: UserViewComponent },
 
       { path: 'categories', component: CategoriesComponent },
@@ -26,7 +27,9 @@ const routes: Routes = [
 
       { path: 'authors', component: AllAuthorsComponent },
       { path: 'categories/:id', component: GetBooksByCategoryIdComponent },
-      { path: 'books/:id', component: BookDetailsComponent },
+      { path: 'authors/:id', component: AuthorDetailsComponent },
+
+      // { path: 'books/:id', component: BookDetailsComponent },
 
     ]
 

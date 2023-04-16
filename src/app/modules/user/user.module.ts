@@ -23,11 +23,9 @@ import { AllAuthorsComponent } from './all-authors/all-authors.component';
 import { GetBooksByCategoryIdComponent } from './get-books-by-category-id/get-books-by-category-id.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { AuthorBooksComponent } from './author-books/author-books.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-
 
 @NgModule({
   declarations: [
@@ -42,7 +40,7 @@ import { MatButtonModule } from '@angular/material/button';
     GetBooksByCategoryIdComponent,
     AuthorDetailsComponent,
     AuthorBooksComponent,
-    BookDetailsComponent,
+
   ],
   imports: [
     CommonModule,

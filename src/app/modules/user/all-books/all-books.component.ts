@@ -19,6 +19,7 @@ export class AllBooksComponent {
   currentPageIndex: number = 0;
   totalPages!: number;
   pageSize: number = 10;
+  dataLength!: number;
 
   constructor(private _BooksService: BooksService) { }
 
@@ -32,6 +33,7 @@ export class AllBooksComponent {
       this.books = res.data;
       this.totalPages = res.pages;
       this.currentPageIndex = res.currentPage;
+      this.dataLength = res.data.Length;
 
     }, err => {
       console.log(err)

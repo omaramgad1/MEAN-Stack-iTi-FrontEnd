@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Category } from 'src/app/models/category';
-const baseUrl = 'https://backend-mean.onrender.com/';
+const baseUrl = 'http://localhost:3000/';
 
 
 @Injectable({
@@ -37,7 +37,7 @@ export class CategoriesService {
     pageNumber = pageNumber - 1
     return this._http.get(`${baseUrl}categories?pageNumber=${pageNumber}&pageSize=${pageSize}`);
   }
-  getCategorieByID(id:string): Observable<any> {
+  getCategorieByID(id: string): Observable<any> {
     return this._http.get(`${baseUrl}categories/${id}`);
   }
   deleteCategory(id: any): Observable<any> {

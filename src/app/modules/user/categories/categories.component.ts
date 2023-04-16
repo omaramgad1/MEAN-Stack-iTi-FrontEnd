@@ -12,7 +12,7 @@ export class CategoriesComponent {
   currentPageIndex: number = 1;
   totalPages!: number;
   pageSize = 10;
-  dataLength!:number;
+  dataLength!: number;
   constructor(private _categoryService: CategoriesService) {
 
   }
@@ -23,7 +23,7 @@ export class CategoriesComponent {
   getCategory() {
     this._categoryService.getCategories(this.currentPageIndex, this.pageSize).subscribe((res) => {
       this.categoryList = res.data;
-      this.dataLength=res.data.Length;
+      this.dataLength = res.data.Length;
       this.totalPages = res.pages;
 
     }, err => {

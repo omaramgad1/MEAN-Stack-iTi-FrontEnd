@@ -10,22 +10,22 @@ import { Book } from 'src/app/models/book';
 })
 export class GetBooksByCategoryIdComponent {
   books!: Book[];
-  id!:number;
-constructor(private catserv:CategoriesService,private route:ActivatedRoute){}
+  id!: number;
+  constructor(private catserv: CategoriesService, private route: ActivatedRoute) { }
 
-ngOnInit(): void {
-  this.route.params.subscribe(params=>this.getBooks(params['id']))
-}
-
-getBooks(id:number) {
-  this.catserv.getBooksByCategoryId(id).subscribe((res) => {
-
-    this.books = res.data;
-
-  }, err => {
-    console.log(err)
+  ngOnInit(): void {
+    this.route.params.subscribe(params => this.getBooks(params['id']))
   }
 
-  )
-}
+  getBooks(id: number) {
+    this.catserv.getBooksByCategoryId(id).subscribe((res) => {
+
+      this.books = res.data;
+
+    }, err => {
+      console.log(err)
+    }
+
+    )
+  }
 }

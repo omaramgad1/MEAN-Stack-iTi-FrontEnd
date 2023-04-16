@@ -13,17 +13,19 @@ export class AllAuthorsComponent {
   currentPageIndex: number = 1;
   totalPages!: number;
   pageSize = 10;
+  dataLength!: number;
 
-  constructor(private _authors: AuthorsService){}
+  constructor(private _authors: AuthorsService) { }
 
   ngOnInit(): void {
     this.getAuthors();
   }
   getAuthors() {
-    this._authors.getAuthors(this.currentPageIndex,this.pageSize).subscribe({
+    this._authors.getAuthors(this.currentPageIndex, this.pageSize).subscribe({
 
       next: (res) => {
         this.authorList = res.data;
+        this.dataLength = res.data.Length;
 
         this.totalPages = res.pages;
       },

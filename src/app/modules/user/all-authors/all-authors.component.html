@@ -2,22 +2,35 @@
   <h1>Authors</h1>
   <div class="hr"></div>
   <div class="container">
-    <mat-paginator [length]="100" [pageSize]="pageSize" (page)="handlePageEvent($event)" aria-label="Select page">
-    </mat-paginator>
+    <mat-paginator
+      [length]="dataLength"
+      [pageSize]="pageSize"
+      (page)="handlePageEvent($event)"
+      aria-label="Select page"
+    ></mat-paginator>
 
     <div class="wrapper" *ngFor="let item of authorList">
       <div class="row">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{item.photo}}" alt="Card image cap">
-        <div class="card-body">
-          <h2 class="card-title">{{item.firstName}}</h2>
-          <a  id="showBook" class="btn">Show Books</a>
+        <div class="card">
+          <img
+            class="card-img-top"
+            src="{{ item.photo }}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h2 class="card-title">{{ item.firstName }}</h2>
+            <mat-card-actions>
+              <button
+                id="showBook"
+                routerLink="/user/authors/{{ item._id }}"
+                mat-button
+              >
+                Show Author
+              </button>
+            </mat-card-actions>
+          </div>
         </div>
       </div>
-    </div>
-        <!-- <mat-card-actions>
-          <button id="showBook" mat-button>Show Book</button>
-        </mat-card-actions> -->
     </div>
   </div>
 </section>
