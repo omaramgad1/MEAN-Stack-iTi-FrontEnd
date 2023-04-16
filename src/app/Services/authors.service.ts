@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Author } from '../models/author';
 import { Observable } from 'rxjs';
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'https://backend-mean.onrender.com/';
 // https://backend-mean.onrender.com/
 @Injectable({
   providedIn: 'root'

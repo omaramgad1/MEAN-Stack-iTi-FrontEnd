@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable, catchError, of, throwError } from 'rxjs';
 import jwt_decode from "jwt-decode";
 
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'https://backend-mean.onrender.com/';
 @Injectable({
   providedIn: 'root'
 })
@@ -50,7 +50,7 @@ export class UsersService {
   }
 
   addBookToUser(bookId: string, data: any): Observable<any> {
-    return this._http.patch(`${baseUrl}userBook/${bookId}`, {data})
+    return this._http.patch(`${baseUrl}userBook/${bookId}`, { data })
   }
   /* 
     getProfile(): Observable<any> {

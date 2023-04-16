@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Category } from 'src/app/models/category';
-const baseUrl = 'http://localhost:3000/';
+const baseUrl = 'https://backend-mean.onrender.com/';
 
 
 @Injectable({
