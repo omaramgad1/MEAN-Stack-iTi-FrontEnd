@@ -50,6 +50,10 @@ export class UsersService {
   updateUserBookRate(bookId: string, rate: number): Observable<any> {
     return this._http.patch(`${baseUrl}userBook/${bookId}`, { rate })
   }
+
+  addBookToUser(bookId: string, data: any): Observable<any> {
+    return this._http.patch(`${baseUrl}userBook/${bookId}`, {data})
+  }
   /* 
     getProfile(): Observable<any> {
       return this._http.get(`${baseUrl}users/profile`)

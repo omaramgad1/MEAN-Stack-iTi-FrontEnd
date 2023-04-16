@@ -56,5 +56,11 @@ export class BookDetailsComponent {
     console.log(this.book);
     // console.log(this.book.AuthorId);
   }
-
+  addToUser(book: any) {
+    this._UsersService.addBookToUser(book._id, book.comment).subscribe((res) => {
+      console.log(res);
+    }, err => {
+      console.log(err)
+    })
+  }
 }

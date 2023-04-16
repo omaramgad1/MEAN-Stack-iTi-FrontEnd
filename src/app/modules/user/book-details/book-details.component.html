@@ -11,6 +11,9 @@
                 <span class="h6 m-2">Rate: {{ book.rating }}</span
                 ><br />
                 <span class="h6 m-2">Ratings: {{ book.totalRate }}</span>
+                <button class="btn btn-primary" (click)="addToUser(book)">
+                  add to user
+                </button>
                 <!--                 <div class="d-flex justify-content-end mt-2">
                   <form [formGroup]="form" class="mt-2 me-4">
                     <ngx-star-rating
