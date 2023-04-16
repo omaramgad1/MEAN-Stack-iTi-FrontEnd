@@ -42,6 +42,8 @@ export class AuthorsComponent implements OnInit {
       next: (val) => {
         if (val)
           this.getAuthors();
+        this.currentPageIndex = 1
+
       }
     })
   }
@@ -76,6 +78,8 @@ export class AuthorsComponent implements OnInit {
         this._coreService.openSnackBar('Category deleted!', 'done');
 
         this.getAuthors()
+        this.currentPageIndex = 1
+
 
       },
       error: console.log

@@ -64,6 +64,8 @@ export class BooksComponent {
       if (val) {
 
         this.getBooks();
+        this.currentPageIndex = 1
+
       }
 
     })
@@ -126,6 +128,8 @@ export class BooksComponent {
 
             this._coreService.openSnackBar('Book deleted!', 'done');
             this.getBooks();
+            this.currentPageIndex = 1
+
           },
           error: console.log,
         });

@@ -71,6 +71,8 @@ export class CategoriesComponent implements OnInit {
 
       if (val)
         this.getCategories();
+      this.currentPageIndex = 1
+
 
 
     })
@@ -95,6 +97,8 @@ export class CategoriesComponent implements OnInit {
 
             this._coreService.openSnackBar('Category deleted!', 'done');
             this.getCategories();
+            this.currentPageIndex = 1
+
           },
           error: console.log,
         });
