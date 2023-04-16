@@ -15,13 +15,13 @@ export class NavbarComponent {
     private spinner: NgxSpinnerService,
     private router: Router) {
 
-    // const l: any = _UserService.currentUser.getValue()
-    // l.firstName = l.firstName.charAt(0).toUpperCase() + l.firstName.slice(1);
-    // l.lastName = l.lastName.charAt(0).toUpperCase() + l.lastName.slice(1);
-    // this.name = l.firstName + ' ' + l.lastName;
-    // this.photo = l.photo;
+    const user: any = _UserService.currentUser.getValue()
+    user.firstName = user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
+    user.lastName = user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1);
+    this.name = user.firstName + ' ' + user.lastName;
+    this.photo = user.photo;
 
-    
+
   }
   logout(): void {
     this.spinner.show();
@@ -46,5 +46,5 @@ export class NavbarComponent {
     )
 
   }
-  
+
 }
